@@ -27,8 +27,8 @@ research_scraper.scrape_with_url(url = 'https://hello.world', params = 'main', o
 ## Testing
 
 ## Contributing
-- How to add modules for other publisher websites
-- How to add new features
+- How to add modules for other publisher websites?
+- How to add new features?
 
 ## Troubleshooting
 - Did you really install the packages?
