@@ -18,10 +18,10 @@ class ScraperAbstract(ABC):
 
     # init
     def __init__(self):
-        self.__set_domain()
+        self._set_domain()
 
     @abstractmethod
-    def __set_domain(self):
+    def _set_domain(self):
         """
         Scrapers need to overwrite this method to set the domain \n
         This function assigns correct domain to the scraper.
