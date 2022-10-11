@@ -14,7 +14,6 @@ class ScraperAbstract(ABC):
     Abstract class for all scrapers
     """
 
-    domain = 'domain.com'  # dummy
 
     # init
     def __init__(self):
