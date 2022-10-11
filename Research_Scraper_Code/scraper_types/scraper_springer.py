@@ -1,5 +1,6 @@
-from scraper_abstract import ScraperAbstract
 import json
+
+from scraper_abstract import ScraperAbstract
 
 
 class ScraperSpringer(ScraperAbstract):
@@ -39,7 +40,7 @@ class ScraperSpringer(ScraperAbstract):
         bs = self.get_bs(url)
         json_data = self.get_json_data(bs)
 
-        if 'title for helium' in params:
+        if 'title for helium' in params:  # todo remove later
             bs_full = self.get_bs(url, method='cloud')  # only example, springer does not need cloudscraper
 
         # get title
@@ -89,6 +90,27 @@ class ScraperSpringer(ScraperAbstract):
         if 'journal_volume' in params:
             scrape_result['journal_volume'] = self.get_journal_volume(json_data, url)
 
+        if 'conference_name' in params:
+            scrape_result['conference_name'] = self.get_conference_name(bs, url)
+
+        if 'conference_proceedings' in params:
+            scrape_result['conference_proceedings'] = self.get_proceedings(bs, json_data, url)
+
+        if 'book_title' in params:
+            scrape_result['book_title'] = self.get_book_title(bs, json_data, url)
+
+        if 'editors' in params:
+            scrape_result['editors'] = self.get_editors(bs, json_data, url)
+
+        if 'book_subtitle' in params:
+            scrape_result['book_subtitle'] = self.get_book_subtitle(json_data, url)
+
+        if 'article_accesses' in params:
+            scrape_result['article_accesses'] = self.get_accesses(bs, url)
+
+        if 'amount_citations' in params:
+            scrape_result['amount_citations'] = self.get_amount_citations(bs)
+
         return scrape_result
 
     def get_json_data(self, bs):  # todo save json data for method and let other functions take it as input
@@ -97,8 +119,7 @@ class ScraperSpringer(ScraperAbstract):
 
         if '{"mainEntity":' in json_string:
             return json_data['mainEntity']
-        else:
-            return json_data
+        return json_data
 
     def get_title(self, bs):
         """
@@ -196,8 +217,9 @@ class ScraperSpringer(ScraperAbstract):
                 # append base url if necessary
                 if 'link.springer.com' in pdf:
                     return pdf
-                else:
-                    return f'https://link.springer.com{pdf}'
+                return f'https://link.springer.com{pdf}'
+
+            return None
         except Exception:
             print("Error: no pdf found")
             return None
@@ -231,6 +253,8 @@ class ScraperSpringer(ScraperAbstract):
                 year = json_data.get('copyrightYear')
                 return year
 
+            return None
+
         except:
             print("Error: no year found")
             return None
@@ -251,6 +275,7 @@ class ScraperSpringer(ScraperAbstract):
             except:
                 print("Error: no start page found")
                 return None
+        return None
 
     def get_end_page(self, json_data, url):
         """
@@ -268,6 +293,7 @@ class ScraperSpringer(ScraperAbstract):
             except:
                 print("Error: no end page found")
                 return None
+        return None
 
     def get_publication_type(self, bs, url):
         """
@@ -278,19 +304,21 @@ class ScraperSpringer(ScraperAbstract):
         """
         try:
             if '/book/' in url:
-                type = bs.find('li', {'class': 'c-article-identifiers__item'}).text
+                publication_type = bs.find('li', {'class': 'c-article-identifiers__item'}).text
             else:
-                type = bs.find('li', {'class': 'c-article-identifiers__item', 'data-test': 'article-category'}).text
-            return type
+                publication_type = bs.find('li', {'class': 'c-article-identifiers__item',
+                                                  'data-test': 'article-category'}).text
+            return publication_type
         except:
             print("Error: no publication type found in bs, deriving by url")
+            print(url)
             if '/book/' in url:
                 return 'Book'
-            elif '/chapter/' in url:
+            if '/chapter/' in url:
                 return 'Chapter'
-            elif '/article/' in url:
+            if '/article/' in url:
                 return 'Article'
-            # return None
+            return None
 
     def get_full_text(self, bs, url):
         """
@@ -307,10 +335,8 @@ class ScraperSpringer(ScraperAbstract):
             :param text:
             :return:
             """
-            body = bs.find('div', class_='c-article-body')  # Body contains all sections
             sections = bs.findAll('section')
             len(sections)
-            text_section = ''
             for section in sections:
                 chapter_name = section.find('h2',
                                             class_='c-article-section__title js-section-title js-c-reading-companion-sections-item').text
@@ -420,9 +446,133 @@ class ScraperSpringer(ScraperAbstract):
         else:
             return None
 
-    #
-    # continue after journal volume later
-    #
+    def get_conference_name(self, bs, url):
+        """
+        Returns the conference name of the publication
+        :param bs: bs object of the publication
+        :param url: URL of the publication
+        :return: Conference name
+        """
+        if self.get_publication_type(bs, url) == 'Conference paper':
+            conference_name = bs.find('p', class_='c-chapter-info-details u-mb-8').find('a', {
+                'data-track': 'click', 'data-track-action': 'open conference'
+            }).text
+            return conference_name
+        else:
+            return None
+
+    def get_proceedings(self, bs, json_data, url):
+        """
+        Returns the title of the conference proceedings or book under which the publication was published.
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: Title of the proceedings/book (String)
+        """
+        if self.get_publication_type(bs, url) == 'Conference paper':
+            try:
+                proceedings = json_data.get('isPartOf').get('name')
+                return proceedings
+            except:
+                return None
+        else:
+            return None
+
+    def get_book_title(self, bs, json_data, url):
+        """
+        Returns the title of the book under which the publication was published.
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: Title of the book (String)
+        """
+        if self.get_publication_type(bs, url) == 'Chapter':
+            try:
+                book_title = json_data.get('isPartOf').get('name')
+                return book_title
+            except:
+                return None
+        else:
+            return None
+
+    def get_editors(self, bs, json_data, url):
+        """
+        Returns the editors of the volume (under which the publication was published)
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: List of Editors : [String]
+        """
+        if '/chapter/' in url:
+            try:
+                editor_div = bs.find('div', {'class': 'c-article-section__content', 'id': 'editor-information-content'})
+                editors = []
+                for editor in editor_div.find_all('p', class_='c-article-author-affiliation__authors-list'):
+                    editors.append(editor.text)
+                # remove titles since we scrape the names
+                # remove Everything including the point from strings in list
+                editors = [editor.split('.')[1].strip() for editor in editors]
+                return editors
+            except:
+                return None
+        # in books the editors are in the json file
+        if '/book/' in url:
+            try:
+                editors = [editor.get('name') for editor in json_data.get('editor')]
+                return editors
+            except:
+                return None
+        else:
+            return None
+
+    def get_book_subtitle(self, json_data, url):
+        """
+        Returns the subtitle of the book (proceedings or editor volume).
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: Subtitle of the book (String)
+        """
+        if '/book/' in url:
+            try:
+                book_subtitle = json_data.get('alternateName')
+                return book_subtitle
+            except:
+                return None
+        return None
+
+    # Springer Metrics
+
+    def get_accesses(self, bs, url):
+        """
+        Returns the number of accesses of the publication according to the Springer metric.
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: Number of accesses (String) #TODO change to int (check if wanted, old todo note)
+        """
+        # Navigating with parent because accesses and citations do not have individual features.
+        try:
+            accesses = bs.find('span', text='Accesses').parent.text.strip().split(' ')[0]  # navigating up in the tree
+            return accesses
+        except:
+            print("error")
+            return None
+
+    def get_amount_citations(self, bs):
+        """
+        Returns the number of citations of the publication according to the Springer metric.
+        :param bs: Received bs of the publication
+        :param url: URL of the publication
+        :return: Number of citations (String) #TODO change to int
+        """
+        # Navigating with parent because accesses and citations do not have individual features.
+        try:
+            citations = bs.find('span', text='Citations').parent.text.strip().split(' ')[0]  # navigating up in the tree
+            return citations
+        except:
+            try:
+                # Citation
+                citations = bs.find('a', class_='c-article-metrics-bar__label',
+                                    text='Citations').parent.text.split(' ')[0].strip()
+                return citations
+            except:
+                return None
 
     # todo:  move to utils later
     def extract_text_from_p_tags(self, p_tags):
@@ -440,7 +590,9 @@ class ScraperSpringer(ScraperAbstract):
         return result_text
 
 
+# todo remove later
 test = ScraperSpringer()
-print(test.domain)
-x = test.scrape_by_url('https://link.springer.com/article/10.1007/s12525-020-00445-0', params=['journal_volume'])
+x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27',
+                       params=['book_title', 'full_text'])
 print(x)
+print(test.domain)
