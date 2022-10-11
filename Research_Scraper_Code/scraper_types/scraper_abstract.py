@@ -13,9 +13,8 @@ class ScraperAbstract(ABC):
     """
     Abstract class for all scrapers
     """
+    domain = 'domain.com'  # dummy
 
-    def __init__(self):
-        self.domain = 'domain.com'  # dummy
 
     @abstractmethod
     def scrape_by_url(self, url, params=None):
