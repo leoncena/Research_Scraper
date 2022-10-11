@@ -15,7 +15,6 @@ class ScraperAbstract(ABC):
     """
     domain = 'domain.com'  # dummy
 
-
     @abstractmethod
     def scrape_by_url(self, url, params=None):
         """
@@ -133,6 +132,13 @@ class ScraperAbstract(ABC):
         return html
 
     def get_bs(self, url, method='requests'):
+        """
+        Returns the Beautiful Soup object of a url \n
+        It downloads the HTML of the url and parses it with Beautiful Soup
+        :param url: URL of a publication
+        :param method: Method of HTML download (requests, helium, selenium)
+        :return: bs4 object
+        """
         try:
             if method == 'requests':
                 request = self.get_page_with_requests(url)
@@ -153,6 +159,6 @@ class ScraperAbstract(ABC):
                 raise ValueError('Method not supported')
 
         except Exception as e:  # todo insert specific exception
-            print(f'Error: {e}', url)
+            print(f'[Error catched- scraper_abstract.py: get_bs] : {e}', url)
             return None
         return bs
