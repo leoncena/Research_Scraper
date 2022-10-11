@@ -21,16 +21,17 @@ class ScraperAbstract(ABC):
         self.__set_domain()
 
     @abstractmethod
-    def scrape_by_url(self, url, params=None):
-        """
-        Scrape a publication with a url
-        """
-        pass
-
     def __set_domain(self):
         """
         Scrapers need to overwrite this method to set the domain \n
         This function assigns correct domain to the scraper.
+        """
+        pass
+
+    @abstractmethod
+    def scrape_by_url(self, url, params=None):
+        """
+        Scrape a publication with a url
         """
         pass
 
