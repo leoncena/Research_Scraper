@@ -1,5 +1,5 @@
 import time
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod, abstractproperty
 
 import cloudscraper
 import requests
@@ -14,18 +14,22 @@ class ScraperAbstract(ABC):
     Abstract class for all scrapers
     """
 
-
-    # init
-    def __init__(self):
-        self._set_domain()
-
+    @property
     @abstractmethod
-    def _set_domain(self):
-        """
-        Scrapers need to overwrite this method to set the domain \n
-        This function assigns correct domain to the scraper.
-        """
+    def domain(self):
         pass
+
+    @property
+    @abstractmethod
+    def legal_params(self):
+        pass
+
+    # @abstractmethod
+    # def _set_scraping_parameters(self):
+    #     """
+    #     Scrapers need to overwrite this method to set the legal scraping parameters \n
+    #     """
+    #     pass
 
     @abstractmethod
     def scrape_by_url(self, url, params=None):
@@ -174,3 +178,14 @@ class ScraperAbstract(ABC):
             print(f'[Error catched- scraper_abstract.py: get_bs] : {e}', url)
             return None
         return bs
+
+    def check_params_legal(self, params):
+        """
+        Checks if the params are legal and raises error in that case
+        :param params:
+        :return:
+        """
+        if params is not None:  # cannot interate over None object
+            for param in params:
+                if param not in self.legal_params:
+                    raise ValueError(f'Param \'{param}\' is not legal. Legal params are: {self.legal_params}')
