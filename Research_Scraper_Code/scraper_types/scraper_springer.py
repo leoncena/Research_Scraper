@@ -14,11 +14,30 @@ class ScraperSpringer(ScraperAbstract):
 
     @property
     def legal_params(self):
-        legal_params = ['full', 'main', 'title', 'authors', 'keywords', 'abstract', 'pdf', 'publisher', 'year',
-                        'start_page',
-                        'end_page', 'publication_type', 'full_text', 'references', 'journal_name', 'journal_volume',
-                        'conference_name', 'conference_proceedings', 'book_title', 'editors', 'book_subtitle',
-                        'article_accesses', 'amount_citations']
+        legal_params = [
+            'full',
+            'main',
+            'title',
+            'authors',
+            'keywords',
+            'abstract',
+            'pdf',
+            'publisher',
+            'year',
+            'start_page',
+            'end_page',
+            'publication_type',
+            'full_text',
+            'references',
+            'journal_name',
+            'journal_volume',
+            'conference_name',
+            'conference_proceedings',
+            'book_title',
+            'editors',
+            'book_subtitle',
+            'article_accesses',
+            'amount_citations']
         return legal_params
 
     def scrape_by_url(self, url, params=None):
