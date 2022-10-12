@@ -8,9 +8,18 @@ class ScraperSpringer(ScraperAbstract):
     Class for the specific Springer Scraper
     """
 
-    # init domain name
-    def _set_domain(self):
-        self.domain = 'link.springer.com'
+    @property
+    def domain(self):
+        return 'link.springer.com'
+
+    @property
+    def legal_params(self):
+        legal_params = ['full', 'main', 'title', 'authors', 'keywords', 'abstract', 'pdf', 'publisher', 'year',
+                        'start_page',
+                        'end_page', 'publication_type', 'full_text', 'references', 'journal_name', 'journal_volume',
+                        'conference_name', 'conference_proceedings', 'book_title', 'editors', 'book_subtitle',
+                        'article_accesses', 'amount_citations']
+        return legal_params
 
     def scrape_by_url(self, url, params=None):
         """
@@ -26,22 +35,33 @@ class ScraperSpringer(ScraperAbstract):
         # todo check if links resolved
         # todo check if url is correct
 
-        # create empty dictionary
+        # ETL process
+        # 1. Extract: Get the data from the website and create soup object
+        # 2. Transform: Extract the data from the soup object
+        # 3. Load: Write the data into the dict and return the result
+
         scrape_result = {}
+
+        # params logic
+
+        # check if params are legal
+        self.check_params_legal(params)
+
         if params is None:
             params = ['main']
 
         if params == ['main']:
-            params = ['title', 'authors']  # todo finalize at the end
+            params = ['title', 'authors']  # todo finalize at the end: define what counts as main
 
         if params == ['full']:
-            params = ['title', 'authors', 'xxx']  # todo finalize
+            params = self.legal_params  # full means all legal params
 
+        # get soup for subsequent parsing
         bs = self.get_bs(url)
         json_data = self.get_json_data(bs)
 
-        if 'title for helium' in params:  # todo remove later
-            bs_full = self.get_bs(url, method='cloud')  # only example, springer does not need cloudscraper
+        # if 'title for helium' in params:  # todo remove later
+        #     bs_full = self.get_bs(url, method='cloud')  # only example, springer does not need cloudscraper
 
         # get title
         if 'title' in params:
@@ -110,6 +130,9 @@ class ScraperSpringer(ScraperAbstract):
 
         if 'amount_citations' in params:
             scrape_result['amount_citations'] = self.get_amount_citations(bs)
+
+        # remove None values from result dict
+        scrape_result = {key: value for key, value in scrape_result.items() if value is not None}
 
         return scrape_result
 
@@ -592,7 +615,7 @@ class ScraperSpringer(ScraperAbstract):
 
 # todo remove later
 test = ScraperSpringer()
-x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27',
-                       params=['book_title', 'full_text'])
-print(x)
+x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27', params=['full'])
 print(test.domain)
+for key, value in x.items():
+    print(key, ': \n', '> ', value, '\n')
