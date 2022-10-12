@@ -108,7 +108,6 @@ class ScraperAbstract(ABC):
             f'Browser closed in {end - start} seconds, including '
             f'{wait_until_end - wait_until_start} seconds of waiting, thus '
             f'{end - start - wait_until_end + wait_until_start} seconds of loading.')
-
         return html
 
     def get_HTML_selenium(self, url, os):
@@ -121,7 +120,7 @@ class ScraperAbstract(ABC):
         """
         # todo path logic for other devices
         if os == 'mac':
-            PATH_MAC = '../driver/chromedriverMAC'
+            PATH_MAC = 'Research_Scraper_Code/driver/chromedriverMAC'
         options = Options()
         options.add_argument("--headless=chrome")
         options.add_argument("--enable-javascript")
