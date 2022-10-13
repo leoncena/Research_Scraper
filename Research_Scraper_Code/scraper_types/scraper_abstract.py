@@ -36,7 +36,12 @@ class ScraperAbstract(ABC):
         """
         Scrape a publication with a url
         """
-        pass
+        if not self.check_scrape_possible(url):
+            raise Exception('This scraper cannot scrape this url')
+
+    def check_scrape_possible(self, url):
+        possible = self.domain in url
+        return possible
 
     def get_page_with_requests(self, url):
         """

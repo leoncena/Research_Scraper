@@ -1,6 +1,6 @@
 import json
 
-from scraper_abstract import ScraperAbstract
+from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 
 
 class ScraperSpringer(ScraperAbstract):
@@ -58,6 +58,13 @@ class ScraperSpringer(ScraperAbstract):
         # 1. Extract: Get the data from the website and create soup object
         # 2. Transform: Extract the data from the soup object
         # 3. Load: Write the data into the dict and return the result
+
+        # check if scraper can scrape this url (defined in super method)
+        # raise error if not
+        super(ScraperSpringer, self).scrape_by_url(url, params)
+
+        # if not self.check_scrape_possible(url):
+        #     raise Exception("Yeee This scraper cannot scrape this url")
 
         scrape_result = {}
 
@@ -631,10 +638,9 @@ class ScraperSpringer(ScraperAbstract):
                 result_text += f'\n\n{p.text}'  # Break for paragraph
         return result_text
 
-
-# todo remove later
-test = ScraperSpringer()
-x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27', params=['full'])
-print(test.domain)
-for key, value in x.items():
-    print(key, ': \n', '> ', value, '\n')
+# # todo remove later
+# test = ScraperSpringer()
+# x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27', params=['full'])
+# print(test.domain)
+# for key, value in x.items():
+#     print(key, ': \n', '> ', value, '\n')

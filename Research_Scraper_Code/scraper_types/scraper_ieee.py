@@ -4,7 +4,7 @@ import time
 
 import requests
 
-from scraper_abstract import ScraperAbstract
+from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 
 
 class ScraperIEEE(ScraperAbstract):
@@ -61,6 +61,10 @@ class ScraperIEEE(ScraperAbstract):
         # 1. Extract: Get the data from the website and create soup object
         # 2. Transform: Extract the data from the soup object
         # 3. Load: Write the data into the dict and return the result
+
+        # check if scraper can scrape this url (defined in super method)
+        # raise error if not
+        super(ScraperIEEE, self).scrape_by_url(url, params)
 
         scrape_result = {}
 
@@ -363,19 +367,18 @@ class ScraperIEEE(ScraperAbstract):
             return metrics.get('citationCountPaper')
         return None
 
-
-# todo remove later
-# Just for demonstration
-start = time.time()
-test = ScraperIEEE()
-url_paper = 'https://ieeexplore.ieee.org/document/7887648'
-url_chem = 'https://ieeexplore.ieee.org/document/6324427'
-
-x = test.scrape_by_url(url_paper, params=['full'])
-print('Test Start \n \n')
-for key, value in x.items():
-    print(key, ': \n', '> ', value, '\n')
-
-end = time.time()
-# ~ 2-3 secs (IEEE, Gemessen im ICE mit VPN, #todo check with good internet at home)
-print(f'Time of execution: {end - start}')
+# # todo remove later
+# # Just for demonstration
+# start = time.time()
+# test = ScraperIEEE()
+# url_paper = 'https://ieeexplore.ieee.org/document/7887648'
+# url_chem = 'https://ieeexplore.ieee.org/document/6324427'
+#
+# x = test.scrape_by_url(url_paper, params=['full'])
+# print('Test Start \n \n')
+# for key, value in x.items():
+#     print(key, ': \n', '> ', value, '\n')
+#
+# end = time.time()
+# # ~ 2-3 secs (IEEE, Gemessen im ICE mit VPN, #todo check with good internet at home)
+# print(f'Time of execution: {end - start}')

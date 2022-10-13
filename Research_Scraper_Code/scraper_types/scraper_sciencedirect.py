@@ -3,7 +3,7 @@ import time
 
 from bs4 import BeautifulSoup
 
-from scraper_abstract import ScraperAbstract
+from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 
 
 class ScraperScienceDirect(ScraperAbstract):
@@ -58,6 +58,10 @@ class ScraperScienceDirect(ScraperAbstract):
         # 1. Extract: Get the data from the website and create soup object
         # 2. Transform: Extract the data from the soup object
         # 3. Load: Write the data into the dict and return the result
+
+        # check if scraper can scrape this url (defined in super method)
+        # raise error if not
+        super(ScraperScienceDirect, self).scrape_by_url(url, params)
 
         scrape_result = {}
 
@@ -540,19 +544,18 @@ class ScraperScienceDirect(ScraperAbstract):
             return True
         return False
 
-
-# todo remove later
-start = time.time()
-test = ScraperScienceDirect()
-url_free = 'https://www.sciencedirect.com/science/article/pii/S0140988315002571?via%3Dihub'
-url_chem = 'https://www.sciencedirect.com/science/article/pii/S2451929420300851?via%3Dihub'
-url_paywall = 'https://www.sciencedirect.com/science/article/abs/pii/S104732031830230X?via%3Dihub'
-
-x = test.scrape_by_url(url_chem, params=['title', 'abstract', 'start_page', 'end_page', 'journal_name',
-                                         'journal_volume', 'authors'])
-print('Test Start \n \n')
-for key, value in x.items():
-    print(key, ': \n', '> ', value, '\n')
-
-end = time.time()
-print(f'Time of execution: {end - start}')  # ~20-25 seconds
+# # todo remove later
+# start = time.time()
+# test = ScraperScienceDirect()
+# url_free = 'https://www.sciencedirect.com/science/article/pii/S0140988315002571?via%3Dihub'
+# url_chem = 'https://www.sciencedirect.com/science/article/pii/S2451929420300851?via%3Dihub'
+# url_paywall = 'https://www.sciencedirect.com/science/article/abs/pii/S104732031830230X?via%3Dihub'
+#
+# x = test.scrape_by_url(url_chem, params=['title', 'abstract', 'start_page', 'end_page', 'journal_name',
+#                                          'journal_volume', 'authors'])
+# print('Test Start \n \n')
+# for key, value in x.items():
+#     print(key, ': \n', '> ', value, '\n')
+#
+# end = time.time()
+# print(f'Time of execution: {end - start}')  # ~20-25 seconds
