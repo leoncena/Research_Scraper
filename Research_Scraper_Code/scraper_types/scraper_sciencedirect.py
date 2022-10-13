@@ -425,8 +425,6 @@ class ScraperScienceDirect(ScraperAbstract):
         except:
             return None
 
-    #
-
     def get_journal_information(self, bs):
         """
         Returns the journal information of a publication
@@ -467,7 +465,6 @@ class ScraperScienceDirect(ScraperAbstract):
         except:
             return None
 
-    #
     # todo move to utils
     def extract_text_from_p_tags(self, p_tags):
         """
