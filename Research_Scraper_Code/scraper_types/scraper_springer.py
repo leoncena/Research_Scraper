@@ -600,7 +600,7 @@ class ScraperSpringer(ScraperAbstract):
             accesses = bs.find('span', text='Accesses').parent.text.strip().split(' ')[0]  # navigating up in the tree
             return accesses
         except:
-            print("error")
+            print("error, accesses not found")
             return None
 
     def get_amount_citations(self, bs):
