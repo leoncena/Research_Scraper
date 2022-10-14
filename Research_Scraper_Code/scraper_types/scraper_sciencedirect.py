@@ -14,7 +14,7 @@ class ScraperScienceDirect(ScraperAbstract):
 
     @property
     def domain(self):
-        return 'www.sciencedirect.com'
+        return 'linkinghub.elsevier.com'
 
     @property
     def legal_params(self):
@@ -64,7 +64,7 @@ class ScraperScienceDirect(ScraperAbstract):
         # raise error if not
         super(ScraperScienceDirect, self).scrape_by_url(url, params)
 
-        scrape_result = {}
+        scrape_result = {'url': url}
 
         # params logic
 

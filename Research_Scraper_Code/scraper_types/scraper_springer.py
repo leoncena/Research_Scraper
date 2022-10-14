@@ -65,7 +65,7 @@ class ScraperSpringer(ScraperAbstract):
         # if not self.check_scrape_possible(url):
         #     raise Exception("Yeee This scraper cannot scrape this url")
 
-        scrape_result = {}
+        scrape_result = {'url': url}
 
         # params logic
 
@@ -488,9 +488,12 @@ class ScraperSpringer(ScraperAbstract):
         :return: Conference name
         """
         if self.get_publication_type(bs, url) == 'Conference paper':
-            conference_name = bs.find('p', class_='c-chapter-info-details u-mb-8').find('a', {
-                'data-track': 'click', 'data-track-action': 'open conference'
-            }).text
+            try:
+                conference_name = bs.find('p', class_='c-chapter-info-details u-mb-8').find('a', {
+                    'data-track': 'click', 'data-track-action': 'open conference'
+                }).text
+            except:
+                return None
             return conference_name
         else:
             return None

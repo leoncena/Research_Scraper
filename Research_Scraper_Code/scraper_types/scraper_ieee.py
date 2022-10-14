@@ -67,7 +67,7 @@ class ScraperIEEE(ScraperAbstract):
         # raise error if not
         super(ScraperIEEE, self).scrape_by_url(url, params)
 
-        scrape_result = {}
+        scrape_result = {'url': url}
 
         # params logic
 
