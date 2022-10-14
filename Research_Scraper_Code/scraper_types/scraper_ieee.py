@@ -1,6 +1,7 @@
 import json
 import re
 import time
+from Research_Scraper_Code import utils
 
 import requests
 
@@ -366,19 +367,3 @@ class ScraperIEEE(ScraperAbstract):
         if metrics is not None:
             return metrics.get('citationCountPaper')
         return None
-
-# # todo remove later
-# # Just for demonstration
-# start = time.time()
-# test = ScraperIEEE()
-# url_paper = 'https://ieeexplore.ieee.org/document/7887648'
-# url_chem = 'https://ieeexplore.ieee.org/document/6324427'
-#
-# x = test.scrape_by_url(url_paper, params=['full'])
-# print('Test Start \n \n')
-# for key, value in x.items():
-#     print(key, ': \n', '> ', value, '\n')
-#
-# end = time.time()
-# # ~ 2-3 secs (IEEE, Gemessen im ICE mit VPN, #todo check with good internet at home)
-# print(f'Time of execution: {end - start}')
