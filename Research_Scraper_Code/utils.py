@@ -11,6 +11,7 @@ def check_if_doi_link(url):
     :param url: url to check
     :return: Bool
     """
+
     doi_link_regex = re.compile(r'^(https?:\/\/)?'  # A doi links starts with http:// or https://
                                 r'(www\.)?'  # or start with www.
                                 r'(doi\.org\/)'  # followed by doi.org/
