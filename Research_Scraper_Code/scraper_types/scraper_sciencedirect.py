@@ -4,6 +4,7 @@ import time
 from bs4 import BeautifulSoup
 
 from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
+from Research_Scraper_Code import utils
 
 
 class ScraperScienceDirect(ScraperAbstract):
@@ -469,22 +470,6 @@ class ScraperScienceDirect(ScraperAbstract):
         except:
             return None
 
-    # todo move to utils
-    def extract_text_from_p_tags(self, p_tags):
-        """
-        Help method to extract text from multiple p-tags
-        :param p_tags: List of p-tags as result of a bs search : bs4.element.ResultSet
-        :return: String with total text
-        """
-        result_text = ''
-        for p in p_tags:
-            if result_text == '':
-                result_text += p.text  # No break for first paragraph
-            else:
-                result_text += f'\n\n{p.text}'  # Break for paragraph
-        return result_text
-
-    # todo access extract_text_from_p_tags correctly after moving extract_text_from_p_tags to utils
     def _process_text_recursive(self, section):
         """
         his helper methods takes a HTML sections from ScienceDirect and extracts the text from it while regarding (
@@ -508,17 +493,17 @@ class ScraperScienceDirect(ScraperAbstract):
                 p_new = child.findAll('p')
                 p_tags.extend(p_new)
             if child.name == 'section':
-                t += self.extract_text_from_p_tags(p_tags)
+                t += utils.extract_text_from_p_tags(p_tags)
                 p_tags = []
                 t += self._process_text_recursive(child)
             if child.name == 'p':
                 p_tags.append(child)
-            t += self.extract_text_from_p_tags(p_tags) + '\n'
+            t += utils.extract_text_from_p_tags(p_tags) + '\n'
         return t
 
     def _check_text_available(self, bs):
         """
-        Check if test is available for a publication
+        Check if test is available for a Sciendedirect publication
         :param bs: Received bs of the publication (HTML must be accessed with Selenium or Helium, does not work otherwise)
         :return: Boolean
         """
@@ -532,7 +517,7 @@ class ScraperScienceDirect(ScraperAbstract):
 
     def _check_references_available(self, bs):
         """
-        Check if test is available for a publication
+        Check if test is available for a ScienceDirect publication
         :param bs: Received bs of the publication (HTML must be accessed with Selenium or Helium, does not work otherwise)
         :return: Boolean
         """
@@ -543,19 +528,3 @@ class ScraperScienceDirect(ScraperAbstract):
         if body is not None:
             return True
         return False
-
-# # todo remove later
-# start = time.time()
-# test = ScraperScienceDirect()
-# url_free = 'https://www.sciencedirect.com/science/article/pii/S0140988315002571?via%3Dihub'
-# url_chem = 'https://www.sciencedirect.com/science/article/pii/S2451929420300851?via%3Dihub'
-# url_paywall = 'https://www.sciencedirect.com/science/article/abs/pii/S104732031830230X?via%3Dihub'
-#
-# x = test.scrape_by_url(url_chem, params=['title', 'abstract', 'start_page', 'end_page', 'journal_name',
-#                                          'journal_volume', 'authors'])
-# print('Test Start \n \n')
-# for key, value in x.items():
-#     print(key, ': \n', '> ', value, '\n')
-#
-# end = time.time()
-# print(f'Time of execution: {end - start}')  # ~20-25 seconds
