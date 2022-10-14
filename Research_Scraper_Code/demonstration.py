@@ -12,19 +12,37 @@ test_urls = [url_ieee, url_springer]
 
 scraper = ResearchScraper()
 
-if False:
-    print(
-        f'Testing scraping the doi link {url_doi} > Result: {scraper.scrape_publication_by_url(url_doi, ["title", "authors"])}')
 
-if True:
+# print(f'Testing scraping the doi link {url_doi} > Result: {scraper.scrape_publication_by_url(url_doi, ["title", "authors"])}')
+
+
+def test_scrape_url():
+    global start, result, key, value, end
     test_url = url_springer2
-
     start = time.time()
     result = scraper.scrape_publication_by_url(test_url, params=['full'])
-
     print('\nTest Start for: ', test_url, '\n______________________________________________________')
     for key, value in result.items():
         print(key, ': \n', '> ', value, '\n')
-
     end = time.time()
     print(f'Total time : {end - start}')
+
+
+# test_scrape_url()
+
+
+def test_scrape_doi():
+    global start, result, key, value, end
+    test_doi = '10.1007/s11943-021-00292-1'
+    start = time.time()
+    result = scraper.scrape_publication_by_doi(test_doi, params=['full'])
+    if result is not None:
+        print('\nTest Start for: ', test_doi, '\n______________________________________________________')
+        for key, value in result.items():
+            print(key, ': \n', '> ', value, '\n')
+
+        end = time.time()
+        print(f'Total time : {end - start}')
+
+
+test_scrape_doi()

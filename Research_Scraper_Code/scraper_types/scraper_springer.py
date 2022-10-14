@@ -220,7 +220,7 @@ class ScraperSpringer(ScraperAbstract):
             return None
 
         try:
-            abstract = json_data.get('description')
+            abstract = json_data.get('description').strip()
             return abstract
         except:
             print("Error: no abstract found")
