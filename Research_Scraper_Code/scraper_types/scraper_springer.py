@@ -1,5 +1,6 @@
 import json
 
+from Research_Scraper_Code import utils
 from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 
 
@@ -43,7 +44,7 @@ class ScraperSpringer(ScraperAbstract):
     def scrape_by_url(self, url, params=None):
         """
         Scrape a publication with a url \n
-        You will get by default the main data (xxxx todo ergänzen) \n
+        You will get by default the main data (xxxx # todo ergänzen) \n
         You can scrape everything with params=['full']
         You can also choose what you want to scrape with e.g. params=['authors', 'title']
 
@@ -51,8 +52,6 @@ class ScraperSpringer(ScraperAbstract):
         :param params: What data do you want to scrape? ([str])
         :return: Dictionary with scraped data
         """
-        # todo check if links resolved
-        # todo check if url is correct
 
         # ETL process
         # 1. Extract: Get the data from the website and create soup object
@@ -86,26 +85,18 @@ class ScraperSpringer(ScraperAbstract):
         bs = self.get_bs(url)
         json_data = self.get_json_data(bs)
 
-        # if 'title for helium' in params:  # todo remove later
-        #     bs_full = self.get_bs(url, method='cloud')  # only example, springer does not need cloudscraper
-
-        # get title
         if 'title' in params:
             scrape_result['title'] = self.get_title(bs)
 
-        # get authors
         if 'authors' in params:
             scrape_result['authors'] = self.get_authors(json_data)
 
-        # get keywords
         if 'keywords' in params:
             scrape_result['keywords'] = self.get_keywords(json_data)
 
-        # get abstract
         if 'abstract' in params:
             scrape_result['abstract'] = self.get_abstract(url, json_data)
 
-        # get pdf
         if 'pdf' in params:
             scrape_result['pdf'] = self.get_pdf(bs, url)
 
@@ -152,7 +143,7 @@ class ScraperSpringer(ScraperAbstract):
             scrape_result['book_subtitle'] = self.get_book_subtitle(json_data, url)
 
         if 'article_accesses' in params:
-            scrape_result['article_accesses'] = self.get_accesses(bs, url)
+            scrape_result['article_accesses'] = self.get_accesses(bs)
 
         if 'amount_citations' in params:
             scrape_result['amount_citations'] = self.get_amount_citations(bs)
@@ -162,7 +153,7 @@ class ScraperSpringer(ScraperAbstract):
 
         return scrape_result
 
-    def get_json_data(self, bs):  # todo save json data for method and let other functions take it as input
+    def get_json_data(self, bs):
         json_string = bs.find('script', {'type': 'application/ld+json'}).text
         json_data = json.loads(json_string)
 
@@ -176,7 +167,7 @@ class ScraperSpringer(ScraperAbstract):
         :return: Title
         """
         try:
-            title = bs.find('h1', {'class': 'c-article-title'}).text
+            title = bs.find('h1', {'class': 'c-article-title'}).text.strip()
             return title
         except:
             return None
@@ -210,12 +201,6 @@ class ScraperSpringer(ScraperAbstract):
         :return:
         """
 
-        """
-        Return list of keywords in the format:
-        [keyword1, keyword2, ...]
-        :param bs: Received bs of the publication
-        :return: list: String
-        """
         try:
             keywords_string = json_data.get('keywords')
             keywords = keywords_string.split(',')
@@ -390,7 +375,7 @@ class ScraperSpringer(ScraperAbstract):
                 chapter_name = section.find('h2',
                                             class_='c-article-section__title js-section-title js-c-reading-companion-sections-item').text
                 p_tags = section.find('div', class_='c-article-section__content').findAll('p')
-                chapter_text = self.extract_text_from_p_tags(p_tags)
+                chapter_text = utils.extract_text_from_p_tags(p_tags)
                 text.append({
                     'chapter_name': chapter_name,
                     'chapter_text': chapter_text
@@ -414,7 +399,7 @@ class ScraperSpringer(ScraperAbstract):
             for section in sections:
                 chapter_name = section.h2.text
                 p_tags = section.findAll('p')
-                chapter_text = self.extract_text_from_p_tags(p_tags)
+                chapter_text = utils.extract_text_from_p_tags(p_tags)
                 text.append({
                     'chapter_name': chapter_name,
                     'chapter_text': chapter_text
@@ -588,7 +573,7 @@ class ScraperSpringer(ScraperAbstract):
 
     # Springer Metrics
 
-    def get_accesses(self, bs, url):
+    def get_accesses(self, bs):
         """
         Returns the number of accesses of the publication according to the Springer metric.
         :param bs: Received bs of the publication
@@ -622,25 +607,3 @@ class ScraperSpringer(ScraperAbstract):
                 return citations
             except:
                 return None
-
-    # todo:  move to utils later
-    def extract_text_from_p_tags(self, p_tags):
-        """
-        Help method to extract text from multiple p-tags
-        :param p_tags: List of p-tags as result of a bs search : bs4.element.ResultSet
-        :return: String with total text
-        """
-        result_text = ''
-        for p in p_tags:
-            if result_text == '':
-                result_text += p.text  # No break for first paragraph
-            else:
-                result_text += f'\n\n{p.text}'  # Break for paragraph
-        return result_text
-
-# # todo remove later
-# test = ScraperSpringer()
-# x = test.scrape_by_url('https://link.springer.com/chapter/10.1007/978-3-030-06234-7_27', params=['full'])
-# print(test.domain)
-# for key, value in x.items():
-#     print(key, ': \n', '> ', value, '\n')
