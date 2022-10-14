@@ -12,33 +12,48 @@ class ResearchScraper:
         self.all_scraper = [ScraperSpringer(), ScraperScienceDirect(), ScraperIEEE()]
 
     def scrape_publication_by_url(self, url, params):
-        self.__check_params_type(params)  # check format of params
 
-        # check if url is valid or a doi
-        if utils.check_if_doi_link(url):
-            print(f'URL (\'{url}\') is a DOI link, Links is now resolved properly')
-            url = utils.resolve_url(url)
-            print(f'Resolved DOI link to: {url}')
+        try:
+            self.__check_params_type(params)  # check format of params
 
-        result = {}
-        scraper_found = False
+            # check if url is valid or a doi
+            if utils.check_if_doi_link(url):
+                print(f'URL (\'{url}\') is a DOI link, Links is now resolved properly')
+                url = utils.resolve_url(url)
 
-        # search suitable scraper
-        for scraper in self.all_scraper:
-            if scraper.check_scrape_possible(url):
-                print(f'[DEBUG - ResearchScraper] - Found scraper for {url} -> {type(scraper).__name__}')
-                scraper_found = True
-                result = scraper.scrape_by_url(url, params)
-                break
+                # check if doi could be resolved
+                if 'doi.org' in url:
+                    print(f'URL (\'{url}\') could not be resolved to a valid link')
+                    return None
 
-        # if no scraper was found return None
-        if not scraper_found:
-            print(f'[DEBUG - ResearchScraper] - No scraper found for {url}')
-            return None
+                print(f'Resolved DOI link to: {url}')
 
-        return result
+            result = {}
+
+            scraper_found = False
+
+            # search suitable scraper
+            for scraper in self.all_scraper:
+                if scraper.check_scrape_possible(url):
+                    print(f'[DEBUG - ResearchScraper] - Found scraper for {url} -> {type(scraper).__name__}')
+                    scraper_found = True
+                    result = scraper.scrape_by_url(url, params)
+                    break
+
+            # if no scraper was found return None
+            if not scraper_found:
+                print(f'[DEBUG - ResearchScraper] - No scraper found for {url}')
+                return None
+
+            return result
+        except Exception as e:
+            print('\n\n\n\n\n unknown error catched', e)
+            return {'error': str(e)}
 
     def scrape_publication_by_doi(self, doi, params):
+        # check if it is a doi
+        if not utils.check_if_doi_number(doi):
+            return None
         url = utils.create_doi_link(doi)
         return self.scrape_publication_by_url(url, params)
 
