@@ -70,7 +70,7 @@ def extract_text_from_p_tags(p_tags):
 
 def resolve_url(url):
     try:
-        r = requests.head(url, allow_redirects=True)
+        r = requests.head(url, allow_redirects=True, timeout=120)
         return r.url
     except requests.exceptions.ConnectionError as e:
         print('[utils.py: get_link] Connection Error')
