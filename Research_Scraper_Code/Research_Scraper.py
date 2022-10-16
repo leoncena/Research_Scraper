@@ -48,7 +48,7 @@ class ResearchScraper:
             return result
         except Exception as e:
             print('\n\n\n\n\n unknown error catched', e)
-            return {'error': str(e)}
+            return {'error': str(e), 'error_url': url}
 
     def scrape_publication_by_doi(self, doi, params):
         # check if it is a doi
