@@ -92,7 +92,7 @@ class ScraperSpringer(ScraperAbstract):
             scrape_result['authors'] = self.get_authors(json_data)
 
         if 'keywords' in params:
-            scrape_result['keywords'] = self.get_keywords(json_data)
+            scrape_result['keywords'] = self.get_keywords(bs)
 
         if 'abstract' in params:
             scrape_result['abstract'] = self.get_abstract(url, json_data)
@@ -194,19 +194,23 @@ class ScraperSpringer(ScraperAbstract):
         except:  # if no author is found you cannot iterate over None
             return None
 
-    def get_keywords(self, json_data):
+    def get_keywords(self, bs):
         """
         Return list of keywords from json data
         :param json_data: Received json data
         :return:
         """
 
+        keywords = []
         try:
-            keywords_string = json_data.get('keywords')
-            keywords = keywords_string.split(',')
+            kwds = bs.find('ul', class_='c-article-subject-list').find_all('li',
+                                                                           class_='c-article-subject-list__subject')
+            for kwd in kwds:
+                keyword = kwd.text.strip()
+                keywords.append(keyword)
             return keywords
         except:
-            print("Error: no keywords found")
+            print(f'Error: No keywords found')
             return None
 
     def get_abstract(self, url, json_data):
