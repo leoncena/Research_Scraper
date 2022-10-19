@@ -43,11 +43,12 @@ class ResearchScraper:
             # if no scraper was found return None
             if not scraper_found:
                 print(f'[DEBUG - ResearchScraper] - No scraper found for {url}')
-                return None
+                # return only url for logging purposes
+                return {'error': 'No scraper found for this url', 'url': url}
 
             return result
         except Exception as e:
-            print('\n\n\n\n\n unknown error catched', e)
+            print('\n\n unknown error catched', e)
             return {'error': str(e), 'error_url': url}
 
     def scrape_publication_by_doi(self, doi, params):
