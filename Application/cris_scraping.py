@@ -55,7 +55,8 @@ def scrape_publication_by_doi_list(doi_list, params=['full']):
     print(f'Time of scrape start: {time.strftime("%Y_%m_%d__%H_%M")}')
     results = []
     for idx, doi in enumerate(doi_list):
-        print(f'>>> Scraping {doi} #{idx}')
+        scraping_log = f'>>> Scraping {doi} #{idx}'
+        print('\x1b[6;30;42m' + scraping_log + '\x1b[0m')
         result = scraper.scrape_publication_by_doi(doi, params)
         print(f'>>>> Scraping {doi} done')
         results.append(result)
@@ -76,3 +77,6 @@ if __name__ == '__main__':
 
     print('Fertig')
     print('')
+    # url_test = 'https://link.springer.com/article/10.1007/s40558-015-0037-9'
+    # result = scraper.scrape_publication_by_url(url_test, params=['full'])
+    # print(result.get('keywords'))
