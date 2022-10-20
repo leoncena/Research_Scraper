@@ -23,6 +23,7 @@ class ScraperIEEE(ScraperAbstract):
             'full',
             'main',
             'title',
+            'doi',
             'authors',
             'keywords',
             'abstract',
@@ -92,6 +93,10 @@ class ScraperIEEE(ScraperAbstract):
         # get title
         if 'title' in params:
             scrape_result['title'] = self.get_title(json_data)
+
+        # get doi
+        if 'doi' in params:
+            scrape_result['doi'] = self.get_doi(json_data)
 
         # get authors
         if 'authors' in params:
@@ -189,6 +194,16 @@ class ScraperIEEE(ScraperAbstract):
         return json_parsed
 
     # Parsing the data
+
+    def get_doi(self, json_data):
+        """
+        Extract the DOI from the JSON data
+        :param json_data: JSON object with meta data
+        :return: DOI number
+        """
+        doi = json_data.get('doi')
+        return doi
+
     def get_authors(self, json_data):
         """
         Extracts the authors from the json object.

@@ -19,6 +19,7 @@ class ScraperSpringer(ScraperAbstract):
             'full',
             'main',
             'title',
+            'doi',
             'authors',
             'keywords',
             'abstract',
@@ -87,6 +88,9 @@ class ScraperSpringer(ScraperAbstract):
 
         if 'title' in params:
             scrape_result['title'] = self.get_title(bs)
+
+        if 'doi' in params:
+            scrape_result['doi'] = self.get_doi(url)
 
         if 'authors' in params:
             scrape_result['authors'] = self.get_authors(json_data)
@@ -160,6 +164,19 @@ class ScraperSpringer(ScraperAbstract):
         if '{"mainEntity":' in json_string:
             return json_data['mainEntity']
         return json_data
+
+    def get_doi(self, url):
+        """
+        Extract the DOI from the URL
+        :param url: URL of a publication
+        :return: DOI number
+        """
+        url_splitted = url.split('/')  # split url with '/' to find where DOI is
+        doi_number = url_splitted[-2] + '/' + url_splitted[-1]
+        if utils.check_if_doi_number(doi_number):
+            return doi_number
+        else:
+            return None
 
     def get_title(self, bs):
         """
