@@ -69,6 +69,7 @@ def scrape_publication_by_doi_list(doi_list, params=['full']):
 
 # main
 if __name__ == '__main__':
+    # Big scraping
     df_publications = load_publications_from_csv()
     publication_dois = get_all_dois(df_publications)
     print(f'There are {len(publication_dois)} publication dois')
