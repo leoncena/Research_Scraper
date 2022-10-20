@@ -158,7 +158,10 @@ class ScraperSpringer(ScraperAbstract):
         return scrape_result
 
     def get_json_data(self, bs):
-        json_string = bs.find('script', {'type': 'application/ld+json'}).text
+        try:
+            json_string = bs.find('script', {'type': 'application/ld+json'}).text
+        except:
+            return {}
         json_data = json.loads(json_string)
 
         if '{"mainEntity":' in json_string:
