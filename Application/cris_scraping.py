@@ -62,15 +62,30 @@ def scrape_cris_publications():
     scraping_results = scraper.scrape_publication_by_doi_list(publication_dois, params=['full'])
     return scraping_results
 
-def download_pdfs():
-    # import scraping results
 
+# def download_pdfs():
+# import scraping results
 
 
 # main
 if __name__ == '__main__':
     # Big Scraping
-    cris_scraping_results = scrape_cris_publications()
+    # cris_scraping_results = scrape_cris_publications()
+
+    # init scraoer
+    scraper = ResearchScraper()
+
+    # download one pdf live
+    # scraper.download_pdf_of_publication_by_doi_live('10.1007/s00180-017-0742-2')
+
+    # download list pdfs live
+    # doi_list = ['10.1007/s10796-009-9214-8','10.1007/s11147-010-9056-z', '10.1007/BF01205357']
+    # scraper.download_pdf_of_publications_by_doi_list_live(doi_list)
+
+    # download all pdfs
+    scraper = ResearchScraper()
+    scraping_results = utils.load_and_clean_scraping_results(filename='scrapings_2022_10_21__03_38')
+    scraper.download_pdf_of_publications_by_scraping_results(scraping_results)
 
     # df_publications = load_publications_from_csv()
     # publication_dois = get_all_dois(df_publications)

@@ -2,6 +2,7 @@ import json
 import re
 
 import requests
+import cloudscraper
 
 
 def check_if_doi_link(url):
@@ -83,3 +84,54 @@ def write_results(results, name):
             json.dump(results, f, indent=4)
             # print green background black font
             print(f'\033[1;30;42m{len(results)} results written to {name}.json\033[0m')
+
+
+def download_pdf(url, filename, write_folder_path, method='requests'):
+    if method == 'requests':
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15'}
+        r = requests.get(url, headers=headers)
+    if method == 'cloudscraper':
+        scraper = cloudscraper.create_scraper(
+            browser={
+                'custom': 'ScraperBot/1.0',
+            }
+        )
+        r = scraper.get(url, allow_redirects=True)
+
+    pdf_save_path = write_folder_path + '/' + filename + '.pdf'
+    if r.status_code == 200:
+        with open(pdf_save_path, 'wb') as f:
+            f.write(r.content)
+            log_1 = f'PDF downloaded'
+            log_2 = f' : {filename}.pdf'
+            log_3 = f' to {write_folder_path}'
+
+            # print log_1 in green background black font
+            print(f'\033[1;30;42m{log_1}\033[0m' + log_2 + log_3)
+            # print with green font
+
+
+
+    else:
+        print(f'[utils.py: download_PDF] PDF Download failed: {r.status_code}')
+
+
+def load_and_clean_scraping_results(filename, custom_path=None):
+    """
+    Reads a the json file with scraping results and cleans it by removing None and error rows
+    :param filename:
+    :return:
+    """
+    if custom_path is None:
+        path = f'../Application/exports/scrapings/{filename}.json'
+    else:
+        path = f'{custom_path}/{filename}.json'
+
+    with open(path, 'r') as f:
+        scraping_results_imported = json.load(f)
+
+    scraping_results_imported_cleaned = [x for x in scraping_results_imported if
+                                         x is not None and x.get('error') is None]
+
+    return scraping_results_imported_cleaned

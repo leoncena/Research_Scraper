@@ -109,6 +109,53 @@ class ResearchScraper:
         print(f'Total time took: {round((end - start) / 60, 2)} minutes')
         return results
 
+    def download_pdf_of_publication_by_doi_live(self, doi, write_folder='../Application/exports/pdf_downloads'):
+        """
+        Scrapes pdf url and downloads it if possible
+        :param write_folder: path of folder where pdf is saved
+        :param doi: DOI of publication
+        :return: void, writes pdf to disk
+        """
+        scrape_result = self.scrape_publication_by_doi(doi, ['doi', 'pdf'])
+        if scrape_result.get('pdf') is None:
+            print(f'No pdf link found for {doi}, thus no pdf downloaded')
+            return
+        if scrape_result.get('pdf') is not None and scrape_result.get('doi') is not None:
+            filename = scrape_result.get('doi').replace('/', '_')
+            pdf_url = scrape_result.get('pdf')
+            utils.download_pdf(url=pdf_url, filename=filename, write_folder_path=write_folder)
+
+    def download_pdf_of_publications_by_doi_list_live(self, doi_list,
+                                                      write_folder='../Application/exports/pdf_downloads'):
+        """
+        Scrapes pdf url and downloads it if possible
+        :param write_folder: path of folder where pdf is saved
+        :param doi_list: List of DOI numbers
+        :return: void, writes pdf to disk
+        """
+        for doi in doi_list:
+            self.download_pdf_of_publication_by_doi_live(doi, write_folder)
+
+    def download_pdf_of_publications_by_scraping_results(self, scraping_result,
+                                                         write_folder='../Application/exports/pdf_downloads'):
+        """
+        Reads scraping resultds and downloads every pdf inside if possible
+        :param write_folder: path of folder where pdf is saved
+        :param scraping_result: List of scrape results
+        :return: void, writes pdf to disk
+        """
+        all_publications_with_pdf = [{'doi': x.get('doi'),
+                                      'pdf': x.get('pdf')}
+                                     for x in scraping_result if x.get('pdf') is not None and x.get('doi') is not None]
+        # iterate over all publications with pdf
+        for idx, publication in enumerate(all_publications_with_pdf):
+            print(f'>>> Downloading pdf {idx + 1} of {len(all_publications_with_pdf)}')
+
+            if publication.get('pdf') is not None and publication.get('doi') is not None:
+                filename = publication.get('doi').replace('/', '_')
+                pdf_url = publication.get('pdf')
+                utils.download_pdf(url=pdf_url, filename=filename, write_folder_path=write_folder)
+
     def __check_params_type(self, params):
         """
         Checks the type of params and raises errors if necessary \n
