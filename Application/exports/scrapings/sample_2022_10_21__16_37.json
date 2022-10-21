@@ -1,0 +1,773 @@
+[
+    {
+        "error": "No scraper found for this url",
+        "url": "https://onlinelibrary.wiley.com/resolve/doi?DOI=10.1111/j.1540-627X.2012.00367.x"
+    },
+    {
+        "url": "https://link.springer.com/chapter/10.1007/978-3-030-58112-1_4",
+        "title": "Deep Learning as a Competitive Feature-Free Approach for Automated Algorithm Selection on the Traveling Salesperson Problem",
+        "doi": "10.1007/978-3-030-58112-1_4",
+        "authors": [
+            {
+                "name": "Moritz Seiler",
+                "orcid": null
+            },
+            {
+                "name": "Janina Pohl",
+                "orcid": null
+            },
+            {
+                "name": "Jakob Bossek",
+                "orcid": null
+            },
+            {
+                "name": "Pascal Kerschke",
+                "orcid": null
+            },
+            {
+                "name": "Heike Trautmann",
+                "orcid": null
+            }
+        ],
+        "keywords": [
+            "Automated algorithm selection",
+            "Traveling Salesperson Problem",
+            "Feature-based approaches",
+            "Deep learning"
+        ],
+        "abstract": "In this work we focus on the well-known Euclidean Traveling Salesperson Problem (TSP) and two highly competitive inexact heuristic TSP solvers, EAX and LKH, in the context of per-instance algorithm selection (AS). We evolve instances with \n$$1\\,000$$\n nodes where the solvers show strongly different performance profiles. These instances serve as a basis for an exploratory study on the identification of well-discriminating problem characteristics (features). Our results in a nutshell: we show that even though (1) promising features exist, (2) these are in line with previous results from the literature, and (3) models trained with these features are more accurate than models adopting sophisticated feature selection methods, the advantage is not close to the virtual best solver in terms of penalized average runtime and so is the performance gain over the single best solver. However, we show that a feature-free deep neural network based approach solely based on visual representation of the instances already matches classical AS model results and thus shows huge potential for future studies.",
+        "pdf": "https://link.springer.com/content/pdf/10.1007/978-3-030-58112-1_4.pdf",
+        "publisher": "Springer International Publishing",
+        "year": "2020",
+        "start_page": "48",
+        "end_page": "64",
+        "publication_type": "Conference paper",
+        "full_text": [
+            {
+                "chapter_name": " Abstract",
+                "chapter_text": "In this work we focus on the well-known Euclidean Traveling Salesperson Problem (TSP) and two highly competitive inexact heuristic TSP solvers, EAX and LKH, in the context of per-instance algorithm selection (AS). We evolve instances with \\(1\\,000\\) nodes where the solvers show strongly different performance profiles. These instances serve as a basis for an exploratory study on the identification of well-discriminating problem characteristics (features). Our results in a nutshell: we show that even though (1) promising features exist, (2) these are in line with previous results from the literature, and (3) models trained with these features are more accurate than models adopting sophisticated feature selection methods, the advantage is not close to the virtual best solver in terms of penalized average runtime and so is the performance gain over the single best solver. However, we show that a feature-free deep neural network based approach solely based on visual representation of the instances already matches classical AS model results and thus shows huge potential for future studies."
+            },
+            {
+                "chapter_name": "1 Introduction",
+                "chapter_text": "The Traveling Salesperson Problem (TSP) is a classical \\(\\mathcal {NP}\\)-hard optimization problem of utmost relevance, e.g., in transportation logistics, bioinformatics or circuit board fabrication. The goal is to route a salesperson through a set of cities such that each city is visited exactly once and the tour is of minimal length. In the past decades tremendous progress has been made in the development of high-performing heuristic TSP solvers. The local search-based Lin-Kernigham Heuristic (LKH)\u00a0\n[14] and the genetic algorithm Edge-Assembly-Crossover (EAX)\u00a0\n[35], along with their respective restart versions introduced in Kotthoff et al.\u00a0\n[25], undeniably pose the state-of-the-art in inexact TSP solving.\n\nAutomated Algorithm Selection (AS), originally proposed by Rice\u00a0\n[39] back in 1976, is a powerful framework to predict the best-performing solver(s) from a portfolio of candidate solvers by means of machine learning. It has been successfully applied to a wide spectrum of challenging optimization problems in both the combinatorial\u00a0\n[24, 29, 30, 40, 48] and continuous domain\u00a0\n[4, 21] with partly astonishing performance gains \u2013 see the recent survey by Kerschke et al.\u00a0\n[19] for a comprehensive overview. In particular, the TSP was subject to several successful AS-studies\u00a0\n[20, 25, 33, 34, 37] which exploited the complementary performance profiles of simple heuristics on the one hand and the state-of-the-art solvers LKH and EAX on classical TSP benchmark sets on the other hand.\n\nIn the classic setting, AS relies on characteristic problem instance properties, termed (instance) features. These features are used as predictor variables for classical machine learning algorithms, e.g., random forests or support vector machines. The key idea \u2013 and ideal outcome \u2013 is that these features can easily be used to automatically derive decision rules that are well-suited to partition the instance space into ideally disjoint sub-spaces of instances, and which then are uniquely solved best by different solvers. However, features have many drawbacks: they are usually hand-crafted in a tedious process\u00a0\n[15], partly require time-consuming calculations (which need to be taken into account by the model fitting step) and are problem-tailored (or at least specific to a problem domain, e.g., graph problems). Moreover, we usually prefer light-weight models with few features. Hence, training AS models is frequently combined with automated feature selection methods\n[11, 36, 46] or dimensionality reduction techniques\n[12].\n\nRecently, Alissa et al.\u00a0\n[1] took a promising new path after exploring first approaches to avoid manual feature-crafting\u00a0\n[42, 43]. The authors proposed a deep learning based approach which does not rely on any a-priori calculated feature profiles. Instead, in their study on the 1D-Bin-Packing Problem (BPP) the neural network is given temporal sequence data of the BPP instance as the only input. They were able to achieve drastic improvements. In this paper we adopt and adapt this idea for the TSP. To this end, we evolve a set of instances where LKH and EAX show strongly different behaviour in terms of Penalized Average RuntimeFootnote 1 (PAR10;\n[2]). We show that with classical AS we can clearly beat the Single Best Solver (SBS; the solver with best average performance). However, the gap to the Virtual Best Solver (VBS; perfectly predicting oracle) can only be reduced slightly with much room for improvement. This holds true even in the case when we enrich the machine learning pipeline with (1) hand-selected feature subsets (based on exploratory data analysis), (2) different feature selection methods, or (3) a combination of both. After that, we propose a feature-free deep learning approach where the neural networks are trained on the plain image representations of Euclidean TSP instances. This approach achieves competitive performance, but drops the need for manual feature derivation and calculation.\n\nPAR10 values (log-scaled) of EAX and LKH show complementary performance on the two subsets of instances (easy for EAX or LKH) and thereby suggest huge potential for automated algorithm selection. (Color figure online)\n\nThe remainder of this paper is structured as follows. We describe the benchmark set (generation) and pre-selection of feature subsets in Sects.\u00a02 and 3 respectively. In Sect.\u00a04 we present the results that we achieve using classical feature-based AS approaches. Next, in Sect.\u00a05, we detail our feature-free deep learning based approaches, and compare the results with the classical models. We close with a discussion and an outlook in Sect.\u00a06."
+            },
+            {
+                "chapter_name": "2 Evolving TSP Instances",
+                "chapter_text": "Our benchmark requires a set of Euclidean TSP instances that show strong differences in algorithmic performance. To this end, we adopt an evolutionary algorithm\u00a0(EA) and creative mutation operators recently proposed by Bossek et al.\u00a0\n[6]. Their method allows for the tailored generationFootnote 2 of TSP instances that (1) have the desired performance difference (in terms of the ratio of PAR10-scores), (2) show multifarious topologies in terms of point arrangement in the Euclidean planeFootnote 3, and (3) are well distributed in the space of instances characteristics/features; in particular the latter two properties were not achieved by evolutionary instance generation methods before\u00a0\n[33, 34]. For sake of brevity we refer the reader to Bossek et al.\u00a0\n[6] for more details.\n\nWe generated a balanced data set of \\(1\\,000\\) TSP instances with \\(n=1\\,000\\) nodes per instance using the EA parameters from\n[6]; each 500 being uniquely faster solved to optimality by either EAX or LKH.Footnote 4 All generated data is available in a public GitHub repository (https://github.com/mvseiler/PPSN_TSP_DL).\n\nExemplary visual representations of two TSP instances in terms of point cloud only (left), a minimum spanning tree (center) and the 5-nearest-neighbor graph (right). The top row shows the instance for which the highest mean PAR10 score was achieved by EAX, the bottom row shows the respective counterpart of LKH.\n\nFigure\u00a01 depicts the performance \u2013 measured by means of PAR10 \u2013 of EAX and LKH on the entire benchmark set. The plot highlights apparent potential for automated algorithm selection due to strong performance differences. On the other hand the data reveals the general superiority of the EAX solver since it is much harder to evolve instances that are hard for EAX (shown as orange points). There are just two instances for which the EAX hits the cutoff time \\(T=3\\,600\\)\u00a0s\u00a0(1\u00a0h) at least once in all of its ten independent runs on that instance. In contrast, LKH frequently gets stuck in local optima \u2013 see the cluster of green points between \\(T=3\\,600\\) and \\(10 \\cdot T\\) in the top left corner."
+            },
+            {
+                "chapter_name": "3 Identifying Adequate Subsets of TSP Features",
+                "chapter_text": "The state-of-the-art TSP-related feature sets\u00a0\n[16, 33, 37] consist of hundreds of hand-crafted features. Features range from statistics (mean, variance etc.) of edge lengths, angles of nearest neighbors, to more sophisticated features based on Minimum Spanning Trees (MST) or k-Nearest-Neighbor-Graphs (k-NNG). Figure\u00a02 depicts visual impressions of MSTs and k-NNGs on two evolved instances; these images will be a key ingredient to the neural network in Sect.\u00a05.\n\nDistribution of 15 best features according to the significance-test based feature importance method on all instances (left) and the 300 hardest instances with respect to mean PAR10 performance (right). (Color figure online)\n\nDue to the size of feature sets, in the context of algorithm selection, automated feature selection methods have shown their suitability for automatically filtering a (small) subset of discriminating features\n[20]. Regardless of the sophistication of the feature selection method at hand, feature selection needs to cope with an exponentially sized search space of the underlying subset-selection problem. Hence, in order to assist our feature-based model fitting we conduct a simple univariate exploratory data analysis in order to identify a lucid subset of adequate features a-priori. To this end we adopt a simple greedy heuristic. First, all features f are scaled to [0,\u00a01] to allow for a fair comparison across the features. Then, we perform a two-sided non-parametric Wilcoxon-Mann-Whitney test\u00a0\n[31] at significance level \\(\\alpha =0.05\\) per feature f, to check the null hypothesis that the distributions of the EAX instances and the LKH instances with respect to f differ by a location shift equal to zero. We extract the 15 most relevant features according to the smallest p-values. This procedure was done once for the entire benchmark set of salesperson features as the most comprehensive feature set (see Sect.\u00a04) and was repeated for subsets of \u201chardest\u201d instances of decreasing size. Hardest in this context relates to (a) each 300 and 150 hardest instances for each solver with respect to mean PAR10-score, or (b) the ratio of mean PAR10-scores. Both methods pursue to reduce the benchmark set to instances with maximal performance differences.\n\nFigure\u00a03 shows the distribution of selected features both across the whole benchmark set and the subset of each 300 most difficult instances with respect to mean PAR10-score for each solver (marked with crosses in Fig.\u00a01). Noticeably, the 15 most relevant features are identical for both sets. They are mainly composed of summary statistics on strong connected components of the nearest neighbor graph (nng_*) and properties based on minimum spanning trees (mst_*). This is very much in line with crucial features identified in most TSP-related AS-studies\u00a0\n[7, 8, 20, 33, 34, 37] by sophisticated variable importance measurement. These features seem plausible since both MSTs and NNGs capture the global structure, e.g., existence of clusters etc., very well. A close look at Fig.\u00a03 suggests, that instances that are easy for EAX cover a wider range of values which is derived from wider (green) boxes for the features while easy instances for LKH show much more narrow (orange) boxes, with many strong outliers though. The right hand plot, however, shows that the hardest instances seem to be better separable with the features. For instance, for the features in the top 4 rows we observe that \\(75\\%\\) of feature values for LKH-friendly instances are higher than \\(75\\%\\) of the respective values for EAX-friendly instances."
+            },
+            {
+                "chapter_name": "4 Classical Algorithm Selection",
+                "chapter_text": "Figure\u00a01 reveals very complementary performances of EAX and LKH, which gives us reason to assume that automated AS might work well in this setting. Further, as outlined in the univariate analysis of the TSP features (see Sect.\u00a03), the features also indicate their potential for distinguishing instances that are beneficial for EAX from instances for which LKH is preferable. As previous works\n[20, 25] already confirmed the effectivity of feature-based AS, we adopted their experimental setup \u2013 and only slightly modified it to the scenario at hand. Below, we will outline the considered machine learning algorithms, feature sets, as well as feature selection strategies, which have been used for training our final selectors.\n\nAll our candidate AS models are trained using PAR10\n[18] as performance measure and assessed with a 10-fold cross-validation (CV). As indicated by Fig.\u00a01, it is much more difficult for LKH to perform well on the instances that were evolved in favor of EAX (green points), rather than vice versa (orange). Therefore, the selectors will likely have a bias towards EAX instances. To adjust for this bias, we additionally tune the classification threshold for all trained models.\n\nFor training the potential automated AS models, we considered four different classifiers\n[13] using the R-package mlr\n[3]: decision trees\n[45], random forests\n[27], support vector machines\n[17] and gradient boosting\n[9]. Each of them is trained using three different feature sets: the UBC features from Hutter et al.\u00a0\n[16], a large set of features by Pihera and Musliu\n[37], as well as the TSP features from the R-package salespersonFootnote 5\u00a0\n[5]. The salesperson features provide the up-to-now most comprehensive collection of features; in fact, they are a strict superset of the Pihera and tspmeta features\n[34]. On the other hand, the UBC and Pihera features led to the best performing algorithm selectors in previous works\n[20, 25] \u2013 which did not consider the salesperson features as the package did not exist back then. Note that there is a large overlap across the three considered feature sets as outlined in\n[19]. To reduce the noise within and redundancy between the features, we additionally created five small subgroups from the salesperson feature set, consisting of 15 features each (see Sect.\u00a03 for details).\n\nIn addition to the 32 potential AS models described above (8 feature sets\u00a0\\(\\times \\)\u00a04 learners), the respective feature sets were further reduced using three automated feature selection strategies: sequential floating forward selection (sffs), sequential floating backward selection (sfbs), and \u2013 for the reduced feature sets \u2013 exhaustive search of the 15 features\n[19, 23]. This resulted in 84 further candidate selectors.\n\nTable\u00a01 summarizes the averaged PAR10 performances of all 116 considered AS models, with the best achieved scores highlighted in red. Of course, all shown PAR10-scores already include the costs for the computation of the TSP features. On average those costs account for merely 0.7s at most. According to the listed performances of the best models (61.21\u00a0s), the SBS (67.47\u00a0s) and the VBS (4.92\u00a0s), the best classical AS approaches are able to reduce the SBS-VBS-gap by 10%.\n\nThe best found selectors are random forests, which reduced the top 15 features that they were given initially, to the following four features: the sum, arithmetic mean, median and coefficient of variation of the distances of the MST. Moreover, the tuned thresholds varied from 4% to 33% across the ten folds, implying that EAX has always been selected once the model predicted EAX with a probability of at least 33%. In consequence, out of all instances, in which LKH was actually the faster solver, it has only been selected 151 times (corresponding to roughly 30%). On the other hand, LKH has only been (wrongly) picked in 4% of the cases, in which EAX would have been the correct choice.\n\nWhen starting with the full feature sets from Pihera, UBC and salesperson, a support vector machine based on a subset of the UBC features achieved the best performance (printed in bold in Table\u00a01). In fact, the PAR10-score of 56.67\u00a0s is only slightly worse than the one of our best selector(s). Noticeably, the SVM also relied on MST features only: the arithmetic mean and standard deviation of the lengths of the edges in the MST, as well as the skewness of its node degrees.\n\nOur findings are also confirmed by the left image of Fig.\u00a04 as only few observations (20) are located above the diagonal. However, looking at the right image, it becomes nearly obvious that the selector is still quite far away from the performance of the VBS, as shown by the many misclassifications (381 out of all 1\u00a0000 instances) above the diagonal.\n\nPAR10-scores (log-scaled) of the best classical AS model reveal the improvement of the best selector over the SBS (left), and the gap towards the VBS (right).\n\nIn an attempt to better understand the reason for these rather small thresholds, we investigated the misclassification costs in detail. Prior to tuning the threshold, LKH was predicted 154 times when EAX would have been the correct choice \u2013 and each of those misclassifications caused (on average) an overhead of 4\u00a0423.89\u00a0s. In contrast, the 128 cases in which EAX was predicted instead of LKH only came with an average penalty of 95.95\u00a0s. After tuning the thresholds, each of the 20 wrong predictions of LKH caused only 290.04\u00a0s \u2013 compared to the average penalty of 126.07\u00a0s for the 361 wrong predictions of EAX. Thus, by being rather conservative and only predicting LKH in cases, where the model is highly certain, the selector was able to reduce the misclassification costs significantly.\n\nAs our results indicate, the common feature-based approaches are able to improve over the SBS. However, it is also noticeable that the currently available features still have a very hard time in extracting sufficient information from the TSP instance to reliably predict the better solver. Therefore, we will test the suitability of deep learning neural networks as an alternative or supporting means for automated algorithm selection."
+            },
+            {
+                "chapter_name": "5 Deep Learning Based Approach",
+                "chapter_text": "As demonstrated in the previous section, feature-based AS methods can outperform the SBS. However, these models come with three major drawbacks: they (1) are hand-crafted in a tedious process, (2) partly require time-consuming calculations, and (3) are problem tailored (see Sect.\u00a01). To overcome these issues, we propose a novel, and sophisticated feature-free approach that is based on so-called Convolutional Neural Networks (CNN)\n[26].\n\nThe chosen neural architecture. All convolutional blocks include a Group Normalization Layer and a Rectified Linear Unit activation (Conv \\(\\rightarrow \\) GN \\(\\rightarrow \\) ReLU). The strides are used to reduce the feature maps\u2019 dimensions and the dilation are used to increase the receptive fields without adding additional parameters.\n\nExemplary visualization of the operation principles of Convolutional Neural Networks. Left: Normal CNN layer with \\(Dilation=1\\) and \\(Strides=1\\). Middle: CNN layer with \\(Strides=2\\) (reducing the output size by half). Right: CNN Layer with \\(Dilation=2\\) (increasing the receptive field without adding additional weights).\n\nTo train CNN based AS models that are independent of the commonly used TSP features, we will produce different visual representations of our TSP instances (see Fig.\u00a02) and use them for training the deep learning networks. Those images are created with a resolution of \\(512 \\times 512\\) pixels and the coordinates of the instances are scaled to fill out the entire image as exemplarily shown in the two images in the left column of Fig.\u00a02. In addition to these point clouds, images of corresponding Minimum Spanning Trees (MST, second column of Fig.\u00a02) and k-Nearest-Neighbor Graphs (k-NNG, right column of Fig.\u00a02) with \\(k = 5\\) were generated. We chose MST and 5-NNG as additional visual representations because we found in Sect.\u00a03 that the 15 most important features are based almost exclusively on MST and 5-NNG graphs. In the 5-NNGs, not only mutual (strong) connections but also one-sided (weak) links were considered, in which one city belongs to the nearest neighbor set of another city, but not vice versa.\n\nAdmittedly, only networks whose generation was based exclusively on point clouds can be described as feature-free. For a better comparison, however, we have additionally evaluated feature-based networks that were trained with images of the corresponding MST and 5-NNG. Hence, we considered two different scenarios for our network-based approaches. In the first scenario (S1), the networks were trained based on (a) point clouds of the cities (Points), (b) MST images, and (c) 5-NNG images. In scenario (S2), we combined (a) the scatterplots with the MST images (as two input channels), and (b) the scatterplots with the MST and 5-NNG images (as three input channels). As the costs for generating the images are insignificant, we have not taken their generation time into account when computing the PAR10 scores of the deep learning models. For larger instances, though, these times would have to be taken into account.\n\nTo process the visual representations of the instances, we used eight stacked convolutional layers (see Fig.\u00a05). Three of them used \\(Strides=2\\) to reduce the size of the feature maps and four of them used \\(Dilation=\\{2,3\\}\\)-Kernels to enlarge the receptive fields and, thus, gain a larger view of the instances (see Fig.\u00a06 to compare the effects of Strides and Dilation). We used Rectified Linear Unit (ReLU)\n[10] as activation function for all layers except for the last linear layer, for which we used a Softmax activation. To improve the training speed, the outputs of all convolutional layers are normalized by using Group Normalization (GN)\n[47] with \\(G=8\\). The GN layers are in-between the convolutional layers and the ReLU activation. For transition from the three-dimensional convolutional (\\(Width \\times Height \\times Channels\\)) layers to the one-dimensional linear layer, a Global Average Pooling Layer (GPL)\n[28] is used. After the GPL, a Dropout (DP)\n[44] layer with 25% dropout is added to improve regularization. The final layer is a single, linear layer with two output neurons \u2013 one for EAX and one for LKH (see Fig.\u00a05). Last, we used 10-fold cross-validation to evaluate the performance of the neural networks. The folds were the same as for the classical feature-based approach. All networks were trained using mini-batches of eight, Adam\n[22] as optimizer and Cross-Entropy\n[32] as loss function. Note that neural networks are most commonly trained using Stochastic Gradient Descent\n[41], which strongly differs from the training methods used in Sect.\u00a04.\n\nThe best performing classical approach achieved a mean PAR10-score of 56.29 (see Table\u00a01). Our feature-free networks, which were trained exclusively using the points, achieved a mean PAR10-score of 56.31 after tuning the threshold and thus a similar performance (see Table\u00a02) as the feature-based, classical approaches.\n\nAs stated before, we additionally investigated whether adding additional features to the networks could improve the models\u2019 performances. Therefore, we also trained feature-based networks using MST and 5-NNG images. As shown in Table\u00a02, both variants perform noticeably better. Besides, we found that while the thresholds between the points and the MST models are rather similar, the thresholds of the NNG models are on average \\(10\\%\\) higher. Next, the thresholds of the Points and MST models range from \\(13\\%\\) to \\(34\\%\\), and \\(16\\%\\) to \\(35\\%\\), respectively, while the thresholds of the NNG models range from \\(3\\%\\) to \\(73\\%\\). Thus, networks trained on the NNG images appear to be less stable.\n\nMoreover, the networks based on the Points correctly predicted EAX in 91.8% (and thus 459 times) of the cases, in which EAX was the better solver, compared to only 22.6% (113 cases) for the LKH-friendly cases. This behavior likely results from the fact that a misclassification of an instance, which is favorable for LKH, is cheaper than a misclassification of an instance that is easier for EAX. In contrast, the MST-based networks predict EAX in 91.6% (458) and LKH in 27.2% (136) cases, correctly. Thus, compared to the feature-free networks, which were exclusively based on Points, the MST networks benefit from correctly identifying LKH-friendly instances \u2013 without losing accuracy on the EAX-friendly instances. Noticeably, in case of the 5-NNG networks, only 84.6% (423) of the EAX-easy instances are classified correctly, compared to 34.8% (174) among the LKH-easy instances. Thus, despite the improvements among the instances that are favorable for LKH, the PAR10 score of the NNG-based networks is inferior to the MST-based selector, as misclassifying EAX-easy instances is more expensive.\n\nPAR10-scores (log-scaled) of the points networks of scenario S1 (on the left) and the MST networks of scenario S1 versus the Single-Best-Solver (EAX).\n\nTo investigate whether the combination of the three different input variants would lead to networks that achieve better performances when predicting EAX- and LKH-easy instances, we combined Points and MST, as well as Points, MST and NNG into two and three input channels (Scenario 2), respectively. However, as shown in Table\u00a02, combining the visual representations does not improve the networks\u2019 overall performances. Also, while the network based on Points + MST classifies 31% (155) of the LKH-easy instances correctly, the selector based on Points + MST + NNG only succeeds in 17% (85) of the respective cases. We further observed that the threshold values are quite similar to the ranges of the Points and MST models from scenario S1.\n\nAs visualized in Fig.\u00a07, the Points (left) and MST networks (right) prefer EAX over LKH \u2013 as there are far more observations below the diagonal. This is also confirmed by the low thresholds (see Table\u00a02). Interestingly, the networks solely based on visual representations of the instance, even perform slightly better than the classical feature-based AS models \u2013 but are still clearly inferior to the VBS."
+            },
+            {
+                "chapter_name": "6 Conclusions and Outlook",
+                "chapter_text": "The conducted experiments shed light on still existing shortcomings of classical feature-based per-instance algorithm selection on the TSP. While previous studies clearly reported successful approaches, the informative character of existing TSP feature sets reaches its limits for instances specifically evolved for maximum performance difference of the two state-of-the art heuristic solvers. Sophisticated mutation operators here lead to so far unobserved topological structures. Despite outperforming the SBS, the gap to the performance of the oracle-like VBS cannot be closed substantially, even after utilization of sophisticated preprocessing and feature selection approaches.\n\nHowever, it again becomes obvious that the minimum spanning tree and nearest neighbor structures of the points are most informative in discriminating solver performances. We build on this information and enrich a deep neural network approach based on images of the instance topology by specific images visualizing the minimum spanning tree and the nearest neighbor graph. Most interestingly, our feature-free deep neural network nicely matches the performance of the quite complex classical AS approach (see Table\u00a03), despite being solely based on an image of the instance\u2019s points.\n\nThis proof-of-concept study thus shows the huge potential of deep learning, feature-free approaches in this domain which we will exploit in future studies by more sophisticated networks and altered loss functions specifically adapted to the designated performance indicators. Moreover, additional image channels will be added, e.g., in terms of heatmaps. Specific investigations have to be conducted with regard to the scaling behaviour of the approach, as image resolutions most probably will have to be carefully adapted to increasing instance sizes.\n\nOn the other hand, the observed limitations of classical TSP features show the necessity of enriching the library of TSP features by alternative sets which capture other kinds of\u2014obviously important\u2014instance structures. We will apply our approach to classical feature sets such as RUE or TSPLib as well for a comparison. However, it is specifically noteworthy that, in principle, the deep learning approach nicely generalizes to other graph-based optimization problems while instance features are almost exclusively tailored to the focused domain."
+            },
+            {
+                "chapter_name": " Notes",
+                "chapter_text": "The PAR10-score is a common measure in AS for combinatorial optimization problems. For a stochastic algorithm A and an instances I it is defined as the average of the running times of A on I where runs which did not reach the optimum within a given time limit T are penalised by a factor of \\(10\\cdot T\\).\n\nVarious TSP benchmark libraries exist, e.g., TSPLIB\u00a0\n[38] or classical Random Uniform Euclidean\u00a0(RUE) instances. However, these instances are either inhomogeneous in size or exhibit very little structural difference. For the purpose of algorithm selection though a balanced and homogeneous benchmark set is highly beneficial.\n\nThe mutation operators are designed to evolve structures that can be observed in real-world TSP instances, e.g., Very Large Scale Integration (VLSI) and are thus closer to the real-world than the often used random uniform problems.\n\nWe work with the restart versions of EAX and LKH which trigger a restart once the internal stopping conditions are met\u00a0\n[25] as long as the time limit is not reached.\n\nThe R-package salesperson is an efficient and more comprehensive extension of the tspmeta feature generator by\n[34]."
+            }
+        ],
+        "references": [
+            {
+                "reference_text": "Alissa, M., Sim, K., Hart, E.: Algorithm selection using deep learning without feature extraction. In: Proceedings of the Genetic and Evolutionary Computation Conference GECCO 2019, pp. 198\u2013206. Association for Computing Machinery, New York (2019). https://doi.org/10.1145/3321707.3321845",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Bischl, B., et al.: ASlib: a benchmark library for algorithm selection. Artif. Intell. 237, 41\u201358 (2016). https://doi.org/10.1016/j.artint.2016.04.003",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=ASlib%3A%20a%20benchmark%20library%20for%20algorithm%20selection&journal=Artif.%20Intell.&doi=10.1016%2Fj.artint.2016.04.003&volume=237&pages=41-58&publication_year=2016&author=Bischl%2CB"
+            },
+            {
+                "reference_text": "Bischl, B., et al.: mlr: machine learning in R. J. Mach. Learn. Res. (JMLR) 17(170), 1\u20135 (2016). http://jmlr.org/papers/v17/15-066.html",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=mlr%3A%20machine%20learning%20in%20R&journal=J.%20Mach.%20Learn.%20Res.%20%28JMLR%29&volume=17&issue=170&pages=1-5&publication_year=2016&author=Bischl%2CB"
+            },
+            {
+                "reference_text": "Bischl, B., Mersmann, O., Trautmann, H., Preuss, M.: Algorithm selection based on exploratory landscape analysis and cost-sensitive learning. In: Proceedings of the 14th Annual Conference on Genetic and Evolutionary Computation (GECCO), pp. 313\u2013320. ACM, July 2012. https://doi.org/10.1145/2330163.2330209. http://dl.acm.org/citation.cfm?doid=2330163.2330209",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Bossek, J.: Salesperson: computation of instance features and R interface to the state-of-the-art exact and inexact solvers for the traveling salesperson problem (2017). https://github.com/jakobbossek/salesperson. R package version 1.0.0",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Bossek, J., Kerschke, P., Neumann, A., Wagner, M., Neumann, F., Trautmann, H.: Evolving diverse TSP instances by means of novel and creative mutation operators. In: Friedrich, T., Doerr, C., Arnold, D. (eds.) Proceedings of the 15th ACM/SIGEVO Workshop on Foundations of Genetic Algorithms (FOGA XV), pp. 58\u201371. ACM, Potsdam (2019)",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Bossek%2C%20J.%2C%20Kerschke%2C%20P.%2C%20Neumann%2C%20A.%2C%20Wagner%2C%20M.%2C%20Neumann%2C%20F.%2C%20Trautmann%2C%20H.%3A%20Evolving%20diverse%20TSP%20instances%20by%20means%20of%20novel%20and%20creative%20mutation%20operators.%20In%3A%20Friedrich%2C%20T.%2C%20Doerr%2C%20C.%2C%20Arnold%2C%20D.%20%28eds.%29%20Proceedings%20of%20the%2015th%20ACM%2FSIGEVO%20Workshop%20on%20Foundations%20of%20Genetic%20Algorithms%20%28FOGA%20XV%29%2C%20pp.%2058%E2%80%9371.%20ACM%2C%20Potsdam%20%282019%29"
+            },
+            {
+                "reference_text": "Bossek, J., Trautmann, H.: Evolving instances for maximizing performance differences of state-of-the-art inexact TSP solvers. In: Festa, P., Sellmann, M., Vanschoren, J. (eds.) LION 2016. LNCS, vol. 10079, pp. 48\u201359. Springer, Cham (2016). https://doi.org/10.1007/978-3-319-50349-3_4",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Evolving%20instances%20for%20maximizing%20performance%20differences%20of%20state-of-the-art%20inexact%20TSP%20solvers&pages=48-59&publication_year=2016 2016 2016&author=Bossek%2CJ&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "Bossek, J., Trautmann, H.: Understanding characteristics of evolved instances for state-of-the-art inexact TSP solvers with maximum performance difference. In: Adorni, G., Cagnoni, S., Gori, M., Maratea, M. (eds.) AI*IA 2016. LNCS (LNAI), vol. 10037, pp. 3\u201312. Springer, Cham (2016). https://doi.org/10.1007/978-3-319-49130-1_1",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Understanding%20characteristics%20of%20evolved%20instances%20for%20state-of-the-art%20inexact%20TSP%20solvers%20with%20maximum%20performance%20difference&pages=3-12&publication_year=2016 2016 2016&author=Bossek%2CJ&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "Chen, T., et al.: XGBoost: extreme gradient boosting (2019). https://CRAN.R-project.org/package=xgboost. R package version 0.90.0.2",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Glorot, X., Bordes, A., Bengio, Y.: Deep sparse rectifier neural networks. In: Gordon, G.J., Dunson, D.B., Dud\u00edk, M. (eds.) Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics, AISTATS 2011, Fort Lauderdale, USA, 11\u201313 April 2011. JMLR Proceedings, vol. 15, pp. 315\u2013323. JMLR.org (2011). http://proceedings.mlr.press/v15/glorot11a/glorot11a.pdf",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Guyon, I., Elisseeff, A.: An introduction to feature extraction. In: Guyon, I., Nikravesh, M., Gunn, S., Zadeh, L.A. (eds.) Feature Extraction. STUDFUZZ, vol. 207, pp. 1\u201325. Springer, Heidelberg (2006). https://doi.org/10.1007/978-3-540-35488-8_1",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=An%20introduction%20to%20feature%20extraction&pages=1-25&publication_year=2006&author=Guyon%2CI&author=Elisseeff%2CA"
+            },
+            {
+                "reference_text": "H\u00e4rdle, W.K., Simar, L.: Applied Multivariate Statistical Analysis, 4th edn. Springer, Heidelberg (2015). https://doi.org/10.1007/978-3-662-45171-7",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Applied%20Multivariate%20Statistical%20Analysis&publication_year=2015&author=H%C3%A4rdle%2CWK&author=Simar%2CL"
+            },
+            {
+                "reference_text": "Hastie, T., Tibshirani, R., Friedman, J.: The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer, Heidelberg (2009). http://www.springer.com/de/book/9780387848570",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=The%20Elements%20of%20Statistical%20Learning%3A%20Data%20Mining%2C%20Inference%2C%20and%20Prediction&publication_year=2009&author=Hastie%2CT&author=Tibshirani%2CR&author=Friedman%2CJ"
+            },
+            {
+                "reference_text": "Helsgaun, K.: An effective implementation of the lin-kernighan traveling salesman heuristic. Eur. J. Oper. Res. 126(1), 106\u2013130 (2000)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=An%20effective%20implementation%20of%20the%20lin-kernighan%20traveling%20salesman%20heuristic&journal=Eur.%20J.%20Oper.%20Res.&volume=126&issue=1&pages=106-130&publication_year=2000&author=Helsgaun%2CK"
+            },
+            {
+                "reference_text": "Hutter, F., Xu, L., Hoos, H.H., Leyton-Brown, K.: Algorithm runtime prediction: methods & evaluation. Artif. Intell. 206, 79\u2013111 (2014). https://doi.org/10.1016/j.artint.2013.10.003",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Algorithm%20runtime%20prediction%3A%20methods%20%26%20evaluation&journal=Artif.%20Intell.&doi=10.1016%2Fj.artint.2013.10.003&volume=206&pages=79-111&publication_year=2014&author=Hutter%2CF&author=Xu%2CL&author=Hoos%2CHH&author=Leyton-Brown%2CK"
+            },
+            {
+                "reference_text": "Hutter, F., Xu, L., Hoos, H.H., Leyton-Brown, K.: Algorithm runtime prediction: methods & evaluation. Artif. Intell. J. (AIJ) 206, 79\u2013111 (2014). http://www.sciencedirect.com/science/article/pii/S0004370213001082",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Algorithm%20runtime%20prediction%3A%20methods%20%26%20evaluation&journal=Artif.%20Intell.%20J.%20%28AIJ%29&volume=206&pages=79-111&publication_year=2014&author=Hutter%2CF&author=Xu%2CL&author=Hoos%2CHH&author=Leyton-Brown%2CK"
+            },
+            {
+                "reference_text": "Karatzoglou, A., Smola, A., Hornik, K., Zeileis, A.: kernlab - An S4 package for kernel methods in R. J. Stat. Softw. (JSS) 11(9), 1\u201320 (2004). http://www.jstatsoft.org/v11/i09/",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=kernlab%20-%20An%20S4%20package%20for%20kernel%20methods%20in%20R&journal=J.%20Stat.%20Softw.%20%28JSS%29&volume=11&issue=9&pages=1-20&publication_year=2004&author=Karatzoglou%2CA&author=Smola%2CA&author=Hornik%2CK&author=Zeileis%2CA"
+            },
+            {
+                "reference_text": "Kerschke, P., Bossek, J., Trautmann, H.: Parameterization of state-of-the-art performance indicators: a robustness study based on inexact TSP solvers. In: Proceedings of the 20th Genetic and Evolutionary Computation Conference (GECCO) Companion, pp. 1737\u20131744. ACM, Kyoto (2018). https://doi.org/10.1145/3205651.3208233. http://doi.acm.org/10.1145/3205651.3208233",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Kerschke, P., Hoos, H.H., Neumann, F., Trautmann, H.: Automated algorithm selection: survey and perspectives. Evol. Comput. (ECJ) 27(1), 3\u201345 (2019)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Automated%20algorithm%20selection%3A%20survey%20and%20perspectives&journal=Evol.%20Comput.%20%28ECJ%29&volume=27&issue=1&pages=3-45&publication_year=2019&author=Kerschke%2CP&author=Hoos%2CHH&author=Neumann%2CF&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "Kerschke, P., Kotthoff, L., Bossek, J., Hoos, H.H., Trautmann, H.: Leveraging TSP solver complementarity through machine learning. Evol. Comput. (ECJ) 26(4), 597\u2013620 (2018)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Leveraging%20TSP%20solver%20complementarity%20through%20machine%20learning&journal=Evol.%20Comput.%20%28ECJ%29&volume=26&issue=4&pages=597-620&publication_year=2018&author=Kerschke%2CP&author=Kotthoff%2CL&author=Bossek%2CJ&author=Hoos%2CHH&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "Kerschke, P., Trautmann, H.: Automated algorithm selection on continuous black-box problems by combining exploratory landscape analysis and machine learning. Evol. Comput. 27(1), 99\u2013127 (2019). https://doi.org/10.1162/evco_a_00236. pMID: 30365386",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Automated%20algorithm%20selection%20on%20continuous%20black-box%20problems%20by%20combining%20exploratory%20landscape%20analysis%20and%20machine%20learning&journal=Evol.%20Comput.&doi=10.1162%2Fevco_a_00236&volume=27&issue=1&pages=99-127&publication_year=2019&author=Kerschke%2CP&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "Kingma, D.P., Ba, J.: Adam: a method for stochastic optimization. In: Bengio, Y., LeCun, Y. (eds.) 3rd International Conference on Learning Representations, ICLR 2015, San Diego, CA, USA, 7\u20139 May 2015, Conference Track Proceedings (2015). http://arxiv.org/abs/1412.6980",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Kohavi, R., John, G.H., et al.: Wrappers for feature subset selection. Artif. Intell. 97(1\u20132), 273\u2013324 (1997)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Wrappers%20for%20feature%20subset%20selection&journal=Artif.%20Intell.&volume=97&issue=1%E2%80%932&pages=273-324&publication_year=1997&author=Kohavi%2CR&author=John%2CGH"
+            },
+            {
+                "reference_text": "Kotthoff, L.: Algorithm selection for combinatorial search problems: a survey. AI Mag. 35(3), 48\u201360 (2014). https://doi.org/10.1609/aimag.v35i3.2460. https://aaai.org/ojs/index.php/aimagazine/article/view/2460",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Algorithm%20selection%20for%20combinatorial%20search%20problems%3A%20a%20survey&journal=AI%20Mag.&doi=10.1609%2Faimag.v35i3.2460&volume=35&issue=3&pages=48-60&publication_year=2014&author=Kotthoff%2CL"
+            },
+            {
+                "reference_text": "Kotthoff, L., Kerschke, P., Hoos, H., Trautmann, H.: Improving the state of the art in inexact TSP solving using per-instance algorithm selection. In: Dhaenens, C., Jourdan, L., Marmion, M.-E. (eds.) LION 2015. LNCS, vol. 8994, pp. 202\u2013217. Springer, Cham (2015). https://doi.org/10.1007/978-3-319-19084-6_18",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Improving%20the%20state%20of%20the%20art%20in%20inexact%20TSP%20solving%20using%20per-instance%20algorithm%20selection&pages=202-217&publication_year=2015 2015 2015&author=Kotthoff%2CL&author=Kerschke%2CP&author=Hoos%2CH&author=Trautmann%2CH"
+            },
+            {
+                "reference_text": "LeCun, Y., Bengio, Y., et al.: Convolutional networks for images, speech, and time series. In: The Handbook of Brain Theory and Neural Networks, vol. 3361, no. 10, p. 1995 (1995)",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=LeCun%2C%20Y.%2C%20Bengio%2C%20Y.%2C%20et%20al.%3A%20Convolutional%20networks%20for%20images%2C%20speech%2C%20and%20time%20series.%20In%3A%20The%20Handbook%20of%20Brain%20Theory%20and%20Neural%20Networks%2C%20vol.%203361%2C%20no.%2010%2C%20p.%201995%20%281995%29"
+            },
+            {
+                "reference_text": "Liaw, A., Wiener, M.: Classification and regression by randomForest. R News 2(3), 18\u201322 (2002). https://cran.r-project.org/doc/Rnews/Rnews2002-3.pdf",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Classification%20and%20regression%20by%20randomForest&journal=R%20News&volume=2&issue=3&pages=18-22&publication_year=2002&author=Liaw%2CA&author=Wiener%2CM"
+            },
+            {
+                "reference_text": "Lin, M., Chen, Q., Yan, S.: Network in network. In: Bengio, Y., LeCun, Y. (eds.) 2nd International Conference on Learning Representations, ICLR 2014, Banff, AB, Canada, 14\u201316 April 2014, Conference Track Proceedings (2014). http://arxiv.org/abs/1312.4400",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Lindauer, T.M., Hoos, H.H., Hutter, F., Schaub, T.: AutoFolio: an automatically configured algorithm selector (extended abstract). In: Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI), pp. 5025\u20135029, August 2017. https://doi.org/10.24963/ijcai.2017/715. https://www.ijcai.org/proceedings/2017/715",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Malitsky, Y., Sabharwal, A., Samulowitz, H., Sellmann, M.: Algorithm portfolios based on cost-sensitive hierarchical clustering. In: Rossi, F. (ed.) Proceedings of the Twenty-Third International Joint Conference on Artificial Intelligence (IJCAI), vol. 13, pp. 608\u2013614. Association for the Advancement of Artificial Intelligence (AAAI), August 2013. https://www.aaai.org/ocs/index.php/IJCAI/IJCAI13/paper/view/6946",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Mann, H.B., Whitney, D.R.: On a test of whether one of two random variables is stochastically larger than the other. Ann. Math. Stat. 18(1), 50\u201360 (1947). https://doi.org/10.1214/aoms/1177730491",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=On%20a%20test%20of%20whether%20one%20of%20two%20random%20variables%20is%20stochastically%20larger%20than%20the%20other&journal=Ann.%20Math.%20Stat.&doi=10.1214%2Faoms%2F1177730491&volume=18&issue=1&pages=50-60&publication_year=1947&author=Mann%2CHB&author=Whitney%2CDR"
+            },
+            {
+                "reference_text": "Mannor, S., Peleg, D., Rubinstein, R.Y.: The cross entropy method for classification. In: Raedt, L.D., Wrobel, S. (eds.) Machine Learning, Proceedings of the Twenty-Second International Conference (ICML 2005), Bonn, Germany, 7\u201311 August 2005. ACM International Conference Proceeding Series, vol. 119, pp. 561\u2013568. ACM (2005). https://doi.org/10.1145/1102351.1102422",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Mersmann, O., Bischl, B., Bossek, J., Trautmann, H., Wagner, M., Neumann, F.: Local search and the traveling salesman problem: a feature-based characterization of problem hardness. In: Hamadi, Y., Schoenauer, M. (eds.) LION 2012. LNCS, pp. 115\u2013129. Springer, Heidelberg (2012). https://doi.org/10.1007/978-3-642-34413-8_9",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Local%20search%20and%20the%20traveling%20salesman%20problem%3A%20a%20feature-based%20characterization%20of%20problem%20hardness&pages=115-129&publication_year=2012 2012 2012&author=Mersmann%2CO&author=Bischl%2CB&author=Bossek%2CJ&author=Trautmann%2CH&author=Wagner%2CM&author=Neumann%2CF"
+            },
+            {
+                "reference_text": "Mersmann, O., Bischl, B., Trautmann, H., Wagner, M., Bossek, J., Neumann, F.: A novel feature-based approach to characterize algorithm performance for the traveling salesperson problem. Ann. Math. Artif. Intell. 69(2), 151\u2013182 (2013). https://doi.org/10.1007/s10472-013-9341-2. https://link.springer.com/article/10.1007/s10472-013-9341-2",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=A%20novel%20feature-based%20approach%20to%20characterize%20algorithm%20performance%20for%20the%20traveling%20salesperson%20problem&journal=Ann.%20Math.%20Artif.%20Intell.&doi=10.1007%2Fs10472-013-9341-2&volume=69&issue=2&pages=151-182&publication_year=2013&author=Mersmann%2CO&author=Bischl%2CB&author=Trautmann%2CH&author=Wagner%2CM&author=Bossek%2CJ&author=Neumann%2CF"
+            },
+            {
+                "reference_text": "Nagata, Y., Kobayashi, S.: A powerful genetic algorithm using edge assembly crossover for the traveling salesman problem. INFORMS J. Comput. 25(2), 346\u2013363 (2013)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=A%20powerful%20genetic%20algorithm%20using%20edge%20assembly%20crossover%20for%20the%20traveling%20salesman%20problem&journal=INFORMS%20J.%20Comput.&volume=25&issue=2&pages=346-363&publication_year=2013&author=Nagata%2CY&author=Kobayashi%2CS"
+            },
+            {
+                "reference_text": "Peng, H., Long, F., Ding, C.: Feature selection based on mutual information criteria of max-dependency, max-relevance, and min-redundancy. IEEE Trans. Pattern Anal. Mach. Intell. (TPAMI) 27(8), 1226\u20131238 (2005). https://doi.org/10.1109/TPAMI.2005.159. https://ieeexplore.ieee.org/abstract/document/1453511",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Feature%20selection%20based%20on%20mutual%20information%20criteria%20of%20max-dependency%2C%20max-relevance%2C%20and%20min-redundancy&journal=IEEE%20Trans.%20Pattern%20Anal.%20Mach.%20Intell.%20%28TPAMI%29&doi=10.1109%2FTPAMI.2005.159&volume=27&issue=8&pages=1226-1238&publication_year=2005&author=Peng%2CH&author=Long%2CF&author=Ding%2CC"
+            },
+            {
+                "reference_text": "Pihera, J., Musliu, N.: Application of machine learning to algorithm selection for TSP. In: 26th IEEE International Conference on Tools with Artificial Intelligence, ICTAI 2014, Limassol, Cyprus, 10\u201312 November 2014, pp. 47\u201354. IEEE Computer Society (2014)",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Pihera%2C%20J.%2C%20Musliu%2C%20N.%3A%20Application%20of%20machine%20learning%20to%20algorithm%20selection%20for%20TSP.%20In%3A%2026th%20IEEE%20International%20Conference%20on%20Tools%20with%20Artificial%20Intelligence%2C%20ICTAI%202014%2C%20Limassol%2C%20Cyprus%2C%2010%E2%80%9312%20November%202014%2C%20pp.%2047%E2%80%9354.%20IEEE%20Computer%20Society%20%282014%29"
+            },
+            {
+                "reference_text": "Reinelt, G.: TSPLIB-a traveling salesman problem library. ORSA J. Comput. 3(4), 376\u2013384 (1991)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=TSPLIB-a%20traveling%20salesman%20problem%20library&journal=ORSA%20J.%20Comput.&volume=3&issue=4&pages=376-384&publication_year=1991&author=Reinelt%2CG"
+            },
+            {
+                "reference_text": "Rice, J.R.: The algorithm selection problem. Adv. Comput. 15, 65\u2013118 (1976). http://www.sciencedirect.com/science/article/pii/S0065245808605203",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=The%20algorithm%20selection%20problem&journal=Adv.%20Comput.&volume=15&pages=65-118&publication_year=1976&author=Rice%2CJR"
+            },
+            {
+                "reference_text": "Rizzini, M., Fawcett, C., Vallati, M., Gerevini, A.E., Hoos, H.H.: Static and dynamic portfolio methods for optimal planning: an empirical analysis. Int. J. Artif. Intell. Tools 26(01), 1\u201327 (2017). https://doi.org/10.1142/S0218213017600065. https://www.worldscientific.com/doi/abs/10.1142/S0218213017600065",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Static%20and%20dynamic%20portfolio%20methods%20for%20optimal%20planning%3A%20an%20empirical%20analysis&journal=Int.%20J.%20Artif.%20Intell.%20Tools&doi=10.1142%2FS0218213017600065&volume=26&issue=01&pages=1-27&publication_year=2017&author=Rizzini%2CM&author=Fawcett%2CC&author=Vallati%2CM&author=Gerevini%2CAE&author=Hoos%2CHH"
+            },
+            {
+                "reference_text": "Robbins, H., Monro, S.: A stochastic approximation method. Ann. Math. Stat. 22, 400\u2013407 (1951)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=A%20stochastic%20approximation%20method&journal=Ann.%20Math.%20Stat.&volume=22&pages=400-407&publication_year=1951&author=Robbins%2CH&author=Monro%2CS"
+            },
+            {
+                "reference_text": "Ross, P., Schulenburg, S., Mar\u00edn-Bl\u00e4zquez, J.G., Hart, E.: Hyper-heuristics: learning to combine simple heuristics in bin-packing problems. In: Proceedings of the 4th Annual Conference on Genetic and Evolutionary Computation GECCO 2002, pp. 942\u2013948. Morgan Kaufmann Publishers Inc., San Francisco (2002)",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Ross%2C%20P.%2C%20Schulenburg%2C%20S.%2C%20Mar%C3%ADn-Bl%C3%A4zquez%2C%20J.G.%2C%20Hart%2C%20E.%3A%20Hyper-heuristics%3A%20learning%20to%20combine%20simple%20heuristics%20in%20bin-packing%20problems.%20In%3A%20Proceedings%20of%20the%204th%20Annual%20Conference%20on%20Genetic%20and%20Evolutionary%20Computation%20GECCO%202002%2C%20pp.%20942%E2%80%93948.%20Morgan%20Kaufmann%20Publishers%20Inc.%2C%20San%20Francisco%20%282002%29"
+            },
+            {
+                "reference_text": "Sim, K., Hart, E., Paechter, B.: A hyper-heuristic classifier for one dimensional bin packing problems: improving classification accuracy by attribute evolution. In: Coello, C.A.C., Cutello, V., Deb, K., Forrest, S., Nicosia, G., Pavone, M. (eds.) PPSN 2012. LNCS, vol. 7492, pp. 348\u2013357. Springer, Heidelberg (2012). https://doi.org/10.1007/978-3-642-32964-7_35",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=A%20hyper-heuristic%20classifier%20for%20one%20dimensional%20bin%20packing%20problems%3A%20improving%20classification%20accuracy%20by%20attribute%20evolution&pages=348-357&publication_year=2012 2012 2012&author=Sim%2CK&author=Hart%2CE&author=Paechter%2CB"
+            },
+            {
+                "reference_text": "Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., Salakhutdinov, R.: Dropout: a simple way to prevent neural networks from overfitting. J. Mach. Learn. Res. 15(1), 1929\u20131958 (2014)",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Dropout%3A%20a%20simple%20way%20to%20prevent%20neural%20networks%20from%20overfitting&journal=J.%20Mach.%20Learn.%20Res.&volume=15&issue=1&pages=1929-1958&publication_year=2014&author=Srivastava%2CN&author=Hinton%2CG&author=Krizhevsky%2CA&author=Sutskever%2CI&author=Salakhutdinov%2CR"
+            },
+            {
+                "reference_text": "Therneau, T., Atkinson, B.: rpart: recursive partitioning and regression trees (2019). https://CRAN.R-project.org/package=rpart. R package version 4.1-15",
+                "google_scholar_link": null
+            },
+            {
+                "reference_text": "Urbanowicz, R.J., Meeker, M., La Cava, W., Olson, R.S., Moore, J.H.: Relief-based feature selection: introduction and review. J. Biomed. Inform. 85, 189\u2013203 (2018). https://doi.org/10.1016/j.jbi.2018.07.014. https://www.sciencedirect.com/science/article/pii/S1532046418301400",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Relief-based%20feature%20selection%3A%20introduction%20and%20review&journal=J.%20Biomed.%20Inform.&doi=10.1016%2Fj.jbi.2018.07.014&volume=85&pages=189-203&publication_year=2018&author=Urbanowicz%2CRJ&author=Meeker%2CM&author=Cava%2CW&author=Olson%2CRS&author=Moore%2CJH"
+            },
+            {
+                "reference_text": "Wu, Y., He, K.: Group normalization. Int. J. Comput. Vis. 128(3), 742\u2013755 (2020). https://doi.org/10.1007/s11263-019-01198-w",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Group%20normalization&journal=Int.%20J.%20Comput.%20Vis.&doi=10.1007%2Fs11263-019-01198-w&volume=128&issue=3&pages=742-755&publication_year=2020&author=Wu%2CY&author=He%2CK"
+            },
+            {
+                "reference_text": "Xu, L., Hutter, F., Hoos, H., Leyton-Brown, K.: Evaluating component solver contributions to portfolio-based algorithm selectors. In: Cimatti, A., Sebastiani, R. (eds.) SAT 2012. LNCS, vol. 7317, pp. 228\u2013241. Springer, Heidelberg (2012). https://doi.org/10.1007/978-3-642-31612-8_18",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Evaluating%20component%20solver%20contributions%20to%20portfolio-based%20algorithm%20selectors&pages=228-241&publication_year=2012 2012 2012&author=Xu%2CL&author=Hutter%2CF&author=Hoos%2CH&author=Leyton-Brown%2CK"
+            }
+        ],
+        "conference_name": "International Conference on Parallel Problem Solving from Nature",
+        "conference_proceedings": "Parallel Problem Solving from Nature \u2013 PPSN XVI",
+        "article_accesses": "1409",
+        "amount_citations": "8"
+    },
+    {
+        "url": "https://ieeexplore.ieee.org/document/8452666/",
+        "title": "Requirements Elicitation for an Inter-Organizational Business Intelligence System for Small and Medium Retail Enterprises",
+        "doi": "10.1109/CBI.2018.00023",
+        "authors": [
+            {
+                "name": "Christian Siemen",
+                "id_ieee": "37085992641"
+            },
+            {
+                "name": "Nico Clever",
+                "id_ieee": "37085630667"
+            },
+            {
+                "name": "Benjamin Barann",
+                "id_ieee": "37086451922"
+            },
+            {
+                "name": "J\u00f6rg Becker",
+                "id_ieee": "37361144400"
+            }
+        ],
+        "keywords": [
+            "Interviews",
+            "Companies",
+            "Industries",
+            "Business intelligence",
+            "Bibliographies",
+            "business data processing",
+            "competitive intelligence",
+            "information systems",
+            "organisational aspects",
+            "retail data processing",
+            "small-to-medium enterprises",
+            "requirements elicitation",
+            "Inter-organizational business Intelligence system",
+            "business practices",
+            "money",
+            "business organization",
+            "retail industry",
+            "SME branch",
+            "inter-organizational approach",
+            "retail SME",
+            "Design Science Research Methodology",
+            "SME managers",
+            "Inter-organizational Information Systems",
+            "inter-organizational BI system",
+            "small and medium retail enterprises",
+            "BI practices",
+            "Business Intelligence, Inter-organizational Information Systems, Small and Medium Enterprises, Retail, Inter organizational Business Intelligence SystemBusiness Intelligence, Inter organizational Information Systems, Small and Medium Enterprises, Retail, Inter organizational Business Intelligence System"
+        ],
+        "abstract": "Business Intelligence (BI) is on everyone's lips nowadays, since it provides businesses with the possibility to analyze their business practices and improve them. However, Small and Medium Enterprises (SME) often cannot leverage the positive effects of BI because of missing resources like personnel, knowledge, or money. Since SME pose a major form of business organization, this fact has to be overcome. As the retail industry is a substantial part of the SME branch, we propose an inter-organizational approach for a BI system for retail SME, which allows them to collaboratively collect data and perform analysis task. The aim of our ongoing research effort is the development of such a system following the Design Science Research Methodology. Within this article, the status quo of current BI practices in SME in the retail industry is analyzed through qualitative interviews with ten SME managers. Afterwards, adoption and success factors of BI systems and Inter-organizational Information Systems are worked out in a comprehensive structured literature review. Based on the status quo and the adoption and success factors, first requirements for the acceptance of an inter-organizational BI system are identified and validated in another round of qualitative interviews. This leads to nine functional requirements and three non-functional requirements, which can be used for designing and implementing an inter-organizational BI system for SME in the following research efforts.",
+        "publisher": "IEEE",
+        "year": "2018",
+        "start_page": "129",
+        "end_page": "138",
+        "references": [
+            {
+                "text": "\"EU Trade Policy and SMEs\", <em>European Commission</em>, 2011.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "\"KMU-Definition des IfM Bonn\", <em>IfM Bonn</em>, 2016.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "\"Wirtschaftsmotor Mittelstand-Zahlen und Fakten zu den deutschen KMU\", <em>Bundesministerium f\u00fcr Wirtschaft und Energie</em>, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "\"Brief Profile\" in German Retail Federation, Berlin, 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. S\u00f6llner, \"The Economic Importance of Small and Medium-Sized Enterprises in Germany\", <em>Federal Statistical Office</em>, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Becker and A. Winkelmann, Handelscontrolling-Optimale Informationsversorgung mit Kennzahlen, Berlin & Heidelberg:Springer, 2008.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "\"Total Retail 2017-Wie Amazon das Kaufverhalten nachhaltig ver\u00e4ndert\", <em>PricewaterhouseCoopers GmbH</em>, 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. Hielscher, J. Berke, M. Br\u00fcck, M. Hohensee and P. Steinkirchner, \"Im Hauptquartier des Shopping\", <em>Wirtschaftswoche</em>, pp. 18-23, 07 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "\"The Retail Profitability Challenge\", <em>Deloitte LLP</em>, 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. Chen, R. Chiang and V. Storey, \"Business Intelligence and Analytics: From Big Data to Big Impact\", <em>MIS Q.</em>, vol. 36, no. 4, pp. 1165-1188, 2012.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "B. H. Wixom and H. J. Watson, \"The BI-Based Organization\", <em>Int. J. Bus. Intell. Res.</em>, vol. 1, no. 1, pp. 13-28, 2010.",
+                "doi_link": "https://doi.org/10.4018/jbir.2010071702",
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. Sch\u00fcritz and G. Satzger, \"Patterns of Data-Infused Business Model Innovation\", <em>2016 IEEE 18th Conference on Business Informatics (CBI)</em>, pp. 133-142, 2016.",
+                "doi_link": "https://doi.org/10.1109/CBI.2016.23",
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. Zolnowski, T. Christiansen and J. Gudat, \"Business model transformation patterns of data-driven innovations\", <em>24th Eur. Conf. Inf. Syst. ECIS 2016</em>, no. June, pp. 0-16, Jun. 2016.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "M. Bulger, G. Taylor and R. Schroeder, \"Data-Driven Business Models: Challenges and Opportunities of Big Data\", <em>Oxford Internet Inst.</em>, pp. 1-74, September 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. Kastner, \"Datengetriebene Gesch\u00e4ftsmodelle-Was steckt dahinter?\", <em>Huffingt. Post</em>, 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. Sorescu, \"Data-Driven Business Model Innovation\", <em>J. Prod. Innov. Manag.</em>, vol. 34, no. 5, pp. 691-696, Sep. 2017.",
+                "doi_link": "https://doi.org/10.1111/jpim.12398",
+                "google_scholar_link": null
+            },
+            {
+                "text": "P. Hartmann, M. Zaki, N. F.-A. T. Of, D.-D. and U., <em>Big data for big business? A taxonomy of data-driven business models used by start-up firms</em>, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Bernardino, \"Emerging Business Intelligence Technologies for SMEs\", <em>Handbook of Research on Enterprise 2.0</em>, pp. 1-28, 2013.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "O. Grabova, J. Darmont, J.-H. Chauchat and I. Zolotaryova, \"Business Intelligence for Small and Middle-Sized Entreprises\", <em>ACM SIGMOD Rec.</em>, vol. 39, no. 2, pp. 39-51, 2010.",
+                "doi_link": "https://doi.org/10.1145/1893173.1893180",
+                "google_scholar_link": null
+            },
+            {
+                "text": "P. Bergeron, \"Regional Business Intelligence: The View from Canada\", <em>J. Inf. Sci.</em>, vol. 26, no. 3, pp. 153-160, Jun. 2000.",
+                "doi_link": "https://doi.org/10.1177/016555150002600305",
+                "google_scholar_link": null
+            },
+            {
+                "text": "C. Olszak and E. Ziemba, \"Critical Success Factors for Implementing Business Intelligence Systems in Small and Medium Enterprises on the Example of Upper Silesia Poland\", <em>J. Information Knowledge Manag.</em>, vol. 7, pp. 129-150, 2012.",
+                "doi_link": "https://doi.org/10.28945/1584",
+                "google_scholar_link": null
+            },
+            {
+                "text": "P. Scholz, C. Schieder, C. Kurze, P. Gluchowski and M. Boehringer, \"Benefits and Challenges of Business Intelligence Adoption in Small and Medium-sized Enterprises\", <em>European Conference on Information Systems 2010 Proceedings</em>, vol. 18, 2010.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "T. Matheis, D. Werth and P. Loos, \"Kollaboratives Data Warehousing-Konzeption und Prototypische Realisierung Flexibler Schema-und Datenintegration\", <em>Wirtschaftsinformatik Proceedings 2007</em>, pp. 569-586, 2007.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. Rizzi, \"Collaborative Business Intelligence\" in Lecture Notes in Business Information Processing, Berlin & Heidelberg:Springer, vol. 96, pp. 186-205, 2012.",
+                "doi_link": "https://doi.org/10.1007/978-3-642-27358-2_9",
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. Klein, <em>Interorganisationssysteme und Unternehmensnetzwerke. Wiesbaden: Deutscher Universit\u00e4ts-Verlag</em>, 1996.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. Berger and M. Schrefl, \"From Federated Databases to a Federated Data Warehouse System\", <em>Proceedings of the 41st Annual Hawaii International Conference on System Sciences</em>, pp. 394-404, 2008.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "K. Peffers, T. Tuunanen, M. Rothenberger and S. Chatterjee, \"A Design Science Research Methodology for Information Systems Research\", <em>J. Manag. Inf. Syst.</em>, vol. 24, no. 3, pp. 45-77, 2007.",
+                "doi_link": "https://doi.org/10.2753/MIS0742-1222240302",
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. Hevner, S. March, J. Park and S. Ram, \"Design Science in Information Systems Research\", <em>MIS Q.</em>, vol. 28, no. 1, pp. 75-105, 2004.",
+                "doi_link": "https://doi.org/10.2307/25148625",
+                "google_scholar_link": null
+            },
+            {
+                "text": "M. D. Myers and M. Newman, \"The Qualitative Interview in IS research: Examining the Craft\", <em>Inf. Organ.</em>, vol. 17, no. 1, pp. 2-26, 2007.",
+                "doi_link": "https://doi.org/10.1016/j.infoandorg.2006.11.001",
+                "google_scholar_link": null
+            },
+            {
+                "text": "U. Schultze and M. Avital, \"Designing Interviews to Generate Rich Data for Information Systems Research\", <em>Inf. Organ.</em>, vol. 21, no. 1, pp. 1-16, 2011.",
+                "doi_link": "https://doi.org/10.1016/j.infoandorg.2010.11.001",
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. O. Mayer, Interview und Schriftliche Befragung, M\u00fcnchen: Oldenbourg Verlag, 2013.",
+                "doi_link": "https://doi.org/10.1524/9783486717624",
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. Bryman and E. Bell, Business Research Methods, Oxford:Oxford University Press, 2007.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "P. Mayring, Qualitative Inhaltsanalyse, Weinheim & Basel: Beltz Verlag, 2015.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Becker and R. Sch\u00fctte, Handelsinformationssysteme, Frankfurt am Main: Redline, 2004.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "T. Guarda, M. Santos, F. Pinto, M. Augusto and C. Silva, \"Business Intelligence as a Competitive Advantage for SMEs\", <em>Int. J. Trade Econ. Financ.</em>, vol. 4, no. 4, pp. 187-190, 2013.",
+                "doi_link": "https://doi.org/10.7763/IJTEF.2013.V4.283",
+                "google_scholar_link": null
+            },
+            {
+                "text": "C. M. Olszak, \"Toward Better Understanding and Use of Business Intelligence in Organizations\", <em>Inf. Syst. Manag.</em>, vol. 33, no. 2, pp. 105-123, Apr. 2016.",
+                "doi_link": "https://doi.org/10.1080/10580530.2016.1155946",
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. Agostino, K. S. S\u00d8ilen and B. Gerritsen, \"Cloud Solution in Business Intelligence for SMEs-Vendor and Customer Perspectives\", <em>J. Intell. Stud. Bus.</em>, vol. 3, no. 3, pp. 5-28, 2013.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Kaufmann, \"Gestaltung Untemehmens\u00fcbergreifender Business-Intelligence-Netzwerke\", <em>Universit\u00e4t Duisburg-Essen</em>, 2015.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "M. Burkhardt, <em>Zukunft des Handels: Online-Handel macht St\u00e4dte erfinderisch</em>, May 2017,  [online]  Available: http://www.heute.de/deutscher-staedtetag-diskutiert-zukunft-des-handels-in-den-innenstaedten-47277638.html.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. S. Dawes, L. Vidiasova and O. Parkhimovich, \"Planning and Designing Open Government Data Programs: An Ecosystem Approach\", <em>Gov. Inf. Q.</em>, vol. 33, no. 1, pp. 15-27, 2016.",
+                "doi_link": "https://doi.org/10.1016/j.giq.2016.01.003",
+                "google_scholar_link": null
+            },
+            {
+                "text": "B. Otto and S. Lohmann, \"Reference Architecture Model for the Industrial Data Space\", <em>Fraunhofer Gesellschaft</em>, 2017.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Kaufmann and P. Chamoni, \"Structuring Collaborative Business Intelligence: A Literature Review\", <em>Proceedings of the 47th Annual Hawaii International Conference on System Sciences</em>, pp. 3738-3747, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Vom Brocke, A. Simons, B. Niehaves, B. Niehaves, K. Reimer, R. Plattfaut, et al., \"Reconstructing the Giant: On the Importance of Rigour in Documenting the Literature Search Process\", <em>European Conference on Information Systems 2009 Proceedings</em>, 2009.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "L. G. Tornatzky and M. Fleischer, <em>The Process of Technological Innovation. Lexington: Lexington Books</em>, 1990.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "W. Boonsiritomachai, M. McGrath and S. Burgess, \"A Research Framework for the Adoption of Business Intelligence by Small and Medium-sized Enterprises\", <em>27th Annu. SEAANZ Conf. Proc.</em>, vol. 27, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. M. Hasan, F. Lotfollah and M. Negar, \"Comprehensive Model of Business Intelligence: A Case Study of Nano's Companies\", <em>Indian J. Sci. Technol.</em>, vol. 5, no. 6, pp. 2851-2859, 2012.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. Hung, Y. Huang, C. Lin, K. Chen and J. Tarn, \"Factors Influencing Business Intelligence Systems Implementation Success in the Enterprises\", <em>Pacific Asia Conference on Information Systems 2016 Proceedings</em>, 2016.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H.-G. Hwang, C.-Y. Ku, D. C. Yen and C.-C. Cheng, \"Critical Factors Influencing the Adoption of Data Warehouse Technology: A Study of the Banking Industry in Taiwan\", <em>Decis. Support Syst.</em>, vol. 37, no. 1, pp. 1-21, Apr. 2004.",
+                "doi_link": "https://doi.org/10.1016/S0167-9236(02)00191-4",
+                "google_scholar_link": null
+            },
+            {
+                "text": "B. Puklavec, T. Oliveira and A. Popovi\u010d, \"Unpacking Business Intelligence Systems Adoption Determinants: An Exploratory Study of Small and Medium Enterprises\", <em>Econ. Bus. Rev.</em>, vol. 16, no. 2, pp. 185-213, 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "K. Ramamurthy, A. Sen and A. P. Sinha, \"An Empirical Investigation of the Key Determinants of Data Warehouse Adoption\", <em>Decis. Support Syst.</em>, vol. 44, no. 4, pp. 817-841, 2008.",
+                "doi_link": "https://doi.org/10.1016/j.dss.2007.10.006",
+                "google_scholar_link": null
+            },
+            {
+                "text": "D. Arnott, \"Success Factors for Data Warehouse and Business Intelligence Systems\", <em>Australas. Conf. Inf. Syst. 2008 Proc.</em>, vol. 16, pp. 55-65, 2008.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "E. Harison, \"Critical Success Factors of Business Intelligence System Implementations: Evidence from the Energy Sector\", <em>Int. J. Enterp. Inf. Syst.</em>, vol. 8, no. 2, pp. 1-13, 2012.",
+                "doi_link": "https://doi.org/10.4018/jeis.2012040101",
+                "google_scholar_link": null
+            },
+            {
+                "text": "D. Mungree, A. Rudra and D. Morien, \"A Framework for Understanding the Critical Success Factors of Enterprise Business Intelligence Implementation\", <em>Proceedings of the 19th Americas Conference on Information Systems</em>, 2013.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. Raj, S. Wong and J. Beaumont, \"Business Intelligence Solution for an SME: A Case Study\", <em>Proceedings of the 8th International Joint Conference on Knowledge Discovery Knowledge Engineering and Knowledge Management</em>, pp. 41-50, 2016.",
+                "doi_link": "https://doi.org/10.5220/0006049500410050",
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. B. Sangar and N. B. Iahad, \"Critical Factors that Affect the Success of Business Intelligence Systems (BIS) Implementation in an Organization\", <em>Int. J. Sci. Technol. Res.</em>, vol. 2, no. 2, pp. 176-180, 2013.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "K. Wong, \"Critical Success Factors for Implementing Knowledge Management in Small and Medium Enterprises\", <em>Ind. Manag. Data Syst.</em>, vol. 105, no. 3, pp. 261-279, Apr. 2005.",
+                "doi_link": "https://doi.org/10.1108/02635570510590101",
+                "google_scholar_link": null
+            },
+            {
+                "text": "W. Yeoh and A. Koronios, \"Critical Success Factors for Business Intelligence Systems\", <em>J. Comput. Inf. Syst.</em>, vol. 50, no. 3, pp. 23-32, 2010.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "B. H. Wixom and H. J. Watson, \"An Empirical Investigation of the Factors Affecting Data Warehousing Success\", <em>MIS Q.</em>, vol. 25, no. 1, pp. 17-41, Mar. 2001.",
+                "doi_link": "https://doi.org/10.2307/3250957",
+                "google_scholar_link": null
+            },
+            {
+                "text": "N. Hatta, S. Miskon, N. Abdullah, N. Ahmad, H. Nashim, R. Alias, et al., \"Business Intelligence System Adoption Theories in SMEs: A Literature Review\", <em>ARPN J. Eng. Appl. Sci.</em>, vol. 10, no. 23, pp. 18165-18174, 2015.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "N. Geri, \"Overcoming the Challenge of Cooperating with Competitors: Critical Success Factors of Interorganizational Systems Implementation\", <em>Informing Sci.</em>, vol. 12, pp. 123-146, 2009.",
+                "doi_link": "https://doi.org/10.28945/3330",
+                "google_scholar_link": null
+            },
+            {
+                "text": "N. Geri and N. Ahituv, \"A Theory of Constraints Approach to Interorganizational Systems Implementation\", <em>Inf. Syst. E-bus. Manag.</em>, vol. 6, no. 4, pp. 341-360, Sep. 2008.",
+                "doi_link": "https://doi.org/10.1007/s10257-007-0075-8",
+                "google_scholar_link": null
+            },
+            {
+                "text": "C. L. Lacovou, I. Benbasat and A. S. Dexter, \"Electronic Data Interchange and Small Organizations: Adoption and Impact of Technology\", <em>MIS Q.</em>, vol. 19, no. 4, pp. 465-485, 1995.",
+                "doi_link": "https://doi.org/10.2307/249629",
+                "google_scholar_link": null
+            },
+            {
+                "text": "E. Lage and B. Alturas, \"Factors Influencing Information Sharing in Four SME Networks in Portugal A Coordination Perspective\", <em>Proceedings of the 4th International Joint Conference on Knowledge Discovery Knowledge Engineering and Knowledge Management</em>, pp. 178-183, 2012.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. H. Teo, K. K. Wei and I. Benbasat, \"Predicting Intention to Adopt Interorganizational Linkages: An Institutional Perspective\", <em>MIS Q.</em>, vol. 27, no. 1, pp. 19-49, 2003.",
+                "doi_link": "https://doi.org/10.2307/30036518",
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. S. Dawes, \"Interagency Information Sharing: Expected Benefits Manageable Risks\", <em>J. Policy Anal. Manag.</em>, vol. 15, no. 3, pp. 377-394, 1996.",
+                "doi_link": "https://doi.org/10.1002/(SICI)1520-6688(199622)15:3&lt;377::AID-PAM3&gt;3.0.CO;2-F",
+                "google_scholar_link": null
+            },
+            {
+                "text": "F. De Corbi\u00e8re and F. Rowe, \"Adoption Factors of Electronic Data Exchange and Technology: Can We Distinguish Two Phases?\", <em>European Conference on Information Systems 2011 Proceedings</em>, 2011.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "H. Z. Henriksen, \"Motivators for lOS Adoption in Denmark\", <em>J. Electron. Commer. Organ.</em>, vol. 4, no. 2, pp. 25-39, 2006.",
+                "doi_link": "https://doi.org/10.4018/jeco.2006040102",
+                "google_scholar_link": null
+            },
+            {
+                "text": "X.-H. Lu, L.-H. Huang and M. S. H. Heng, \"Critical Success Factors of Inter-Organizational Information Systems-A Case Study of Cisco and Xiao Tong in China\", <em>Inf. Manag.</em>, vol. 43, no. 3, pp. 395-408, 2006.",
+                "doi_link": "https://doi.org/10.1016/j.im.2005.06.007",
+                "google_scholar_link": null
+            },
+            {
+                "text": "M. Morrell and J. Ezingeard, \"Revisiting Adoption Factors of Inter-Organisational Information Systems in SMEs\", <em>Logist. Inf. Manag.</em>, vol. 15, no. 1, pp. 46-57, Mar. 2002.",
+                "doi_link": "https://doi.org/10.1108/09576050210412666",
+                "google_scholar_link": null
+            },
+            {
+                "text": "D. Robey, G. Im and J. D. Wareham, \"Theoretical Foundations of Empirical Research on Interorganizational Systems: Assessing Past Contributions and Guiding Future Directions\", <em>J. Assoc. Inf. Syst.</em>, vol. 9, no. 9, pp. 498-518, 2008.",
+                "doi_link": "https://doi.org/10.17705/1jais.00171",
+                "google_scholar_link": null
+            },
+            {
+                "text": "L. Saglietto and F. Pigni, \"Interorganizational Information Systems Diffusion: A Social Network Perspective\", <em>Information Intelligence Systems Technology and Management</em>, pp. 350-354, 2011.",
+                "doi_link": "https://doi.org/10.1007/978-3-642-19423-8_36",
+                "google_scholar_link": null
+            },
+            {
+                "text": "D. K. Allen, D. Colligan, A. Finnie and T. Kern, \"Trust Power and Interorganizational Information Systems: The Case of the Electronic Trading Community TransLease\", <em>Inf. Syst. J.</em>, vol. 10, no. 1, pp. 21-40, Jan. 2000.",
+                "doi_link": "https://doi.org/10.1046/j.1365-2575.2000.00078.x",
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. R. Gil-Garcia and D. S. Sayogo, \"Government Inter-Organizational Information Sharing Initiatives: Understanding the Main Determinants of Success\", <em>Gov. Inf. Q.</em>, vol. 33, no. 3, pp. 572-582, 2016.",
+                "doi_link": "https://doi.org/10.1016/j.giq.2016.01.006",
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. Kauremaa, M. K\u00e4rkk\u00e4inen and T. Ala-Risku, \"Customer Initiated Interorganizational Information Systems: The Operational Impacts and Obstacles for Small and Medium Sized Suppliers\", <em>Int. J. Prod. Econ.</em>, vol. 119, no. 2, pp. 228-239, 2009.",
+                "doi_link": "https://doi.org/10.1016/j.ijpe.2009.02.007",
+                "google_scholar_link": null
+            },
+            {
+                "text": "S. M. Eckartz, W. J. Hofman and A. F. Van Veenstra, \"A Decision Model for Data Sharing\", <em>Lecture Notes in Computer Science</em>, vol. 8653, pp. 253-264, 2014.",
+                "doi_link": "https://doi.org/10.1007/978-3-662-44426-9_21",
+                "google_scholar_link": null
+            },
+            {
+                "text": "D. S. Sayogo and T. A. Pardo, \"Exploring the Determinants of Scientific Data Sharing: Understanding the Motivation to Publish Research Data\", <em>Gov. Inf. Q.</em>, vol. 30, no. 1, pp. 19-31, 2013.",
+                "doi_link": "https://doi.org/10.1016/j.giq.2012.06.011",
+                "google_scholar_link": null
+            },
+            {
+                "text": "W. G. Van Panhuis, P. Paul, C. Emerson, J. Grefenstette, R. Wilder, A. J. Herbst, et al., \"A Systematic Review of Barriers to Data Sharing in Public Health\", <em>BMC Public Health</em>, vol. 14, no. 1, 2014.",
+                "doi_link": "https://doi.org/10.1186/1471-2458-14-1144",
+                "google_scholar_link": null
+            },
+            {
+                "text": "T.-M. Yang and T. A. Maxwell, \"Information-Sharing in Public Organizations: A Literature Review of Interpersonal Intra-Organizational and Inter-Organizational Success Factors\", <em>Gov. Inf. Q.</em>, vol. 28, no. 2, pp. 164-175, 2011.",
+                "doi_link": "https://doi.org/10.1016/j.giq.2010.06.008",
+                "google_scholar_link": null
+            },
+            {
+                "text": "J. R. Gil-Garcia, T. A. Pardo and M. K. Sutherland, \"Information Sharing in the Regulatory Context: Revisiting the Concepts of Cross-Boundary Information Sharing\", <em>Proc. 9th Int. Conf. Theory Pract. Electron. Gov.</em>, pp. 346-349, 2016.",
+                "doi_link": "https://doi.org/10.1145/2910019.2910099",
+                "google_scholar_link": null
+            },
+            {
+                "text": "I. Sommerville, Software Engineering, Boston, MA:Addison-Wesley, 2011.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "K. Pohl, Requirements Engineering: Fundamentals Principles and Techniques, Berlin & Heidelberg:Springer, 2010.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "A. B\u00fcllesbach, \"Datenschutz bei Data Warehouses und Data Mining\" in Vom Data Warehouse zum Corporate Knowledge Center, Heidelberg:Physica-Verlag, pp. 1-14, 2002.",
+                "doi_link": "https://doi.org/10.1007/978-3-642-57491-7_1",
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. Lauser, \"Diskrepanzen und L\u00f6sungen: Data Warehouse vs. Datenschutz\", <em>Computerwoche</em>, 07 2014.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "E. J. Sinz, M. Plaha and A. Ulbrich Vom Ende, \"Datenschutz und Datensicherheit in einem landesweiten Data-Warehouse-System f\u00fcr das Hochschulwesen\", <em>Beitr\u00e4ge zur Hochschulforsch.</em>, vol. 24, no. 4, pp. 40-66, 2002.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "R. Gabriel, T. Hoppe and A. Pastwa, \"Classification of Metadata Categories in Data Warehousing-A Generic Approach\", <em>Americas Conference on Information Systems 2010 Proceedings</em>, 2010.",
+                "doi_link": null,
+                "google_scholar_link": null
+            },
+            {
+                "text": "V. L. Voydock and S. T. Kent, \"Security Mechanisms in High-Level Network Protocols\", <em>ACM Comput. Surv.</em>, vol. 15, no. 2, pp. 135-171, Jun. 1983.",
+                "doi_link": "https://doi.org/10.1145/356909.356913",
+                "google_scholar_link": null
+            }
+        ],
+        "journal_name": "2018 IEEE 20th Conference on Business Informatics (CBI)",
+        "conference_name": "2018 IEEE 20th Conference on Business Informatics (CBI)",
+        "journal_volume": "01",
+        "conference_location": "Vienna, Austria",
+        "amount_citations": 3
+    },
+    null
+]

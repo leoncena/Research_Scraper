@@ -62,6 +62,10 @@ def scrape_cris_publications():
     scraping_results = scraper.scrape_publication_by_doi_list(publication_dois, params=['full'])
     return scraping_results
 
+def download_pdfs():
+    # import scraping results
+
+
 
 # main
 if __name__ == '__main__':
