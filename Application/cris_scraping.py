@@ -67,17 +67,23 @@ def scrape_publication_by_doi_list(doi_list, params=['full']):
     return results
 
 
-# main
-if __name__ == '__main__':
+def scrape_cris_publications():
     # Big scraping
     df_publications = load_publications_from_csv()
     publication_dois = get_all_dois(df_publications)
     print(f'There are {len(publication_dois)} publication dois')
     # doi_list_sample = publication_dois.sample(n=1000)
     scraping_results = scrape_publication_by_doi_list(publication_dois, params=['full'])
+    return scraping_results
 
-    print('Fertig')
-    print('')
-    # url_test = 'https://link.springer.com/article/10.1007/s40558-015-0037-9'
+
+# main
+if __name__ == '__main__':
+    # Big Scraping
+    cris_scraping_results = scrape_cris_publications()
+
+    # print('Fertig')
+    # print('')
+    # url_test = 'https://linkinghub.elsevier.com/retrieve/pii/S2405896316326283'
     # result = scraper.scrape_publication_by_url(url_test, params=['full'])
     # print(result.get('keywords'))

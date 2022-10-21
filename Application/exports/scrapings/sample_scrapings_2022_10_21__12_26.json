@@ -1,0 +1,14 @@
+[
+    {
+        "error": "No scraper found for this url",
+        "url": "https://dl.acm.org/doi/10.1145/3075564.3078887"
+    },
+    {
+        "error": "No scraper found for this url",
+        "url": "https://dl.acm.org/doi/10.1145/3297280.3298912"
+    },
+    {
+        "error": "No scraper found for this url",
+        "url": "https://www.mdpi.com/1099-4300/23/6/666"
+    }
+]
