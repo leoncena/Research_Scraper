@@ -1,7 +1,7 @@
+import json
 import re
-from bs4 import BeautifulSoup
+
 import requests
-import time
 
 
 def check_if_doi_link(url):
@@ -75,3 +75,11 @@ def resolve_url(url):
     except requests.exceptions.ConnectionError as e:
         print('[utils.py: get_link] Connection Error')
         return None
+
+
+def write_results(results, name):
+    if results is not None:
+        with open(f'exports/scrapings/{name}.json', 'w') as f:
+            json.dump(results, f, indent=4)
+            # print green background black font
+            print(f'\033[1;30;42m{len(results)} results written to {name}.json\033[0m')

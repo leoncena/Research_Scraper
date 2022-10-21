@@ -369,7 +369,6 @@ class ScraperSpringer(ScraperAbstract):
             return publication_type
         except:
             print("Error: no publication type found in bs, deriving by url")
-            print(url)
             if '/book/' in url:
                 return 'Book'
             if '/chapter/' in url:

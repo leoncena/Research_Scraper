@@ -2,6 +2,7 @@ import json
 import time
 
 import pandas as pd
+from Research_Scraper_Code import utils
 
 from Research_Scraper_Code.Research_Scraper import ResearchScraper
 
@@ -31,6 +32,7 @@ def write_results(results, name):
 
 
 def scrape_sample_of_dois(dois, n):
+    # only for debugging purposes
     # get a sample of 10 from dois
     sample = dois.sample(n)
     # print(sample)
@@ -47,23 +49,7 @@ def scrape_sample_of_dois(dois, n):
         print(f'\n \t  >>>>>> added new result, n went from {old_len} to n={len(results)}')
         # print(f'\t -> Results: {results}')
 
-    # write_results(results, f'sample_{time.strftime("%Y_%m_%d__%H_%M")}')
-    return results
-
-
-def scrape_publication_by_doi_list(doi_list, params=['full']):
-    print(f'Time of scrape start: {time.strftime("%Y_%m_%d__%H_%M")}')
-    results = []
-    for idx, doi in enumerate(doi_list):
-        scraping_log = f'>>> Scraping {doi} #{idx}'
-        print('\x1b[6;30;42m' + scraping_log + '\x1b[0m')
-        result = scraper.scrape_publication_by_doi(doi, params)
-        print(f'>>>> Scraping {doi} done')
-        results.append(result)
-        print(f'>>>> Scraping {doi} added to results')
-    print(f'>>>> Scraping {len(doi_list)} publications done')
-    write_results(results, f'scrapings_{time.strftime("%Y_%m_%d__%H_%M")}')
-    print(f'Time of scrape end: {time.strftime("%Y_%m_%d__%H_%M")}')
+    utils.write_results(results, f'sample_{time.strftime("%Y_%m_%d__%H_%M")}')
     return results
 
 
@@ -73,7 +59,7 @@ def scrape_cris_publications():
     publication_dois = get_all_dois(df_publications)
     print(f'There are {len(publication_dois)} publication dois')
     # doi_list_sample = publication_dois.sample(n=1000)
-    scraping_results = scrape_publication_by_doi_list(publication_dois, params=['full'])
+    scraping_results = scraper.scrape_publication_by_doi_list(publication_dois, params=['full'])
     return scraping_results
 
 
@@ -81,6 +67,10 @@ def scrape_cris_publications():
 if __name__ == '__main__':
     # Big Scraping
     cris_scraping_results = scrape_cris_publications()
+
+    # df_publications = load_publications_from_csv()
+    # publication_dois = get_all_dois(df_publications)
+    # scrape_publication_by_doi_list(publication_dois[0:5], params=['full'])
 
     # print('Fertig')
     # print('')
