@@ -3,6 +3,7 @@ from Research_Scraper_Code.scraper_types.scraper_ieee import ScraperIEEE
 from Research_Scraper_Code.scraper_types.scraper_sciencedirect import ScraperScienceDirect
 from Research_Scraper_Code.scraper_types.scraper_springer import ScraperSpringer
 import time
+import random
 
 
 class ResearchScraper:
@@ -149,6 +150,9 @@ class ResearchScraper:
                                      for x in scraping_result if x.get('pdf') is not None and x.get('doi') is not None]
         # iterate over all publications with pdf
         for idx, publication in enumerate(all_publications_with_pdf):
+            # wait random time to avoid being blocked from 1 second to 5 seconds
+            time.sleep(random.randint(0, 3))
+
             print(f'>>> Downloading pdf {idx + 1} of {len(all_publications_with_pdf)}')
 
             if publication.get('pdf') is not None and publication.get('doi') is not None:
