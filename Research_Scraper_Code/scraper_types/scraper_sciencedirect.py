@@ -16,6 +16,11 @@ class ScraperScienceDirect(ScraperAbstract):
     def domain(self):
         return 'linkinghub.elsevier.com'
 
+    # todo create second domain here as well
+    @property
+    def domain2(self):
+        return 'sciencedirect.com'
+
     @property
     def legal_params(self):
         legal_params = [
@@ -40,6 +45,11 @@ class ScraperScienceDirect(ScraperAbstract):
         ]
         return legal_params
 
+    def check_scrape_possible(self, url):
+        # taking alternative domain into account
+        alternative_possibility = self.domain2 in url
+        return super().check_scrape_possible(url) or alternative_possibility
+
     def scrape_by_url(self, url, params=None):
         """
         Scrape a publication with a url \n
@@ -51,9 +61,6 @@ class ScraperScienceDirect(ScraperAbstract):
         :param params: What data do you want to scrape? ([str])
         :return: Dictionary with scraped data
         """
-
-        # todo check if links resolved
-        # todo check if url is correct
 
         # ETL process
         # 1. Extract: Get the data from the website and create soup object
@@ -482,7 +489,7 @@ class ScraperScienceDirect(ScraperAbstract):
         :return: Text as string with new lines for headings
         """
         # extracts the texts of given section including sub headings
-        # todo question: Filter out mathemtical formulas?
+        # todo question: Filter out mathematical formulas?
         children = section.findAll(recursive=False)
         t = ''
         for child in children:
