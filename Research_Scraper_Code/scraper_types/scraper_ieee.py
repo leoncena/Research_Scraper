@@ -1,7 +1,5 @@
 import json
 import re
-import time
-from Research_Scraper_Code import utils
 
 import requests
 
@@ -47,7 +45,7 @@ class ScraperIEEE(ScraperAbstract):
     def scrape_by_url(self, url, params=None):
         """
         Scrape a publication with a url \n
-        You will get by default the main data (xxxx todo ergänzen) \n
+        You will get by default the main data (xxxx todo add) \n
         You can scrape everything with params=['full']
         You can also choose what you want to scrape with e.g. params=['authors', 'title']
 
@@ -55,9 +53,6 @@ class ScraperIEEE(ScraperAbstract):
         :param params: What data do you want to scrape? ([str])
         :return: Dictionary with scraped data
         """
-
-        # todo check if links resolved
-        # todo check if url is correct
 
         # ETL process
         # 1. Extract: Get the data from the website and create soup object
@@ -185,9 +180,6 @@ class ScraperIEEE(ScraperAbstract):
         json_string = json_regex_matches[0]
         json_string = json_string.removeprefix('xplGlobal.document.metadata=')  # remove JS prefix
 
-        # delete backslashes from json_result stjson_string
-        # json_result = json_result.replace('\\', '')
-        # remove last character of json_result
         json_string = json_string.removesuffix(';')  # remove semicolon at the end
         json_parsed = json.loads(json_string)
         assert isinstance(json_parsed, dict)
@@ -223,7 +215,7 @@ class ScraperIEEE(ScraperAbstract):
 
     def get_title(self, json_data):
         """
-        Extracts the titleof the publication.
+        Extracts the title of the publication.
         :param json_data: JSON object with meta data
         :return: String
         """
@@ -244,7 +236,7 @@ class ScraperIEEE(ScraperAbstract):
 
     def get_abstract(self, json_data):
         """
-        Extracts the abstract from the publicatoin.
+        Extracts the abstract from the publication.
         :param json_data: JSON object with meta data
         :return: String
         """

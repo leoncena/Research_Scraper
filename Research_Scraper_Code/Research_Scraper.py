@@ -1,12 +1,16 @@
+import random
+import time
+
 from Research_Scraper_Code import utils
 from Research_Scraper_Code.scraper_types.scraper_ieee import ScraperIEEE
 from Research_Scraper_Code.scraper_types.scraper_sciencedirect import ScraperScienceDirect
 from Research_Scraper_Code.scraper_types.scraper_springer import ScraperSpringer
-import time
-import random
 
 
 class ResearchScraper:
+    """
+    Research scraper that handles multiple specialised scrapers and can be extended easily
+    """
 
     # initialize the class with all the scrapers
     def __init__(self):
@@ -66,7 +70,7 @@ class ResearchScraper:
             print('\x1b[6;30;32m' + msg + '\x1b[0m')
             return result
         except Exception as e:
-            print('\n\n unknown error catched', e)
+            print('\n\n unknown error caught', e)
             return {'error': str(e), 'error_url': url}
 
     def scrape_publication_by_doi(self, doi, params):
@@ -140,7 +144,7 @@ class ResearchScraper:
     def download_pdf_of_publications_by_scraping_results(self, scraping_result,
                                                          write_folder='../Application/exports/pdf_downloads'):
         """
-        Reads scraping resultds and downloads every pdf inside if possible
+        Reads scraping results and downloads every pdf inside if possible
         :param write_folder: path of folder where pdf is saved
         :param scraping_result: List of scrape results
         :return: void, writes pdf to disk

@@ -70,15 +70,26 @@ def extract_text_from_p_tags(p_tags):
 
 
 def resolve_url(url):
+    """
+    Resolve a url to its final destination
+    :param url: url
+    :return: resolved url
+    """
     try:
         r = requests.head(url, allow_redirects=True, timeout=120)
         return r.url
     except requests.exceptions.ConnectionError as e:
-        print('[utils.py: get_link] Connection Error')
+        print(f'[utils.py: get_link] Connection Error: {e}')
         return None
 
 
 def write_results(results, name):
+    """
+    Writes the results to a json file
+    :param name: filename to write
+    :param results: Results of scraping,, list of dict
+    :return: void, writes to file
+    """
     if results is not None:
         with open(f'exports/scrapings/{name}.json', 'w') as f:
             json.dump(results, f, indent=4)
@@ -87,6 +98,14 @@ def write_results(results, name):
 
 
 def download_pdf(url, filename, write_folder_path, method='requests'):
+    """
+    Downloads a pdf from a url and saves it to a folder
+    :param url: url of a pdf
+    :param filename: name of the file to write
+    :param write_folder_path: folder to write to
+    :param method: method of getting the pdf, either requests or cloudscraper, default requests
+    :return:void, writes to file
+    """
     if method == 'requests':
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15'}
@@ -103,15 +122,13 @@ def download_pdf(url, filename, write_folder_path, method='requests'):
     if r.status_code == 200:
         with open(pdf_save_path, 'wb') as f:
             f.write(r.content)
-            log_1 = f'PDF downloaded'
+            log_1 = 'PDF downloaded'
             log_2 = f' : {filename}.pdf'
             log_3 = f' to {write_folder_path}'
 
             # print log_1 in green background black font
             print(f'\033[1;30;42m{log_1}\033[0m' + log_2 + log_3)
             # print with green font
-
-
 
     else:
         print(f'[utils.py: download_PDF] PDF Download failed: {r.status_code}')
@@ -120,8 +137,9 @@ def download_pdf(url, filename, write_folder_path, method='requests'):
 def load_and_clean_scraping_results(filename, custom_path=None):
     """
     Reads a the json file with scraping results and cleans it by removing None and error rows
-    :param filename:
-    :return:
+    :param custom_path: Specify the custom folder path if you don't want to write it to the default folder
+    :param filename: name of file to write
+    :return: cleaned results, list of dict
     """
     if custom_path is None:
         path = f'../Application/exports/scrapings/{filename}.json'
