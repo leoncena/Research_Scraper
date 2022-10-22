@@ -1,0 +1,34 @@
+[
+    {
+        "url": "https://link.springer.com/article/10.1007/s10766-017-0512-3",
+        "title": "Guest Editorial: High-Level Parallel Programming with Algorithmic Skeletons",
+        "doi": "10.1007/s10766-017-0512-3",
+        "authors": [
+            {
+                "name": "Sergei Gorlatch",
+                "orcid": null
+            },
+            {
+                "name": "Herbert Kuchen",
+                "orcid": null
+            }
+        ],
+        "abstract": "",
+        "pdf": "https://link.springer.com/content/pdf/10.1007/s10766-017-0512-3.pdf",
+        "publisher": "Springer US",
+        "year": "2017",
+        "start_page": "1",
+        "end_page": "3",
+        "publication_type": "Editorial",
+        "full_text": [],
+        "references": [],
+        "journal_name": "International Journal of Parallel Programming",
+        "journal_volume": "46",
+        "article_accesses": "2040"
+    },
+    {
+        "error": "No scraper found for this url",
+        "url": "https://www.scitepress.org/Link.aspx?doi=10.5220/0006353003320339"
+    },
+    null
+]

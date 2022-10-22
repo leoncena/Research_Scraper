@@ -1,0 +1,155 @@
+[
+    {
+        "url": "https://link.springer.com/book/10.1007/978-3-658-35779-5",
+        "doi": "10.1007/978-3-658-35779-5",
+        "keywords": [
+            "K\u00fcnstliche Intelligenz",
+            "KI",
+            "Arbeitswelt 5.0",
+            "Digitale Transformation",
+            "Zukunft der Arbeit",
+            "Automatisierung",
+            "Digitalisierung",
+            "Kollege Roboter",
+            "Mensch-Maschine-Interaktion",
+            "Maschinelles Lernen"
+        ],
+        "pdf": "https://link.springer.com/content/pdf/10.1007/978-3-658-35779-5.pdf",
+        "publisher": "Springer Fachmedien Wiesbaden",
+        "year": "2021",
+        "publication_type": "Book",
+        "editors": [
+            "Inka Knappertsbusch",
+            "Kai Gondlach"
+        ],
+        "book_subtitle": "Herausforderungen und Strategien f\u00fcr die Arbeit von morgen",
+        "article_accesses": "174k",
+        "amount_citations": "2"
+    },
+    {
+        "url": "https://link.springer.com/chapter/10.1007/978-3-658-14826-3_25",
+        "title": "Ans\u00e4tze zur Unternehmensmodellierung \u2013 Eine Einordnung",
+        "doi": "10.1007/978-3-658-14826-3_25",
+        "authors": [
+            {
+                "name": "J\u00f6rg Becker",
+                "orcid": null
+            },
+            {
+                "name": "Dennis M. Riehle",
+                "orcid": null
+            },
+            {
+                "name": "Nico Clever",
+                "orcid": null
+            }
+        ],
+        "abstract": "Mit dem Sinz\u2019schen Semantischen Objektmodell lassen sich Unternehmen und betriebliche Informationssysteme ganzheitlich modellieren. Neben SOM hat die Wissenschaft in den letzten Jahrzehnten weitere Methoden und Verfahren sowie Frameworks zur Modellierung hervorgebracht. Bekannte gebr\u00e4uchliche Modellierungsframeworks und -methoden sind ARIS, MEMO, icebricks und PICTURE, die \u2013 wie SOM \u2013 Eingang in die betriebliche Praxis gefunden haben. Im vorliegenden Beitrag werden diese Ans\u00e4tze vorgestellt und in einen Zusammenhang mit dem Semantischen Objektmodell gebracht.",
+        "publisher": "Springer Fachmedien Wiesbaden",
+        "year": "2016",
+        "start_page": "415",
+        "end_page": "425",
+        "publication_type": "Chapter",
+        "references": [
+            {
+                "reference_text": "Becker J, Kahn D (2012) Der Prozess im Fokus. In: Prozessmanagement. Ein Leitfaden zur prozessorientierten Organisationsgestaltung, 7. Aufl. Springer, Berlin/Heidelberg, S 3\u201345",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Der%20Prozess%20im%20Fokus&pages=3-45&publication_year=2012&author=Becker%2CJ&author=Kahn%2CD"
+            },
+            {
+                "reference_text": "Becker J, Sch\u00fctte R (2004) Handelsinformationssysteme: Dom\u00e4nenorientierte Einf\u00fchrung in die Wirtschaftsinformatik, 2. Aufl. Redline Wirtschaft, Frankfurt am Main",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Handelsinformationssysteme%3A%20Dom%C3%A4nenorientierte%20Einf%C3%BChrung%20in%20die%20Wirtschaftsinformatik&publication_year=2004&author=Becker%2CJ&author=Sch%C3%BCtte%2CR"
+            },
+            {
+                "reference_text": "Becker J, Rosemann M, Sch\u00fctte R (1995) Grunds\u00e4tze ordnungsm\u00e4\u00dfiger Modellierung. Wirtschaftsinformatik 37:435\u2013445",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Grunds%C3%A4tze%20ordnungsm%C3%A4%C3%9Figer%20Modellierung&journal=Wirtschaftsinformatik&volume=37&pages=435-445&publication_year=1995&author=Becker%2CJ&author=Rosemann%2CM&author=Sch%C3%BCtte%2CR"
+            },
+            {
+                "reference_text": "Becker J, Algermissen L, Falk T (2009) Prozessorientierte Verwaltungsmodernisierung. Prozessmanagement im Zeitalter von E-Government und New Public Management, 2. Aufl. Springer, Dordrecht/Heidelberg/London/New York",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Prozessorientierte%20Verwaltungsmodernisierung.%20Prozessmanagement%20im%20Zeitalter%20von%20E-Government%20und%20New%20Public%20Management&publication_year=2009&author=Becker%2CJ&author=Algermissen%2CL&author=Falk%2CT"
+            },
+            {
+                "reference_text": "Delfmann P, Herwig S, Lis \u0141 (2009) Unified enterprise knowledge representation with conceptual models \u2013 capturing corporate language in naming conventions. In: ICIS 2009 proceedings",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Delfmann%20P%2C%20Herwig%20S%2C%20Lis%20%C5%81%20%282009%29%20Unified%20enterprise%20knowledge%20representation%20with%20conceptual%20models%20%E2%80%93%20capturing%20corporate%20language%20in%20naming%20conventions.%20In%3A%20ICIS%202009%20proceedings"
+            },
+            {
+                "reference_text": "Frank U (1994) Multiperspektivische Unternehmensmodellierung: theoretischer Hintergrund und Entwurf einer objektorientierten Entwicklungsumgebung. Oldenbourg, M\u00fcnchen/Wien",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Multiperspektivische%20Unternehmensmodellierung%3A%20theoretischer%20Hintergrund%20und%20Entwurf%20einer%20objektorientierten%20Entwicklungsumgebung&publication_year=1994&author=Frank%2CU"
+            },
+            {
+                "reference_text": "Frank U (1995) MEMO: Objektorientierte Unternehmensmodellierung zum gemeinsamen Entwurf optimierter Gesch\u00e4ftsprozesse und hochintegrierter Anwendungssysteme. OBJEKTSpektrum 6:43\u201347",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=MEMO%3A%20Objektorientierte%20Unternehmensmodellierung%20zum%20gemeinsamen%20Entwurf%20optimierter%20Gesch%C3%A4ftsprozesse%20und%20hochintegrierter%20Anwendungssysteme&journal=OBJEKTSpektrum&volume=6&pages=43-47&publication_year=1995&author=Frank%2CU"
+            },
+            {
+                "reference_text": "Frank U (1997) Enriching object-oriented methods with domain specific knowledge: outline of a method for enterprise modelling. Universit\u00e4t Koblenz-Landau, Koblenz",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Enriching%20object-oriented%20methods%20with%20domain%20specific%20knowledge%3A%20outline%20of%20a%20method%20for%20enterprise%20modelling&publication_year=1997&author=Frank%2CU"
+            },
+            {
+                "reference_text": "Galler, J., Scheer, A.-W. (1994). Workflow-Management: Die ARIS Architektur als Basis eines multimedialen Workflow-Systems. In: Scheer, A.-W. (Hrsg.): Ver\u00f6ffentlichungen des Instituts f\u00fcr Wirtschaftsinformatik. Heft 108, Universit\u00e4t des Saarlandes, Juni 1994.",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Galler%2C%20J.%2C%20Scheer%2C%20A.-W.%20%281994%29.%20Workflow-Management%3A%20Die%20ARIS%20Architektur%20als%20Basis%20eines%20multimedialen%20Workflow-Systems.%20In%3A%20Scheer%2C%20A.-W.%20%28Hrsg.%29%3A%20Ver%C3%B6ffentlichungen%20des%20Instituts%20f%C3%BCr%20Wirtschaftsinformatik.%20Heft%20108%2C%20Universit%C3%A4t%20des%20Saarlandes%2C%20Juni%201994."
+            },
+            {
+                "reference_text": "Hohenstein U (1993) Formale Semantik eines erweiterten Entity-Relationship-Modells, 1. Aufl. Teubner, Wiesbaden",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Formale%20Semantik%20eines%20erweiterten%20Entity-Relationship-Modells&publication_year=1993&author=Hohenstein%2CU"
+            },
+            {
+                "reference_text": "Jannaber, S., Karhof, A., Riehle, D. M., Thomas, O., Delfmann, P., & Becker, J. (2016). Invigorating Event-driven Process Chains \u2014 Towards an integrated meta model for EPC standardization. In Betz, S., & Reimer, U. (Eds.), Modellierung 2016 Workshopband, 2.\u20134. M\u00e4rz 2016, Karlsruhe (pp. 13\u201322). GI-Edition: Lecture Notes in Informatics: Vol. 255. Bonn, Germany: K\u00f6llen Druck+Verlag GmbH.",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Jannaber%2C%20S.%2C%20Karhof%2C%20A.%2C%20Riehle%2C%20D.%20M.%2C%20Thomas%2C%20O.%2C%20Delfmann%2C%20P.%2C%20%26%20Becker%2C%20J.%20%282016%29.%20Invigorating%20Event-driven%20Process%20Chains%20%E2%80%94%20Towards%20an%20integrated%20meta%20model%20for%20EPC%20standardization.%20In%20Betz%2C%20S.%2C%20%26%20Reimer%2C%20U.%20%28Eds.%29%2C%20Modellierung%202016%20Workshopband%2C%202.%E2%80%934.%20M%C3%A4rz%202016%2C%20Karlsruhe%20%28pp.%2013%E2%80%9322%29.%20GI-Edition%3A%20Lecture%20Notes%20in%20Informatics%3A%20Vol.%20255.%20Bonn%2C%20Germany%3A%20K%C3%B6llen%20Druck%2BVerlag%20GmbH."
+            },
+            {
+                "reference_text": "Karhof, A., Jannaber, S., Riehle, D. M., Thomas, O., Delfmann, P., & Becker, J. (2016). On the de-facto Standard of Event-driven Process Chains: Reviewing EPC Implementations in Process Modelling Tools. In Oberweis, A., & Reussner, R. (Eds.), Modellierung 2016, 2.\u20134. M\u00e4rz 2016, Karlsruhe (pp. 77\u201392). GI-Edition: Lecture Notes in Informatics: Vol. 254. Bonn, Germany: K\u00f6llen Druck+Verlag GmbH.",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Karhof%2C%20A.%2C%20Jannaber%2C%20S.%2C%20Riehle%2C%20D.%20M.%2C%20Thomas%2C%20O.%2C%20Delfmann%2C%20P.%2C%20%26%20Becker%2C%20J.%20%282016%29.%20On%20the%20de-facto%20Standard%20of%20Event-driven%20Process%20Chains%3A%20Reviewing%20EPC%20Implementations%20in%20Process%20Modelling%20Tools.%20In%20Oberweis%2C%20A.%2C%20%26%20Reussner%2C%20R.%20%28Eds.%29%2C%20Modellierung%202016%2C%202.%E2%80%934.%20M%C3%A4rz%202016%2C%20Karlsruhe%20%28pp.%2077%E2%80%9392%29.%20GI-Edition%3A%20Lecture%20Notes%20in%20Informatics%3A%20Vol.%20254.%20Bonn%2C%20Germany%3A%20K%C3%B6llen%20Druck%2BVerlag%20GmbH."
+            },
+            {
+                "reference_text": "Keller G, Teufel T (1997) SAP R/3 proze\u00dfsorientiert anwenden. Addison-Wesley, Bonn",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=SAP%20R%2F3%20proze%C3%9Fsorientiert%20anwenden&publication_year=1997&author=Keller%2CG&author=Teufel%2CT"
+            },
+            {
+                "reference_text": "Keller G, N\u00fcttgens M, Scheer A-W (1992) Semantische Proze\u00dfmodellierung auf der Grundlage \u201eEreignisgesteuerter Proze\u00dfketten (EPK)\u201c. Iwi, Saarbr\u00fccken",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Semantische%20Proze%C3%9Fmodellierung%20auf%20der%20Grundlage%20%E2%80%9EEreignisgesteuerter%20Proze%C3%9Fketten%20%28EPK%29%E2%80%9C&publication_year=1992&author=Keller%2CG&author=N%C3%BCttgens%2CM&author=Scheer%2CA-W"
+            },
+            {
+                "reference_text": "Meise V (2001) Ordnungsrahmen zur prozessorientierten Organisationsgestaltung. Modelle f\u00fcr das Management komplexer Reorganisationsprojekte, 1. Aufl. Verlag Dr. Kovac, Hamburg",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Ordnungsrahmen%20zur%20prozessorientierten%20Organisationsgestaltung.%20Modelle%20f%C3%BCr%20das%20Management%20komplexer%20Reorganisationsprojekte&publication_year=2001&author=Meise%2CV"
+            },
+            {
+                "reference_text": "Mendling J, Reijers HA, van der Aalst WMP (2010) Seven process modeling guidelines (7PMG). Inf Softw Technol 52:127\u2013136",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Seven%20process%20modeling%20guidelines%20%287PMG%29&journal=Inf%20Softw%20Technol&volume=52&pages=127-136&publication_year=2010&author=Mendling%2CJ&author=Reijers%2CHA&author=Aalst%2CWMP"
+            },
+            {
+                "reference_text": "Porter ME (1985) The competitive advantage: creating and sustaining superior performance. Free Press, New York",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=The%20competitive%20advantage%3A%20creating%20and%20sustaining%20superior%20performance&publication_year=1985&author=Porter%2CME"
+            },
+            {
+                "reference_text": "Riehle, D. M., Jannaber, S., Karhof, A., Thomas, O., Delfmann, P., & Becker, J. (2016). On the de-facto Standard of Event-driven Process Chains: How EPC is defined in Literature. In Oberweis, A., & Reussner, R. (Eds.), Modellierung 2016, 2.\u20134. M\u00e4rz 2016, Karlsruhe (pp. 61\u201376). GI-Edition: Lecture Notes in Informatics: Vol. 254. Bonn, Germany: K\u00f6llen Druck+Verlag GmbH.",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=Riehle%2C%20D.%20M.%2C%20Jannaber%2C%20S.%2C%20Karhof%2C%20A.%2C%20Thomas%2C%20O.%2C%20Delfmann%2C%20P.%2C%20%26%20Becker%2C%20J.%20%282016%29.%20On%20the%20de-facto%20Standard%20of%20Event-driven%20Process%20Chains%3A%20How%20EPC%20is%20defined%20in%20Literature.%20In%20Oberweis%2C%20A.%2C%20%26%20Reussner%2C%20R.%20%28Eds.%29%2C%20Modellierung%202016%2C%202.%E2%80%934.%20M%C3%A4rz%202016%2C%20Karlsruhe%20%28pp.%2061%E2%80%9376%29.%20GI-Edition%3A%20Lecture%20Notes%20in%20Informatics%3A%20Vol.%20254.%20Bonn%2C%20Germany%3A%20K%C3%B6llen%20Druck%2BVerlag%20GmbH."
+            },
+            {
+                "reference_text": "Rosemann M, Schwegmann A, Delfmann P (2012) Vorbereitung der Prozessmodellierung. In: Prozessmanagement. Ein Leitfaden zur prozessorientierten Organisationsgestaltung, 7. Aufl. Springer, Berlin/Heidelberg, S 47\u2013111",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Vorbereitung%20der%20Prozessmodellierung&pages=47-111&publication_year=2012&author=Rosemann%2CM&author=Schwegmann%2CA&author=Delfmann%2CP"
+            },
+            {
+                "reference_text": "Scheer A-W (1992) Architektur integrierter Informationssysteme \u2013 Grundlagen der Unternehmensmodellierung, 2. Aufl. Springer, Berlin/Heidelberg",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Architektur%20integrierter%20Informationssysteme%20%E2%80%93%20Grundlagen%20der%20Unternehmensmodellierung&publication_year=1992&author=Scheer%2CA-W"
+            },
+            {
+                "reference_text": "Siau K, Erickson J, Lee L (2005) Theoretical vs. Practical complexity: the case of UML. J Database Manag 16:40\u201357",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Theoretical%20vs.%20Practical%20complexity%3A%20the%20case%20of%20UML&journal=J%20Database%20Manag&volume=16&pages=40-57&publication_year=2005&author=Siau%2CK&author=Erickson%2CJ&author=Lee%2CL"
+            },
+            {
+                "reference_text": "Talheim B (2000) Entity-relationship modeling, 1. Aufl. Springer, Berlin/Heidelberg",
+                "google_scholar_link": "https://scholar.google.com/scholar_lookup?&title=Entity-relationship%20modeling&publication_year=2000&author=Talheim%2CB"
+            },
+            {
+                "reference_text": "zur Muehlen M, Recker J (2008) How much language is enough? Theoretical and practical use of the business process modeling notation. In: Advanced information systems engineering 20th international conference, CAiSE 2008 Montpellier, 16\u201320 June, 2008 Proceedings. S 465\u2013479",
+                "google_scholar_link": "https://scholar.google.com/scholar?&q=zur%20Muehlen%20M%2C%20Recker%20J%20%282008%29%20How%20much%20language%20is%20enough%3F%20Theoretical%20and%20practical%20use%20of%20the%20business%20process%20modeling%20notation.%20In%3A%20Advanced%20information%20systems%20engineering%2020th%20international%20conference%2C%20CAiSE%202008%20Montpellier%2C%2016%E2%80%9320%20June%2C%202008%20Proceedings.%20S%20465%E2%80%93479"
+            }
+        ],
+        "book_title": "Gesch\u00e4ftsprozessorientierte Systementwicklung",
+        "article_accesses": "5385",
+        "amount_citations": "1"
+    },
+    {
+        "error": "no valid doi passed",
+        "error_doi": "https://doi.org/10.1016/j.jclepro.2022.134316"
+    }
+]
