@@ -5,6 +5,7 @@ from Research_Scraper_Code import utils
 from Research_Scraper_Code.scraper_types.scraper_ieee import ScraperIEEE
 from Research_Scraper_Code.scraper_types.scraper_sciencedirect import ScraperScienceDirect
 from Research_Scraper_Code.scraper_types.scraper_springer import ScraperSpringer
+from scholarly import scholarly, ProxyGenerator
 
 
 class ResearchScraper:
@@ -177,3 +178,21 @@ class ResearchScraper:
         for param in params:
             if not isinstance(param, str):
                 raise Exception('"Params" must consist only of strings')
+
+    def search_author_information_from_google_scholar(self, details, sections=['basics', 'indices', 'counts']):
+        result = scholarly.search_author(details)
+        # get first result
+        found_author = next(result)
+        filled_author = scholarly.fill(found_author, sections=sections)
+        # remove unwanted values from filled_author
+        del filled_author['container_type']
+        del filled_author['filled']
+        del filled_author['source']
+        return filled_author
+
+    def get_url_from_publication_with_scholarly(self, search_query):
+        scholarly_search = scholarly.search_pubs(search_query)
+        publication = next(scholarly_search)
+        url = publication.get('pub_url')
+
+        return url

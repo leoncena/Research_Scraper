@@ -72,8 +72,8 @@ if __name__ == '__main__':
     # Big Scraping
     # cris_scraping_results = scrape_cris_publications()
 
-    # init scraoer
-    scraper = ResearchScraper()
+    # init scraper
+    # scraper = ResearchScraper()
 
     # download one pdf live
     # scraper.download_pdf_of_publication_by_doi_live('10.1007/s00180-017-0742-2')
@@ -84,15 +84,23 @@ if __name__ == '__main__':
 
     # download all pdfs
     scraper = ResearchScraper()
-    scraping_results = utils.load_and_clean_scraping_results(filename='scrapings_2022_10_21__03_38')
-    scraper.download_pdf_of_publications_by_scraping_results(scraping_results)
+    # scraping_results = utils.load_and_clean_scraping_results(filename='scrapings_2022_10_21__03_38')
+    # scraper.download_pdf_of_publications_by_scraping_results(scraping_results)
 
     # df_publications = load_publications_from_csv()
     # publication_dois = get_all_dois(df_publications)
     # scrape_publication_by_doi_list(publication_dois[0:5], params=['full'])
 
-    # print('Fertig')
-    # print('')
     # url_test = 'https://linkinghub.elsevier.com/retrieve/pii/S2405896316326283'
     # result = scraper.scrape_publication_by_url(url_test, params=['full'])
     # print(result.get('keywords'))
+
+    # ScienceDirect fix
+    # URL = 'https://www.sciencedirect.com/science/article/pii/S1043951X0900159X'
+    # print(scraper.scrape_publication_by_url(URL, params=['keywords']))
+
+    # scholarly
+    # prof_gieseke = scraper.search_author_information_from_google_scholar('Fabian Gieseke Münster')
+    # print(prof_gieseke)
+    # prof gieseke interests
+    # print(prof_gieseke.get('interests'))
