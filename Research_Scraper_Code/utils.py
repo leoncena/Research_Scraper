@@ -97,9 +97,10 @@ def write_results(results, name):
             print(f'\033[1;30;42m{len(results)} results written to {name}.json\033[0m')
 
 
-def download_pdf(url, filename, write_folder_path, method='requests'):
+def download_pdf(url, filename, write_folder_path, method='requests', timeout=30):
     """
     Downloads a pdf from a url and saves it to a folder
+    :param timeout: default timeout for requests getting pdfs
     :param url: url of a pdf
     :param filename: name of the file to write
     :param write_folder_path: folder to write to
@@ -109,14 +110,28 @@ def download_pdf(url, filename, write_folder_path, method='requests'):
     if method == 'requests':
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15'}
-        r = requests.get(url, headers=headers)
+        try:
+            r = requests.get(url, headers=headers, timeout=timeout)
+        except (
+                requests.exceptions.MissingSchema, requests.exceptions.InvalidURL,
+                requests.exceptions.ConnectionError, requests.exceptions.InvalidSchema) as e:
+            # cancel download
+            print(f'[utils.py: download_pdf] Connection Error - could not download: error type: {type(e)} -> {e}')
+            return
     if method == 'cloudscraper':
         scraper = cloudscraper.create_scraper(
             browser={
                 'custom': 'ScraperBot/1.0',
             }
         )
-        r = scraper.get(url, allow_redirects=True)
+        try:
+            r = scraper.get(url, allow_redirects=True, timeout=timeout)
+        except (
+                requests.exceptions.MissingSchema, requests.exceptions.InvalidURL,
+                requests.exceptions.ConnectionError, requests.exceptions.InvalidSchema) as e:
+            # cancel download
+            print(f'[utils.py: download_pdf] Connection Error - could not download: error type: {type(e)} -> {e}')
+            return
 
     pdf_save_path = write_folder_path + '/' + filename + '.pdf'
     if r.status_code == 200:
@@ -128,7 +143,11 @@ def download_pdf(url, filename, write_folder_path, method='requests'):
 
             # print log_1 in green background black font
             print(f'\033[1;30;42m{log_1}\033[0m' + log_2 + log_3)
-            # print with green font
+
+            # if pdf file smaller than 5 kb, print a warning that it might be corrupted
+            if len(r.content) < 5000:
+                msg = f'but PDF might be corrupted, file size: {len(r.content)} bytes'
+                print(f'\033[1;30;43m{msg}\033[0m')  # orange
 
     else:
         print(f'[utils.py: download_PDF] PDF Download failed: {r.status_code}')

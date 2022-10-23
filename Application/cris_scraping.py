@@ -63,6 +63,11 @@ def scrape_cris_publications():
     return scraping_results
 
 
+def download_pdfs_from_cris_data():
+    df_publications = load_publications_from_csv()
+    #
+
+
 # def download_pdfs():
 # import scraping results
 
