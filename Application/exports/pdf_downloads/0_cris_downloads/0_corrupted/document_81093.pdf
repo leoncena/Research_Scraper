@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset=utf-8>
+<title>Institut für angewandte Informatik</title>
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="author"    content="Westf&auml;lische Wilhelms-Universit&auml;t M&uuml;nster, Institut für angewandte Informatik"><meta name="publisher" content="Westf&auml;lische Wilhelms-Universit&auml;t M&uuml;nster"><meta name="copyright" content="&copy; 2021 ">
+
+
+<meta name="X-Imperia-Live-Info" content="225be384-6b28-a38b-7c08-d962bf4a6aa5/274622/276191" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"><link href="/wwu/css/main.css" rel="stylesheet" type="text/css"><link href="/wwucss/b1c800/primary.css" rel="stylesheet" type="text/css"><link href="/wwucss/b1c800/secondary.css" rel="stylesheet" type="text/css"><link href="/wwu/css/print.css" rel="stylesheet" type="text/css" media="print"><script src="/wwu/js/modernizr.wwu.js"></script>
+<link href="/AngewandteInformatik/impressum.html" rel="copyright" />
+<link href="/uv/wwuaz/unilist/" rel="index" />
+<link href="/wwu/suche/" rel="search" />
+<link href="/imperia/md/content/allgemein/farbunabhaengig/favicon.ico" rel="shortcut icon" />
+
+
+<meta name="GENERATOR" content="IMPERIA 8.6.35_1" />
+</head>
+
+<body id="mnav"><div class="wrapper" id="top">
+
+
+
+<header><div id="logos" role="banner"><a href="/de/" class="wwulogo svg"><img src="/imperia/md/images/allgemein/farbunabhaengig/wwu.svg" width="332" height="96" alt="WWU Münster" id="logo" class="university-logo svg"></a><a href="/AngewandteInformatik/"><img src="/imperia/md/images/angewandteinformatik/_v/kopfiai.svg" alt="" title="" id="sublogo" class="secondary-logo"></a></div>
+<div id="skipnav" class="noprint"><ul><li><a href="#inhalt">zum Inhalt</a></li><li><a href="#hauptnavigation">zur Hauptnavigation</a></li><li><a href="#subnavigation">zur Subnavigation</a></li></ul></div>
+<nav class="nav-language-container"><ul class="nav-language"></ul></nav><div class="nav-mobile-menu"><nav class="nav-mobile"><a href="#mnav" class="nav-mobile-toggle"></a><a href="#none" class="nav-mobile-toggle active"></a></nav><div class="nav-search-mobile"><a class="nav-search-mobile-toggle cse" href="#sear"></a><a class="nav-search-mobile-toggle active" href="#none"></a></div></div></header>
+<div class="nav-container row"><nav class="nav-main six columns"><div class="nav-search cse" role="search"><form accept-charset="UTF-8" method="get" action="/wwu/suche/"><label for="query">Suche: </label><input id="submitButton" class="nav-search-button" type="submit" value="Los"><input id="query" type="search" name="q" class="cse" placeholder="Stichwort"></form></div><ul id="hauptnavigation" class="nav-first-level"><li class="nav-item-main"><span class="nav-level-toggle"></span><a href="/AngewandteInformatik/institut/index.html">Institut</a></li><li class="nav-item-main"><span class="nav-level-toggle"></span><a href="/AngewandteInformatik/aktivitaeten/index.html">Aktivitäten</a></li><li class="nav-item-main"><a href="/AngewandteInformatik/foerderkreis/index.html">Förderkreis</a></li><li class="nav-item-main"><a href="/AngewandteInformatik/kontakt/index.html">Kontakt</a></li></ul></nav><div class="wrapper-complement-nav six columns"><nav class="nav-audience-container"></nav></div></div>
+<div class="content row">
+
+<section id="inhalt" class="main four columns" role="main">
+<!-- WWU_Flex.perl -->
+<article class="module extended"><div class="module-content"><h1>&#160;Willkommen</h1>
+<p>Das Aufspüren und die Durchsetzung neuer intelligenter Technologien und bedarfsgerechter Produkte und deren Umsetzung im Markt sind in einer privatwirtschaftlich organisierten Gesellschaft primär Aufgabe der Unternehmen. Die Phantasie, die Energie und der Mut zum Risiko von Unternehmern, aber auch von Einzelnen, treiben hier immer wieder die Entwicklung voran.</p>
+<p>Dennoch wird diese Aufgabe, gerade was die Entwicklung und Forschung angeht, nicht allein von den Unternehmern gelöst werden können, dazu bedarf es auch der Unterstützung und Hilfestellung der Wissenschaft. Dies gilt im besonderen Maße für die mittelständische Wirtschaft, die aufgrund personeller, finanzieller und organisatorischer Defizite oft nicht in der Lage ist, den komplizierten Prozess der Innovation aus eigener Kraft zu bewältigen.</p>
+<p>Um der mittelständischen Wirtschaft und ihren Bedürfnissen vor allem im hiesigen Wirtschaftsraum Rechnung zu tragen, ist das Institut für Angewandte Informatik so organisiert, dass drei wissenschaftliche Disziplinen eng zusammenarbeiten:</p>
+<ul>
+  <li>die Wirtschaftswissenschaftliche Fakultät,</li>
+  <li>der Fachbereich für Mathematik und Informatik</li>
+  <li>Zentrum für Informationsverarbeitung (ZIV)</li>
+</ul>
+<p>Dadurch sollen mathematische und betriebswirtschaftliche Fragestellungen und Probleme aufgegriffen und untersucht werden.</p>
+<p>Im Vordergrund steht dabei nicht die Grundlagenforschung. Schwerpunkt des Instituts und seiner Tätigkeit ist vielmehr die anwendungsorientierte Forschung und Entwicklung sowie die Anwendung wissenschaftlicher Erkenntnisse in der Praxis auf dem Gebiet der angewandten Informatik. Es soll ein schneller wissenstransfer zwischen Wirtschaft und Wissenschaft erfolgen.</p>
+<p>Mit dem interdisziplinären Institut für Angewandte Informatik an der Universität Münster sollen mehrere Ziele verfolgt werden:</p>
+<ol>
+  <li>Es sollen anwendungsorientierte Forschungs- und Entwicklungsarbeiten aufgegriffen werden, da es sich gezeigt hat, dass in vielen Anwendungsbereichen zufriedenstellende Problemlösungen zwar angekündigt, aber noch nicht geliefert werden können, und dass viele interessante Fragestellungen bisher noch nicht aufgegriffen worden sind.<br />
+  Bei den durchzuführenden Projekten soll auf Anregungen des Förderkreises eingegangen werden. »Subventionierte« Konkurrenz zu kommerziellen Software-Häusern oder Entwicklungsarbeiten für Einzelfirmen sind dabei ausgeschlossen.</li>
+  <li>Das Institut soll Aktivitäten im Bereich der praxisbezogenen Lehre (z. B. Entwicklung von fachspezifischen Kursen aus dem Bereich der angewandten Informatik) entfalten.</li>
+  <li>Durch die Arbeit des Instituts sollen eigenständige Entwicklungen im hiesigen Wirtschaftsraum unterstützt werden.</li>
+</ol>
+<p></p>
+<p></p>
+<p></p></div></article>
+</section><aside class="module complement two columns nav-apps-container"><ul class="nav-apps"><li class="nav-app active"><a class="nav-app-links toggle" href="#">Institute</a><section class="module-content"><ul class="center"><li><a href="http://www.wi.uni-muenster.de/" class="int">Institut für Wirtschaftsinformatik</a><li><a href="http://cs.uni-muenster.de/" class="int">Institut für Informatik</a><li><a href="http://ifgi.uni-muenster.de/" class="int">Institut für Geoinformatik</a><li><a href="http://campus.uni-muenster.de/imi_start.html" class="int">Institut für Medizinische Informatik</a><li><a href="http://www.compgen.uni-muenster.de/" class="int">Institut für Bioinformatik</a><li><a href="/ZIV/" class="int">Zentrum für Informationsverarbeitung (ZIV)</a></ul></section></ul></aside>
+
+</div><footer><div class="row upper"><aside class="module two columns"><h2>Kontakt</h2><address class="h-card"><span class="p-org">Westfälische Wilhelms-Universität Münster</span><br><span class="p-name">Institut für angewandte Informatik</span><br><p class="p-adr h-adr"><a href="/uv/wwuaz/lageplan/7841#x" class="p-street-adress">Leonardo-Campus 3</a><br><span class="p-postal-code">48149</span> <span class="p-locality">Münster</span></p>Tel: <span class="p-tel">+49 251 83-38251</span><br>Fax: <span class="p-tel-fax">0251 - 83 38259</span><br><a class="u-email" href="http://wwwuv2.uni-muenster.de/kommentieren/kontakt.php?empf=kuchen">kuchen@uni-muenster.de</a></address></aside><aside class="module two columns"></aside><!-- Beginn WWU-Claim--><div class="module two columns not-on-smartphone"><div class="claim"><a href="/de/" title="Startseite der WWU" class="claim"><span class="claim-wissen">wissen</span><span class="claim-dot">.</span><span class="claim-leben">leben</span><br><div class="claim-wwu"><abbr title="Westfälische Wilhelms-Universität">WWU</abbr><span class="claim-muenster">&nbsp;</span>Münster</div></a></div></div><!-- Ende WWU-Claim --></div><div class="row lower"><nav class="nav-footer module module three columns"><ul><li><a  href="/AngewandteInformatik/impressum.html">Impressum</a><li><a  href="/de/datenschutzerklaerung.html">Datenschutzhinweis</a><li><a  href="/de/barrierefreiheit.html">Barrierefreiheit</a></ul></nav><div class="module module-content three columns"><p>&copy;  2021 Institut für angewandte Informatik<a class="nav-slideup" href="#top" title="nach oben"></a></p></div></div></footer><noscript><p><img src="//piwik.uni-muenster.de/piwik.php?idsite=100" style="border:0" alt="" width="1" height="1" /></p></noscript>
+</div>
+<script src="/wwu/js/jquery.min.js"></script><script src="/wwu/js/main.js"></script><script>var _paq=_paq||[];_paq.push(['setDomains',['*.uni-muenster.de/','*.wwu.de/']]);_paq.push(['setDoNotTrack',true]);_paq.push(['trackPageView']);_paq.push(['enableLinkTracking']);(function(){var u='//piwik.uni-muenster.de/',d=document,g=d.createElement('script'),s=d.getElementsByTagName('script')[0];_paq.push(['setTrackerUrl',u+'piwik.php']);_paq.push(['setSiteId',100]);g.type='text/javascript';g.async=true;g.defer=true;g.src=u+'piwik.js';s.parentNode.insertBefore(g,s);})();</script>
+</body></html>

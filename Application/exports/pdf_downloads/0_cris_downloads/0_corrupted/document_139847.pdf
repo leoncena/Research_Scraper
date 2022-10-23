@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml" class="no-js">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2022 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+
+
+<title>MKWI2018 | Leuphana</title>
+<meta name="generator" content="TYPO3 CMS" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Leuphana Universität Lüneburg" />
+<meta property="og:locale" content="de" />
+<meta property="og:url" content="https://www.leuphana.de/institute/iis/mkwi2018.html" />
+<meta property="og:title" content="MKWI2018" />
+<meta name="twitter:card" content="summary" />
+<meta name="google-site-verification" content="NzZwCFeYzS8Z_QFJKxApehcMCJmRwx6zkbrQW_db30E" />
+<meta name="msapplication-config" content="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/browserconfig.xml" />
+<meta name="theme-color" content="#7d212a" />
+<meta name="title" content="MKWI2018" />
+
+
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/main.1665678504.css" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/print.1665678504.css" media="print">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/dpn_glossary/Resources/Public/css/styles.1634305650.css" media="all">
+
+
+
+
+<script src="/typo3conf/ext/theme_leuphana/Resources/Public/JS/sentry-6.19.7.1659608428.js"></script>
+<script src="/typo3conf/ext/theme_leuphana/Resources/Public/JavaScript/SentryInit.1665733606.js"></script>
+<script src="/typo3conf/ext/theme_leuphana/Resources/Public/JS/jquery-1.8.2.min.1659608428.js"></script>
+<script src="/typo3temp/assets/js/5508b6c4f0.1610967389.js"></script>
+
+
+
+            <link rel="apple-touch-icon" sizes="180x180" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/favicon-16x16.png">
+            <link rel="manifest" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/site.webmanifest">
+            <link rel="mask-icon" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/favicons/safari-pinned-tab.svg" color="#7d212a">
+
+            <link rel="preload" as="font" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/fonts/leuphana-icons.71cb3e7.woff" crossorigin>
+            <link rel="preload" as="font" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/fonts/roboto-condensed-v25-latin-300.woff2" crossorigin>
+            <link rel="preload" as="font" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/fonts/roboto-condensed-v25-latin-700.woff2" crossorigin>
+            <link rel="preload" as="font" href="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/fonts/roboto-condensed-v25-latin-regular.woff2" crossorigin>            <script type="text/plain" data-type="application/javascript" data-name="googleanalytics">
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+                ga('set', 'anonymizeIp', true);
+                ga('create', 'UA-193330693-1', 'auto');
+                ga('send', 'pageview');
+            </script>
+<link rel="canonical" href="https://www.leuphana.de/institute/iis/mkwi2018.html"/>
+
+<link rel="alternate" hreflang="de-DE" href="https://www.leuphana.de/institute/iis/mkwi2018.html"/>
+<link rel="alternate" hreflang="en" href="https://www.leuphana.de/en/institutes/iis/mkwi2018.html"/>
+<link rel="alternate" hreflang="x-default" href="https://www.leuphana.de/institute/iis/mkwi2018.html"/>
+
+<!-- This site is optimized with the Yoast SEO Premium for TYPO3 plugin - https://yoast.com/typo3-extensions-seo/ -->
+<script type="application/ld+json">[{"@context":"https:\/\/www.schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/www.leuphana.de\/","name":"Leuphana"}},{"@type":"ListItem","position":2,"item":{"@id":"https:\/\/www.leuphana.de\/institute.html","name":"Institute"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/www.leuphana.de\/institute\/iis-inst-wirtschaftsinformatik.html","name":"Institut f\u00fcr Wirtschaftsinformatik (IIS)"}},{"@type":"ListItem","position":4,"item":{"@id":"https:\/\/www.leuphana.de\/institute\/iis.html","name":"Institut f\u00fcr Wirtschaftsinformatik (IIS)"}},{"@type":"ListItem","position":5,"item":{"@id":"https:\/\/www.leuphana.de\/institute\/iis\/mkwi2018.html","name":"MKWI2018"}}]}]</script>
+</head>
+<body id="uid121620">
+<div class="c-page">
+    
+
+
+<header class="c-header container-fluid" data-nwt-plugin="nwt.stickynav">
+    <div class="c-header__brand">
+        <a href="/" class="c-header__brand-link" title="Leuphana Universität Lüneburg"><img src="/typo3conf/ext/leuphana_styleguide/Resources/Public/images/leuphana_logo.svg" width="216" height="78"  class="c-header__brand-logo" alt="Leuphana Universität Lüneburg"  alt="" ></a>
+    </div>
+    
+        <input class="c-header__search-toggle" id="search-toggle" type="checkbox">
+    
+    <input class="c-header__offcanvas-toggle" id="main-nav-toggle" type="checkbox">
+    <div class="c-header__navigation-wrapper">
+        <div class="c-header__navigation">
+            <nav class="c-navigation c-navigation--main" data-nwt-plugin="nwt.offcanvasnav">
+                <ul class="c-navigation__list c-navigation__list--main c-list"><li class="c-navigation__list-item c-list__item"><a href="/universitaet.html" class="c-navigation__list-item-link">Universität</a></li><li class="c-navigation__list-item c-list__item"><a href="/studium.html" class="c-navigation__list-item-link">Studium & Lehre</a></li><li class="c-navigation__list-item c-list__item"><a href="/forschung.html" class="c-navigation__list-item-link">Forschung</a></li><li class="c-navigation__list-item c-list__item"><a href="/kooperationen.html" class="c-navigation__list-item-link">Kooperationen</a></li><li class="c-navigation__list-item c-list__item"><a href="/einrichtungen.html" class="c-navigation__list-item-link">Einrichtungen</a></li></ul>
+            </nav>
+        </div>
+    </div>
+    
+        <div class="c-header__search-wrapper">
+            <div class="c-header__search-overlay"></div>
+            <div class="c-header__search">
+                <button class="c-header__search-close" type="button"></button>
+                <html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	  xmlns:s="http://typo3.org/ns/ApacheSolrForTypo3/Solr/ViewHelpers/">
+
+<a data-href="/searchform.html" class="c-search__ajaxuri hidden"></a>
+
+        <div id="tx-solr-search" class="c-search" data-nwt-plugin="nwt.search">
+            
+
+    <div class="tx-solr-search-form">
+        <form method="get" class="c-search__form" id="tx-solr-search-form-pi-results" action="/searchform.html" data-suggest="/suggest.json" data-suggest-header="Top Treffer" accept-charset="utf-8">
+            <div class="input-group c-search__form-input-group">
+                
+
+                
+
+                <div class="c-search__autocomplete">
+                    <input type="text"
+                           class="c-search__form-input c-input form-control tx-solr-q js-solr-q tx-solr-suggest tx-solr-suggest-focus"
+                           name="tx_solr[q]"
+                           value=""
+                           autocomplete="off"
+                           placeholder="Suchbegriff eingeben..." />
+                    <div class="c-search__autocomplete-suggestions"></div>
+                </div>
+                <select class="c-search__form-select c-input c-input--select form-control" name="tx_solr[filter][]">
+                    <option class="c-input__option" value="" placeholder="">
+                        Filtern nach
+                    </option>
+                    <option class="c-input__option" value="type:pages">
+                        Seiten
+                    </option>
+                    <option class="c-input__option" value="type:tt_address">
+                        Personen
+                    </option>
+                    <option class="c-input__option" value="type:sys_file_metadata">
+                        Dateien
+                    </option>
+                    <option class="c-input__option" value="type:tx_news_domain_model_news">
+                        Nachrichten
+                    </option>
+                </select>
+
+                <span class="input-group-btn">
+                    <button class="c-search__form-submit c-button tx-solr-submit solr-ajaxified" type="submit">
+                        <i class="c-search__form-submit-icon icon-search"></i>
+                        <span class="c-search__form-submit-label">Suchen</span>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+            <div class="c-search__content">
+                
+                <div class="tx_solr c-search__results">
+                    
+                    
+
+
+
+
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+            </div>
+        </div>
+    
+    <div class="c-navigation__wrapper--language ">
+        <nav class="c-navigation c-navigation--language">
+
+            
+                <ul class="c-navigation__list">
+
+                    
+                        <li class="c-navigation__list-item">
+                            
+                                    
+                                            <span>
+                                                <abbr class="c-navigation__language" title="Deutsch">
+                                                    <span class="c-navigation__language-short">de</span>
+                                                </abbr>
+                                            </span>
+                                        
+                                
+                        </li>
+                    
+                        <li class="c-navigation__list-item">
+                            
+                                    
+                                            <a href="/en/institutes/iis/mkwi2018.html" hreflang="en"
+                                               class="c-navigation__list-item-link" title="English">
+
+                                                <abbr class="c-navigation__language" title="English">
+                                                    <span class="c-navigation__language-short">en</span>
+                                                </abbr>
+                                            </a>
+                                        
+                                
+                        </li>
+                    
+                </ul>
+            
+
+        </nav>
+    </div>
+    <div class="c-header__button-group">
+        
+            <label class="c-header__search-button" for="search-toggle">
+                <i class="icon icon-search"></i>
+            </label>
+        
+        <label class="c-header__offcanvas-button" for="main-nav-toggle">
+            <span class="c-header__offcanvas-button-inner"></span>
+        </label>
+    </div>
+</header>
+
+    <main class="c-main">
+        
+    <!--TYPO3SEARCH_begin-->
+
+
+
+        
+                
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        <section class="c-section " id="c718075">
+            
+
+
+            <div class="c-section__container-content container-fluid">
+                <div class="row">
+                    
+                            <div class="col-4 col-xl-3 d-none d-lg-block">
+                                
+
+<!--TYPO3SEARCH_end-->
+<div class="c-navigation__wrapper--subnavigation">
+    <ul class="c-navigation__list--subnavigation c-navigation__list c-navigation__list--active" id="nav-subnavigation">
+
+        <li class="c-navigation__list-item c-navigation__list-item--pagetitle">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis.html">Institut für Wirtschaftsinformatik (IIS)</a>
+            </div>
+        </li>
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-machine-learning.html">Machine Learning</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-digitale-transformation-und-informationsmanagement.html">Digitale Transformation und Informationsmanagement</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-e-business.html">E-Business</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-e-business-und-wissensmanagement.html">E-Business und Wissensmanagement</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-quantitative-methoden-und-softwareentwicklung.html">Quantitative Methoden und Softwareentwicklung</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-betriebliche-anwendungssysteme.html">Betriebliche Anwendungssysteme</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-operations-research.html">Operations Research</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-113366&quot;, &quot;parent&quot;: &quot;#nav-subnavigation&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-113366" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-operations-research/robonatives-initiative-roll-out-nordostniedersachsen-robonord.html">Robonatives Initiative Roll Out Nordostniedersachsen (RoboNord)</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/wirtschaftsinformatik-insbesondere-operations-research/dfg-projekt-robuste-integrierte-umlauf-tagesdienst-und-dienstreihenfolgeplanung-im-oepnv.html">DFG-Projekt: Robuste integrierte Umlauf-, Tagesdienst- und Dienstreihenfolgeplanung im ÖPNV</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/data-club-lueneburg.html">Data Club Lüneburg</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-120335&quot;, &quot;parent&quot;: &quot;#nav-subnavigation&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-120335" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/data-club-lueneburg/ueber-uns.html">Über uns</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/data-club-lueneburg/kontakt.html">Kontakt</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/luefins.html">LÜFINS</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-63679&quot;, &quot;parent&quot;: &quot;#nav-subnavigation&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-63679" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/luefins/tag-der-informatik.html">Tag der Informatik</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/luefins/schulen.html">Schulen</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/luefins/presse.html">Presse</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/luefins/kontakt-luefins.html">Kontakt LÜFINS</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item c-navigation__list-item--active">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/mkwi2018.html">MKWI2018</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen.html">Personen</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-6089&quot;, &quot;parent&quot;: &quot;#nav-subnavigation&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-6089" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/francisco-arcila-samalanca.html">Francisco Arcila Samalanca</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/ulf-brefeld.html">Ulf Brefeld</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-97406&quot;, &quot;parent&quot;: &quot;#nav-6089&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-97406" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/ulf-brefeld/short-bio-prof-dr-ulf-brefeld.html">Short bio Prof. Dr. Ulf Brefeld</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/kristina-lemmer.html">Kristina Lemmer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/johannes-van-deest.html">Johannes van Deest</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/stefanos-dimitriadis.html">Stefanos Dimitriadis</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/paul-drews.html">Paul Drews</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-93766&quot;, &quot;parent&quot;: &quot;#nav-6089&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-93766" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/paul-drews/zil-kontakt.html">ZIL-Kontakt</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/paul-drews/abschlussarbeiten.html">Abschlussarbeiten</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/samuel-fadel.html">Samuel Fadel</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/dennis-fassmeyer.html">Dennis Faßmeyer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/pascal-fassmeyer.html">Pascal Faßmeyer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/burkhardt-funk.html">Burkhardt Funk</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/mathias-gross.html">Mathias Groß</a>
+                
+                    <span class="c-navigation__list-item-button "
+                          data-nwt-plugin="nwt.collapse"
+                          data-nwt-plugin-options="&#123;&quot;target&quot;: &quot;#nav-6146&quot;, &quot;parent&quot;: &quot;#nav-6089&quot;, &quot;parentDelay&quot;: 350&#125;">
+                    </span>
+                
+            </div>
+            
+                <ul id="nav-6146" class="c-navigation__list collapse ">
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/mathias-gross/digital-learning-white-paper.html">Digital Learning White Paper</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/mathias-gross/digital-learning-interview.html">Digital Learning Interview</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/juergen-jacobs.html">Jürgen Jacobs</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/laurin-luttmann.html">Laurin Luttmann</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/jennifer-matthiesen.html">Jennifer Matthiesen</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/kai-neubauer.html">Kai Neubauer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/peter-niemeyer.html">Peter Niemeyer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/tino-paulsen.html">Tino Paulsen</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/eraldo-luis-rezende-fernandes.html">Eraldo Luis Rezende Fernandes</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/jonas-scharfenberger.html">Jonas Scharfenberger</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/thomas-slotos.html">Thomas Slotos</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/lukas-walter-thiee.html">Lukas-Walter Thiee</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/nils-johann-tschoppe.html">Nils Johann Tschoppe</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/lin-xie.html">Lin Xie</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+        
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/personen/markus-zimmer.html">Markus Zimmer</a>
+                
+            </div>
+            
+        </li>
+    
+
+    
+</ul>
+
+
+            
+        </li>
+    
+
+        
+            
+        <li class="c-navigation__list-item ">
+            <div class="c-navigation__list-item-content">
+                <a class="c-navigation__list-item-link" href="/institute/iis/kontakt.html">Kontakt</a>
+                
+            </div>
+            
+        </li>
+    
+
+        
+    </ul>
+</div>
+<!--TYPO3SEARCH_begin-->
+
+                            </div>
+                            <div class="col-16 col-lg-10 col-xl-11">
+                                <ul class="c-breadcrumb c-list c-list--unstyled"><li class="c-breadcrumb__item"><a href="/" class="c-breadcrumb__link">Leuphana</a></li><li class="c-breadcrumb__item"><a href="/institute.html" class="c-breadcrumb__link">Institute</a></li><li class="c-breadcrumb__item"><a href="/institute/iis.html" class="c-breadcrumb__link">Institut für Wirtschaftsinformatik (IIS)</a></li><li class="c-breadcrumb__item c-breadcrumb__item--current">MKWI2018</li></ul>
+                                <h1 class="c-headline nosearch">
+                                    MKWI2018
+                                </h1>
+
+                                
+<div id="c718075" class="frame frame-default frame-type-gridelements_pi1 frame-layout-0"></div>
+
+
+                                
+</div><div class="col-16 col-lg-12 col-xl-13 offset-lg-4 offset-xl-3"><div id="c718077" class="frame frame-default frame-type-image frame-layout-0"><figure class="c-figure c-figure--lightbox" data-nwt-plugin="nwt.lightbox"><div class="c-figure__content"><div class="c-image__wrapper"><noscript><img class="c-image c-figure__image c-image--lightbox" alt="mwki2018_logo" src="/fileadmin/_processed_/6/b/csm_mwki2018_logo_69ab8b5d71.jpg" width="820" height="462" title=" " /></noscript><img class="c-image c-figure__image c-image--lightbox lazyload" alt="mwki2018_logo" src="data:image/gif;base64,R0lGODdhEAAJAPAAAAAAACZFySH5BAEAAAEALAAAAAAQAAkAAAIKjI+py+0Po5yUFQA7" title=" " data-srcset="/fileadmin/_processed_/6/b/csm_mwki2018_logo_8fbe4c2d79.jpg 498w,/fileadmin/_processed_/6/b/csm_mwki2018_logo_74c413310f.jpg 820w,/fileadmin/_processed_/6/b/csm_mwki2018_logo_8507707e24.jpg 1506w" data-src="/fileadmin/_processed_/6/b/csm_mwki2018_logo_8507707e24.jpg" data-large-img-src="/fileadmin/_processed_/6/b/csm_mwki2018_logo_11b25d5f26.jpg" /><span class="c-image__copyright">
+                                ©Leuphana
+                            </span></div></div><figcaption class="c-figure__caption"></figcaption></figure></div></div><div class="col-16 col-lg-10 col-xl-11 offset-lg-4 offset-xl-3">
+
+<div id="c718079" class="frame frame-default frame-type-text frame-layout-0"><p>&nbsp;&nbsp;&nbsp;</p><p>Die Multikonferenz Wirtschaftsinformatik 2018 (MKWI 2018) wurde vom Institut für Wirtschaftsinformatik der Leuphana Universität Lüneburg ausgerichtet. Vier Tage lang diskutierten Wissenschaftlerinnen und Wissenschaftler aus Deutschland, Österreich, Lichtenstein und der Schweiz über aktuelle Forschungsthemen der Wirtschaftsinformatik. Die Konferenz stand unter dem Motto "Data driven X – Turning Data into Value". In 29 Teilkonferenzen und einer Postersession wurden mehr als 200 wissenschaftliche Beiträge präsentiert und diskutiert. Eröffnet wurde die Konferenz vom niedersächsischen Minister für Wissenschaft und Kultur, Björn Thümler. In Keynotes sprachen Roland Scharrer von AXA Deutschland zum Thema "DATA-DRIVEN INNOVATION @ AXA - Challenges of a holistic transformation in insurance" und David Kriesel zum Thema "SpiegelMining - Reverse Engineering by SpiegelOnline". An der Konferenz nahmen mehr als 700 Teilnehmerinnen und Teilnehmer aus Wissenschaft und Praxis teil.</p><p>Die wissenschaftliche Leitung und die Verantwortung für die Durchführung der Konferenz übernahmen Prof. Dr. Paul Drews, Prof. Dr. Burkhardt Funk, Prof. Dr. Peter Niemeyer und Prof. Dr. Lin Xie. Stefanos Dimitriadis und Christoph Martin trugen als Projektmanager bzw. Manager des Peer-Review-Verfahrens maßgeblich zum Erfolg bei.</p><p>Die fünf Bände des Tagungsbands</p><p>Multikonferenz Wirtschaftsinformatik (MKWI) 2018<br> Data driven X – turning Data into Value<br> Paul Drews, Burkhardt Funk, Peter Niemeyer und Lin Xie (Hrsg.)<br> Leuphana Universität Lüneburg, 6. – 9. März 2018<br> ISBN 978-3-935786-72-0</p><p>stehen unten zum Download bereit:</p></div>
+
+<div id="c718080" class="frame frame-default frame-type-uploads frame-layout-0"><ul class="c-link-list"><li class="c-link-list__item"><a href="/fileadmin/user_upload/Forschungseinrichtungen/ieg/files/MKWI2018/MKWI2018_Band1.pdf" class="c-link c-link--icon c-link--icon-document u-transform--uppercase" >MKWI2018_Band1.pdf</a></li><li class="c-link-list__item"><a href="/fileadmin/user_upload/Forschungseinrichtungen/ieg/files/MKWI2018/MKWI2018_Band2.pdf" class="c-link c-link--icon c-link--icon-document u-transform--uppercase" >MKWI2018_Band2.pdf</a></li><li class="c-link-list__item"><a href="/fileadmin/user_upload/Forschungseinrichtungen/ieg/files/MKWI2018/MKWI2018_Band3.pdf" class="c-link c-link--icon c-link--icon-document u-transform--uppercase" >MKWI2018_Band3.pdf</a></li><li class="c-link-list__item"><a href="/fileadmin/user_upload/Forschungseinrichtungen/ieg/files/MKWI2018/MKWI2018_Band4.pdf" class="c-link c-link--icon c-link--icon-document u-transform--uppercase" >MKWI2018_Band4.pdf</a></li><li class="c-link-list__item"><a href="/fileadmin/user_upload/Forschungseinrichtungen/ieg/files/MKWI2018/MKWI2018_Band5.pdf" class="c-link c-link--icon c-link--icon-document u-transform--uppercase" >MKWI2018_Band5.pdf</a></li></ul></div>
+
+                            </div>
+                        
+                </div>
+            </div>
+        </section>
+    
+
+            
+    
+
+
+
+<!--TYPO3SEARCH_end-->
+
+    </main>
+    
+
+
+
+
+        
+    
+
+<footer class="c-footer">
+    <div class="c-section c-section--author">
+        <div class="c-section__container">
+            <div class="c-section__container-content container-fluid">
+                <div class="row">
+                    <div class="c-footer__author-container col-16 col-lg-12 col-xl-9 offset-lg-4 offset-xl-3" itemscope="author" itemtype="https://schema.org/WebPage">
+                        
+                            <span class="c-footer__author-name" itemprop="name">
+                                
+                                        <span itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+                                            Dening-Bratfisch
+                                        </span>
+                                    
+                            </span>
+                            &nbsp;/&nbsp;
+                        
+                        <time class="c-footer__author-date" itemprop="dateModified">17.11.2021</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-section__container collapse" id="contact-author">
+            <div class="c-section__container-content container-fluid">
+                <div class="col-16 col-md-12 col-lg-10 col-xl-8 col-xl-9 offset-lg-4 offset-xl-3">
+                    <div class="c-contact-form c-contact-form--loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c-footer__lower">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="c-footer__navigation col-8 col-lg-9 col-xl-9 offset-lg-4 offset-xl-3">
+                    <ul class="c-footer__link-list c-footer__link-list--navigation c-list c-list--unstyled"><li class="c-footer__link-list-item"><a href="/kontakt.html" class="c-footer__link-list-link">Kontakt</a></li><li class="c-footer__link-list-item"><a href="/universitaet/jobs-und-karriere.html" class="c-footer__link-list-link">Leuphana als Arbeitgeber</a></li><li class="c-footer__link-list-item"><a href="/intranet.html" class="c-footer__link-list-link">INTRANET</a></li><li class="c-footer__link-list-item"><a href="/impressum.html" class="c-footer__link-list-link">Impressum</a></li><li class="c-footer__link-list-item"><a href="/datenschutz.html" class="c-footer__link-list-link">Datenschutz</a></li><li class="c-footer__link-list-item"><a href="/barrierefreiheit.html" class="c-footer__link-list-link">Barrierefreiheit</a></li><li class="c-footer__link-list-item"><a class="c-footer__link-list-link" href="" onClick="klaro.show();return false;">Cookie-Einstellungen</a></li></ul>
+                </div>
+                <div class="c-footer__social-media col-8 col-lg-3">
+                    <ul class="c-footer__link-list c-footer__link-list--social-media c-list c-list--unstyled"><li class="c-footer__link-list-item"><a href="http://facebook.com/leuphana" title="zum Facebook Profil der Leuphana" class="c-hexagon-button c-hexagon-button--facebook-f" target="_blank" rel="noreferrer"><svg class="c-hexagon-button__svg" viewBox="0 0 97 97" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path class="c-hexagon-button__svg-inner" d="M48.395 3.473l38.9 22.463v44.917l-38.9 22.463L9.49 70.853V25.936L48.395 3.473z" fill="#949b8b"></path><path class="c-hexagon-button__svg-outer" d="M90.303 24.177v48.388l-41.908 24.2-41.912-24.2V24.177l41.912-24.2c13.97 8.07 27.941 16.13 41.908 24.2zM9.608 25.979v44.784l38.787 22.398 38.79-22.398V25.98L48.396 3.58C35.466 11.043 22.537 18.517 9.608 25.979z" fill="#fff"></path></svg></a></li><li class="c-footer__link-list-item"><a href="http://twitter.com/leuphana" title="zum Twitter Profil der Leuphana" class="c-hexagon-button c-hexagon-button--twitter" target="_blank" rel="noreferrer"><svg class="c-hexagon-button__svg" viewBox="0 0 97 97" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path class="c-hexagon-button__svg-inner" d="M48.395 3.473l38.9 22.463v44.917l-38.9 22.463L9.49 70.853V25.936L48.395 3.473z" fill="#949b8b"></path><path class="c-hexagon-button__svg-outer" d="M90.303 24.177v48.388l-41.908 24.2-41.912-24.2V24.177l41.912-24.2c13.97 8.07 27.941 16.13 41.908 24.2zM9.608 25.979v44.784l38.787 22.398 38.79-22.398V25.98L48.396 3.58C35.466 11.043 22.537 18.517 9.608 25.979z" fill="#fff"></path></svg></a></li><li class="c-footer__link-list-item"><a href="http://youtube.com/leuphana" title="zum Youtube Profil der Leuphana" class="c-hexagon-button c-hexagon-button--youtube" target="_blank" rel="noreferrer"><svg class="c-hexagon-button__svg" viewBox="0 0 97 97" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path class="c-hexagon-button__svg-inner" d="M48.395 3.473l38.9 22.463v44.917l-38.9 22.463L9.49 70.853V25.936L48.395 3.473z" fill="#949b8b"></path><path class="c-hexagon-button__svg-outer" d="M90.303 24.177v48.388l-41.908 24.2-41.912-24.2V24.177l41.912-24.2c13.97 8.07 27.941 16.13 41.908 24.2zM9.608 25.979v44.784l38.787 22.398 38.79-22.398V25.98L48.396 3.58C35.466 11.043 22.537 18.517 9.608 25.979z" fill="#fff"></path></svg></a></li><li class="c-footer__link-list-item"><a href="https://www.xing.com/communities/groups/offizielle-gruppe-der-leuphana-universitaet-lueneburg-c974-1071385/about" title="zum Xing Profil der Leuphana" class="c-hexagon-button c-hexagon-button--xing" target="_blank" rel="noreferrer"><svg class="c-hexagon-button__svg" viewBox="0 0 97 97" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path class="c-hexagon-button__svg-inner" d="M48.395 3.473l38.9 22.463v44.917l-38.9 22.463L9.49 70.853V25.936L48.395 3.473z" fill="#949b8b"></path><path class="c-hexagon-button__svg-outer" d="M90.303 24.177v48.388l-41.908 24.2-41.912-24.2V24.177l41.912-24.2c13.97 8.07 27.941 16.13 41.908 24.2zM9.608 25.979v44.784l38.787 22.398 38.79-22.398V25.98L48.396 3.58C35.466 11.043 22.537 18.517 9.608 25.979z" fill="#fff"></path></svg></a></li><li class="c-footer__link-list-item"><a href="http://www.linkedin.com/school/600057?pathWildcard=600057" title="zum LinkedIn Profil der Leuphana" class="c-hexagon-button c-hexagon-button--linkedin-in" target="_blank" rel="noreferrer"><svg class="c-hexagon-button__svg" viewBox="0 0 97 97" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><path class="c-hexagon-button__svg-inner" d="M48.395 3.473l38.9 22.463v44.917l-38.9 22.463L9.49 70.853V25.936L48.395 3.473z" fill="#949b8b"></path><path class="c-hexagon-button__svg-outer" d="M90.303 24.177v48.388l-41.908 24.2-41.912-24.2V24.177l41.912-24.2c13.97 8.07 27.941 16.13 41.908 24.2zM9.608 25.979v44.784l38.787 22.398 38.79-22.398V25.98L48.396 3.58C35.466 11.043 22.537 18.517 9.608 25.979z" fill="#fff"></path></svg></a></li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <div id="cookieconsent"></div>
+</div>
+
+<script src="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/footer.1665678504.js" defer="defer"></script>
+<script src="/fileadmin/cookiebanner/config.1639400372.js" defer="defer"></script>
+<script src="/typo3conf/ext/leuphana_styleguide/Resources/Public/assets/klaro-0.7.18.1665678504.js" defer="defer"></script>
+
+
+
+</body>
+</html>
