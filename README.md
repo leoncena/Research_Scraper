@@ -10,33 +10,36 @@ Intro -> insert graphics
 ## Table of content
 
 ## Installation
-### Cloning
+I use Python 3.9.19
+Please install following libraries on your PC or virtual environment:
+- autopep8
+- bs4
+- cloudscraper
+- jupyter
+- matplotlib
+- numpy
+- pandas
+- pylint
+- requests
+- scholarly
+
+For Helium:
+1. Install as usual with pip
+2. Download the latest version of ChromeDriver from https://chromedriver.chromium.org/downloads
+3. Replace old Helium-Chromedriver with your new ChromeDriver at following directory:
+   - `<Research_Scraper_Python_Env_PATH >/lib/python3.9/site-packages/helium/_impl/webdrivers`
+
+Make sure you are using the VPN of your university or institute.
+
+
 ### Virtual Environment
-### Requirements
-### Setup
+- Create a virtual environment with Python 3.9.19 if you do not want to install the libraries on your PC
+- I can recommend using Anaconda for this purpose
 
-## Features/
-
-## Usage
-````python
-research_scraper.scrape_with_url(url = 'https://hello.world', params = 'main', output? = 'output.csv', sleep = 1)
-````
-    
-### Examples
-
-## Testing
-
-## Contributing
-- How to add modules for other publisher websites?
-- How to add new features?
-
-## Troubleshooting
-- Did you really install the packages?
-- Did you take care of the virtual environment?
-- Did you overwrite imports?
-- Did you check if the correct webdriver is downlaoded and activated?
-- Do you have the same version of Python as the one used for the project?
-- Have you may be been too fast and banned by the website?
-
-## License
+## Features
+- scrape publications for by DOI or URL (Springer Link, ScienceDirect, IEEE Xplore)
+- download publications as PDF
+- find URLs of publication with Scholarly
+- several notebooks for experimenting with the scraper
+  - for every publication website there is a notebook
 
