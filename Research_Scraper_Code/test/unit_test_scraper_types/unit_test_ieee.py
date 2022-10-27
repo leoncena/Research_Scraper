@@ -1,3 +1,7 @@
+"""
+Tests for scraper after discussing in project phase
+"""
+
 print('Hello IEEE, this is your unit test!')
 
 import unittest
@@ -10,3 +14,4 @@ class MyTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

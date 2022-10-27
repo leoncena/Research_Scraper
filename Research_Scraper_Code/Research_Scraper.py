@@ -1,11 +1,17 @@
+"""
+This module is for the class of the scraper
+"""
 import random
 import time
+import os
+
+from scholarly import scholarly, ProxyGenerator
+import pandas as pd
 
 from Research_Scraper_Code import utils
 from Research_Scraper_Code.scraper_types.scraper_ieee import ScraperIEEE
 from Research_Scraper_Code.scraper_types.scraper_sciencedirect import ScraperScienceDirect
 from Research_Scraper_Code.scraper_types.scraper_springer import ScraperSpringer
-from scholarly import scholarly, ProxyGenerator
 
 
 class ResearchScraper:
@@ -179,7 +185,34 @@ class ResearchScraper:
             if not isinstance(param, str):
                 raise Exception('"Params" must consist only of strings')
 
+    def handle_proxy(self, proxy=None):
+        """
+        Handle the procxy, by default no proxy thus None
+        :param proxy: choose whether to use proxy, we can add premium proxied if needed later
+        :return: void
+        """
+
+        if proxy is None:
+            scholarly.use_proxy(None)
+        elif proxy == 'free':
+            pg = ProxyGenerator()
+            success = pg.FreeProxies()
+            print(f'Free proxy success: {success}')
+            scholarly.use_proxy(pg)
+        elif proxy == 'scraper_api':
+            pg = ProxyGenerator()
+            success = pg.ScraperAPI(os.environ['SCRAPER_API_KEY'])
+            scholarly.use_proxy(pg)
+        else:
+            print('No proxy recognized')
+
     def search_author_information_from_google_scholar(self, details, sections=['basics', 'indices', 'counts']):
+        """
+        Searches for author information from google scholar (fill mode)
+        :param details: query details
+        :param sections: fill params
+        :return: author information dict
+        """
         result = scholarly.search_author(details)
         # get first result
         found_author = next(result)
@@ -191,8 +224,49 @@ class ResearchScraper:
         return filled_author
 
     def get_url_from_publication_with_scholarly(self, search_query):
+        """
+        Searches for publication url with scholarly
+        (think whether you want to init a proxy prior to using this function)
+        :param search_query:
+        :return:
+        """
         scholarly_search = scholarly.search_pubs(search_query)
         publication = next(scholarly_search)
         url = publication.get('pub_url')
 
         return url
+
+    # method that takes list of dict {cris_id: cris-id, title:title, authors:authors} an tries to receive a url from scholar
+    def get_urls_from_scholar_list_of_publications(self, publications, filename):
+        # create a list of publications with {cris_id: cris-id, title:title, authors:authors, url:url}
+        publications_with_url = []
+        # iterate over publications
+        for idx, publication in enumerate(publications):
+            print(f'publication {idx + 1} of {len(publications)}: {publication.get("title")}')
+            # get title and authors
+            title = publication.get('title')
+            authors = publication.get('authors')
+            # if authors nan then make ''
+            if pd.isna(authors):
+                authors = ''
+            cris_id = publication.get('cris_id')
+
+            # create a query
+            query = title
+            # if authors are available add them to the query
+            if authors is not None:
+                query = query + ' ' + authors
+
+            try:
+                # search for url with query
+                publication['url'] = self.get_url_from_publication_with_scholarly(query)
+                print(f' Found url: {publication["url"]}')
+            except Exception as e:
+                print(f' Error: {e}')
+                print(f'Could not find url for cris: {cris_id}, Google scholar blocked us')
+            else:
+                # add complete publication to publications_with_url
+                publications_with_url.append(publication)
+                utils.write_results(publications_with_url, filename)
+
+        return publications_with_url

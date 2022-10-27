@@ -1,16 +1,14 @@
 # Research_Scraper
 
 ---
-
 Scraper for scientific publications
-Description
-Intro -> insert graphics
+---
 
 
-## Table of content
 
 ## Installation
 I use Python 3.9.19
+
 Please install following libraries on your PC or virtual environment:
 - autopep8
 - bs4
@@ -19,6 +17,7 @@ Please install following libraries on your PC or virtual environment:
 - matplotlib
 - numpy
 - pandas
+- pdfminer3
 - pylint
 - requests
 - scholarly
@@ -37,9 +36,14 @@ Make sure you are using the VPN of your university or institute.
 - I can recommend using Anaconda for this purpose
 
 ## Features
+
 - scrape publications for by DOI or URL (Springer Link, ScienceDirect, IEEE Xplore)
 - download publications as PDF
-- find URLs of publication with Scholarly
+- handle proxies with scholarly
+- find URLs of publication with Scholarly (single publication or multiple publications)
 - several notebooks for experimenting with the scraper
-  - for every publication website there is a notebook
+    - for every publication website there is a notebook
 
+## Usage
+
+See Application folder for several examples

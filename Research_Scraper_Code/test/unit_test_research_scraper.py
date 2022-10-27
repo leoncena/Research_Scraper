@@ -1,3 +1,7 @@
+"""
+Tests for scraper after discussing in project phase
+"""
+
 import unittest
 
 

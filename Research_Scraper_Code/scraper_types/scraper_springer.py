@@ -1,3 +1,7 @@
+"""
+Module for the concrete scraper class for Springer.
+"""
+
 import json
 
 from Research_Scraper_Code import utils
@@ -11,10 +15,18 @@ class ScraperSpringer(ScraperAbstract):
 
     @property
     def domain(self):
+        """
+        Domain of the scraper
+        :return:
+        """
         return 'link.springer.com'
 
     @property
     def legal_params(self):
+        """
+        Legal params for this scraper
+        :return:
+        """
         legal_params = [
             'full',
             'main',
@@ -77,7 +89,7 @@ class ScraperSpringer(ScraperAbstract):
             params = ['main']
 
         if params == ['main']:
-            params = ['title', 'authors']  # todo finalize at the end: define what counts as main
+            params = ['title', 'authors', 'keywords', 'doi', 'abstract']
 
         if params == ['full']:
             params = self.legal_params  # full means all legal params
@@ -259,7 +271,6 @@ class ScraperSpringer(ScraperAbstract):
         """
         try:
             pdf = None
-            # todo automate download
             # differentiate between article, chapter and book
             if '/article/' in url:
                 pdf = bs.find('div', class_='c-pdf-container').find('a', {'data-article-pdf': 'true'}).get('href')
@@ -604,9 +615,9 @@ class ScraperSpringer(ScraperAbstract):
         Returns the number of accesses of the publication according to the Springer metric.
         :param bs: Received bs of the publication
         :param url: URL of the publication
-        :return: Number of accesses (String) #TODO change to int (check if wanted, old todo note)
+        :return: Number of accesses (String)
         """
-        # Navigating with parent because accesses and citations do not have individual features.
+        # Navigating with parent bsecause accesses and citations do not have individual features.
         try:
             accesses = bs.find('span', text='Accesses').parent.text.strip().split(' ')[0]  # navigating up in the tree
             return accesses
@@ -619,7 +630,7 @@ class ScraperSpringer(ScraperAbstract):
         Returns the number of citations of the publication according to the Springer metric.
         :param bs: Received bs of the publication
         :param url: URL of the publication
-        :return: Number of citations (String) #TODO change to int
+        :return: Number of citations
         """
         # Navigating with parent because accesses and citations do not have individual features.
         try:

@@ -1,8 +1,8 @@
 pandas~=1.4.4
 requests~=2.28.1
 cloudscraper~=1.2.64
-bs4~=4.11.1
+bs4~=0.0.1
 beautifulsoup4~=4.11.1
 helium~=3.0.8
 selenium~=3.141.0
-scholarly~=1.7.2
+scholarly~=1.7.3
