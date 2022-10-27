@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de" class="">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+    <title>Dienstleistungs- und Personalmanagement | Fraunhofer IAO</title>
+
+    <!-- Avoid annoying toolbar on images in Internet Explorer -->
+    <meta http-equiv="imagetoolbar" content="no" />
+    <!-- Information for Robots -->
+    <meta name="robots" content="noodp,noydir,index,follow" />
+    <link rel="alternate" href="https://www.dlpm.iao.fraunhofer.de/de.html" hreflang="de"/>
+    <link rel="alternate" href="https://www.dlpm.iao.fraunhofer.de/en.html" hreflang="en"/>
+    <!-- open graph and twitter share meta data -->
+    <meta property="og:title" content="Dienstleistungs- und Personalmanagement | Fraunhofer IAO"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:url" content="https://www.dlpm.iao.fraunhofer.de/de.html"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://www.dlpm.iao.fraunhofer.de/de/jcr:content/stage/stageParsys/stage_slide/image.img.4col.large.jpg/1506417954781/keyvisual-startseite.jpg" />
+        <meta property="og:image:width" content="1440" />
+        <meta property="og:image:height" content="448" />
+        <meta name="twitter:card" content="summary_large_image">
+    <meta http-equiv="last-modified" content="2022-03-08T07:49:26.865Z" />
+	<meta name="pubdate" content="2022-03-08T08:49:26.865+01:00" />
+    <meta name="copyright" content="Copyright" />
+    <!-- / LEGACY meta tags end -->
+
+    <!--[if !IE]>-->
+        <link rel="stylesheet" href="/etc.clientlibs/fraunhofer/ui/website/css/fraunhofer.min.a844aaeb7608cbe6c6dd93905c29a230.css" type="text/css">
+<!--<![endif]-->
+
+    <!--[if gt IE 8]>
+    	<![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/etc.clientlibs/fraunhofer/ui/website/css/lte_ie8.min.css" type="text/css">
+<script src="/etc.clientlibs/fraunhofer/ui/website/js/lte_ie8.min.js"></script>
+<![endif]-->
+    
+    <!-- Favorite icon -->
+    <link rel="shortcut icon" href="/static/css/fraunhofer/resources/img/favicons/favicon_16x16.ico" type="image/x-icon"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/css/fraunhofer/resources/img/favicons/apple-touch-icon_180x180.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/static/css/fraunhofer/resources/img/favicons/mstile-144x144.png">
+	<link rel="icon" type="image/png" href="/static/css/fraunhofer/resources/img/favicons/favicon_32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/static/css/fraunhofer/resources/img/favicons/favicon_96x96.png" sizes="96x96">
+	<link rel="icon" type="image/svg+xml" href="/static/css/fraunhofer/resources/img/favicons/favicon.svg" sizes="any">
+	
+    <!-- Platform for Internet Content Selection (PICS) self-rating -->
+    <link rel="meta" href="/static/css/fraunhofer/resources/pics.rdf" type="application/rdf+xml" title="PICS labels"/>
+    <!-- Open Search -->
+    <link rel="search" type="application/opensearchdescription+xml" title="Fraunhofer IAO | Dienstleistungs- und Personalmanagement" href="/de.opensearch.xml"/>
+        <meta name="geo.position" content="48.74056;9.096927" />
+        <meta name="ICBM" content="48.74056, 9.096927" />
+    </head>
+<body id="start" class="col-4 homepage" itemtype="https://schema.org/WebPage" itemscope="itemscope">
+    <div class="fhg-wrapper">
+        <header role="banner">
+    <input type="hidden" class="available-languages-servlet-path" data-path="/de/jcr:content.languages.json" />
+<div class="fhg-header">
+    <div class="fhg-grid">
+        <div class="row1">
+            <div class="fhg-grid-item fhg-grid-3-2-1-1 section-search">
+                <section role="search">
+                    <form method="get" action="/de/suche.html" id="search-form" data-suggest-url="/bin/wcm/enterprisesearch/suggest">
+                        <div>
+                            <input type="hidden" name="_charset_" value="UTF-8" />
+                            <input name="numberResults"
+                                value="10" type="hidden" />
+                            <input name="page" value="1" type="hidden" />
+
+                            <input name="scope" value="IAO" type="hidden"/>
+                            <input id="search-query-default-foo" disabled="disabled" value="Suchbegriff" type="hidden"/>
+                            <input name="lang" id="search-query-default-foo-hidden" value="de" type="hidden"/>
+
+                            <input type="text" autocomplete="off" name="queryString"
+                                id="desearchQuery" class="hasDefault ac_input queryStringContentHeader" maxlength="100"/>
+
+                        </div>
+                        <button type="submit">Titel - Suche</button>
+                    </form>
+                </section>
+            </div>
+
+            <div class="fhg-grid-item fhg-grid-1-1-1-1 section-title">
+                <a href="/"><div class="logo-heading">
+                    	<img class="logo" alt="Fraunhofer IAO" title="Fraunhofer IAO" src="/content/dam/dienstleistung/de/images/iao_190x52.gif"/>
+                        Fraunhofer IAO | Dienstleistungs- und Personalmanagement</div>
+                </a></div>
+        </div>
+
+
+        <div class="row2">
+            <h1 class="fhg-grid-item fhg-grid-1-1-1-1 section-about text-site-identifier">
+                <a href="/">Fraunhofer IAO | Dienstleistungs- und Personalmanagement</a></h1>
+
+            <div class="fhg-grid-item fhg-grid-3-2-1-1 section-nav" id="menu">
+                <div class="row2-1">
+
+                    <div class="fhg-grid-item section-mainlink">
+                        <a href="https://www.iao.fraunhofer.de" class="fhg-arrowed-link" target="_blank">Fraunhofer IAO</a></div>
+                    <div class="fhg-grid-item section-menu-plus">
+                        <nav>
+                            <ul>
+                                <li><a href="/de/kontakt.html">Kontakt</a></li>
+                                <li><a href="/de/sitemap.html">Sitemap</a></li>
+                                <li class="lang"><a href="/en.html">English</a></li>
+                                        </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="nav-fhg" id="nav"><div class="section-menu">
+        <nav>
+            <ul class="fhg-mainmenu">
+            <li class="lvl-1 ">
+	                <span class="navigable"><a href="/de/ueber-uns.html">Über uns</a></span>
+	                        <div class="submenu">
+	                        	<span class="btn close">[X]</span>
+	                        	<span class="mainmenu-title follow-link"><a href="/de/ueber-uns.html">Über uns</a></span>
+	                            <ul>
+	                                <li class="lvl-2 is-expandable">
+                                            <span class="follow-link navigable"><a href="/de/ueber-uns/teams.html">Teams</a></span>
+
+		                                            <ul>
+		                                                <li class="lvl-3">
+		                                                        <a href="/de/ueber-uns/teams/kompetenzmanagement.html">Kompetenzmanagement</a></li>
+		                                                <li class="lvl-3">
+		                                                        <a href="/de/ueber-uns/teams/dienstleistungsmanagement.html">Service Business Innovation</a></li>
+		                                                <li class="lvl-3">
+		                                                        <a href="/de/ueber-uns/teams/dienstleistungsentwicklung.html">Service Engineering</a></li>
+		                                                </ul>
+                                                </li>
+	                                </ul>
+	                        </div>
+	                    </li>
+			<li class="lvl-1 ">
+	                <span class="navigable"><a href="/de/themen.html">Themen</a></span>
+	                        <div class="submenu">
+	                        	<span class="btn close">[X]</span>
+	                        	<span class="mainmenu-title follow-link"><a href="/de/themen.html">Themen</a></span>
+	                            <ul>
+	                                <li class="lvl-2">
+                                            <a href="/de/themen/serviceengineering.html">Service Engineering</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/themen/service-performance.html">Service-Performance steigern</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/themen/industrie40.html">Arbeit und Kompetenzen in der Industrie 4.0</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/themen/geschaeftsmodelle.html">Geschäftsmodelle für komplexe Dienstleistungssysteme</a></li>
+	                                </ul>
+	                        </div>
+	                    </li>
+			<li class="lvl-1 ">
+	                <span class="navigable"><a href="/de/Leistungen.html">Leistungen</a></span>
+	                        <div class="submenu">
+	                        	<span class="btn close">[X]</span>
+	                        	<span class="mainmenu-title follow-link"><a href="/de/Leistungen.html">Leistungen</a></span>
+	                            <ul>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/entwicklung.html">Dienstleistungen entwickeln und testen</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/Dienstleistungsprozesse.html">Dienstleistungsprozesse optimieren</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/geschaeftsmodelle.html">Geschäftsmodelle für Dienstleistungen gestalten</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/kompetenzmanagement.html">Kompetenzmanagement 4.0 einführen, betreiben, optimieren</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/marktforschung.html">Marktforschung für Dienstleister</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/portfolios.html">Portfolios analysieren und strukturieren</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/qualifizierung.html">Service-Techniker qualifizieren</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/Arbeitsprozesse-KI-Anwendungen.html">Arbeitsprozesse für KI-Anwendungen gestalten</a></li>
+	                                <li class="lvl-2">
+                                            <a href="/de/Leistungen/Weiterbildung-4-0-gestalten.html">Weiterbildung 4.0 gestalten</a></li>
+	                                </ul>
+	                        </div>
+	                    </li>
+			<li class="lvl-1 ">
+	                <span><a href="/de/labors.html">Labors</a></span>
+                    	</li>
+			<li class="lvl-1 ">
+	                <span><a href="/de/veranstaltungen.html">Veranstaltungen</a></span>
+                    	</li>
+			<li class="lvl-1 ">
+	                <span><a href="/de/publikationen.html">Publikationen</a></span>
+                    	</li>
+			<li class="lvl-1 ">
+	                <span><a href="/de/jobs.html">Jobs und Karriere</a></span>
+                    	</li>
+			<li class="lvl-1 ">
+	                <span><a href="/de/DeutschesForumDienstleistungsforschung.html">Fraunhofer IAO ist Gründungspartner des »Deutschen Forums Dienstleistungsforschung«</a></span>
+                    	</li>
+			<li class="more lvl-1" id="morefield"><span class="navigable"><span>Mehr</span></span>
+	                <ul></ul>
+	            </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<div data-emptytext="stage_parsys_hint" class="dummyclass"><div class="fhg-stage-slider js-stage-slider" 
+    data-autoplaytimeout="6000" 
+    data-smartspeed="1000">
+    <div class="frames">
+    <div class="item js-carousel-item"><!--[if IE]>
+        <style type="text/css">
+            .image-style-ea993b4625786d8e55545be41d78b6da {
+                background-position: 50% 50%;
+                background-image: url('/de/jcr:content/stage/stageParsys/stage_slide/image.img.1col.jpg/1506417954781/keyvisual-startseite.jpg');
+            }
+            @media (min-width: 321px) and (max-width: 640px) {
+                .image-style-ea993b4625786d8e55545be41d78b6da {
+                    background-image: url('/de/jcr:content/stage/stageParsys/stage_slide/image.img.2col.jpg/1506417954781/keyvisual-startseite.jpg');
+                }
+            }
+            @media (min-width: 641px) and (max-width: 960px) {
+                .image-style-ea993b4625786d8e55545be41d78b6da {
+                    background-image: url('/de/jcr:content/stage/stageParsys/stage_slide/image.img.3col.jpg/1506417954781/keyvisual-startseite.jpg');
+                }
+            }
+            @media (min-width: 961px) and (max-width: 1440px) {
+                .image-style-ea993b4625786d8e55545be41d78b6da {
+                    background-image: url('/de/jcr:content/stage/stageParsys/stage_slide/image.img.4col.jpg/1506417954781/keyvisual-startseite.jpg');
+                }
+            }
+            @media (min-width: 1441px) {
+                .image-style-ea993b4625786d8e55545be41d78b6da {
+                    background-image: url('/de/jcr:content/stage/stageParsys/stage_slide/image.img.jpg/1506417954781/keyvisual-startseite.jpg');
+                }
+            }
+        </style>
+        <div class="image-wrapper image-style-ea993b4625786d8e55545be41d78b6da"></div>
+        <![endif]-->
+        <![if !IE]>
+        <figure  class="fhg-content image "><picture>
+				    <!--[if IE 9]><video style="display: none;"><![endif]-->
+				    <source srcset="/de/jcr:content/stage/stageParsys/stage_slide/image.img.4col.jpg/1506417954781/keyvisual-startseite.jpg" media="(max-width: 1440px)">
+				    <source srcset="/de/jcr:content/stage/stageParsys/stage_slide/image.img.3col.jpg/1506417954781/keyvisual-startseite.jpg" media="(max-width: 960px)">
+				    <source srcset="/de/jcr:content/stage/stageParsys/stage_slide/image.img.2col.jpg/1506417954781/keyvisual-startseite.jpg" media="(max-width: 640px)">
+				    <source srcset="/de/jcr:content/stage/stageParsys/stage_slide/image.img.1col.jpg/1506417954781/keyvisual-startseite.jpg" media="(max-width: 320px)">
+				    <!--[if IE 9]></video><![endif]-->
+				    <img data-height="448.0" src="/de/jcr:content/stage/stageParsys/stage_slide/image.img.jpg/1506417954781/keyvisual-startseite.jpg" data-width="1440.0" style="object-position:50% 50%;">
+				    </picture>
+			<figcaption>
+        <span  class="figure-meta text-copyright">© Ludmilla Parsyak/Fraunhofer IAO</span><div  class="figure-desc"></div></figcaption>
+</figure><![endif]>
+    <div class="caption ">
+        <h2 class="stage-heading fragment" id="Dienstleistungs-und-Personalmanagement">Dienstleistungs- und Personalmanagement</h2>
+
+        <p class="stage-desc">Wir gestalten Dienstleistungs- und Arbeitssysteme </p>
+        <a href="/de/ueber-uns.html" class="more" title="Mehr">mehr Info</a><p class="copyright text-secondary">© Ludmilla Parsyak/Fraunhofer IAO</p>
+        </div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="sep sectionseparator"><script data-scf-json="true" type='application/json' id='/de/jcr:content/sep'>{"id":"/de/jcr:content/sep","resourceType":"fraunhofer/components/sectionseparator","url":"/de/_jcr_content/sep.social.json","friendlyUrl":"/de.html"}</script><div class="fhg-section-separator"></div>
+</div>
+<div class="fhg-main fhg-grid fhg-grid-4-columns">
+            <div class="contentPar parsys"><div data-emptytext="slidersmall_parsys_hint" class="dummyclass section"><div class="fhg-slider fhg-slider-small fhg-grid fhg-grid-4-columns">
+    <div class="fhg-grid-item section-title">
+        <h2 id="Leistungen" class="fragment">Leistungen</h2>
+        <p class="text-subheading"></p>
+    </div>
+
+    <div class="frames">
+        <div class="slidersmallParsys parsys"><div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/portfolios.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_5/ic/image.img.thumb.320.png/1465207370181/dienstleistungsportfolios.png');background-position: 50% 50%"></span>
+		Portfolios analysieren und strukturieren</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/entwicklung.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_0/ic/image.img.thumb.320.png/1465206856626/dienstleistungsentwicklung.png');background-position: 50% 50%"></span>
+		Dienstleistungen entwickeln und testen</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/Dienstleistungsprozesse.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_1/ic/image.img.thumb.320.png/1465209641182/dienstleistungsprozesse.png');background-position: 50% 50%"></span>
+		Dienstleistungsprozesse optimieren</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/geschaeftsmodelle.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_2/ic/image.img.thumb.320.png/1465207267027/geschaeftsmodelle.png');background-position: 50% 50%"></span>
+		Geschäftsmodelle für Dienstleistungen gestalten</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/kompetenzmanagement.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_3/ic/image.img.thumb.320.png/1646725512391/kompetenzmanagement.png');background-position: 50% 50%"></span>
+		Kompetenzmanagement 4.0 einführen, betreiben, optimieren</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/marktforschung.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_4/ic/image.img.thumb.320.png/1465208823474/marktforschung.png');background-position: 50% 50%"></span>
+		Marktforschung für Dienstleistungen</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/Arbeitsprozesse-KI-Anwendungen.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide_6/ic/image.img.thumb.320.png/1646725655395/SmartAIwork-Key-visual.png');background-position: 50% 50%"></span>
+		Anwendungsprozesse für KI-Anwendungen gestalten</a></div>
+</div>
+<div class="dummyclass section"><div class="frame fhg-grid-item "><a href="/de/Leistungen/Weiterbildung-4-0-gestalten.html"><span class="img" style="background-image: url('/de/jcr:content/contentPar/slidersmall_containe/slidersmallParsys/slidersmall_slide/ic/image.img.thumb.320.png/1646725766857/iStock-anyaberkut-1199694568.png');background-position: 50% 50%"></span>
+		Weiterbildung 4.0 gestalten</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-emptytext="teaser_overview_parsys_hint" class="dummyclass section"><div class="sep sectionseparator"><script data-scf-json="true" type='application/json' id='/de/jcr:content/contentPar/teaser_overview/sep'>{"id":"/de/jcr:content/contentPar/teaser_overview/sep","resourceType":"fraunhofer/components/sectionseparator","url":"/de/_jcr_content/contentPar/teaser_overview/sep.social.json","friendlyUrl":"/de.html"}</script><div class="fhg-section-separator"></div>
+</div>
+<div class="fhg-grid teasercomb ">
+	<div class="fhg-grid-item section-title invisible">
+		<h2 id="0Y" class="fragment"></h2>
+			</div>
+    
+    <div class="fhg-grid  auto-layout" data-config-masonry='{"horizontalOrder":false}'>
+    	<div class="fhg-grid-column-sizer"></div>
+		<div class="teaserPar parsys"><div class="newsbox-wrapper section"><div class="fhg-grid-item fhg-grid-2-2-2-1 fhg-newsticker large">
+    <div class="fhg-grid-item-contents">
+        <div class="fhg-news-header clearfix">
+            <h2 id="Aktuelles" class="fragment">
+                Aktuelles</h2>
+            </div>
+
+        <div class="fhg-news-col">
+            </div>
+    </div>
+</div>
+</div>
+<div data-emptytext="linklist_add_items" class="dummyclass section"><div class="fhg-grid-item fhg-teaser size-2x2 blue teaser--has-image">
+    <div class="teaser-inner">
+    	<a href="/de/DeutschesForumDienstleistungsforschung.html" class="img large" style="background-image: url(&#39;/de/jcr:content/contentPar/teaser_overview/teaserPar/teaser_2/image.img.3col.large.png/1638903758365/DF-gruendung-foto2.png&#39;);background-position: 50% 50%" target="_self" title="Mehr">&nbsp;</a><div class="content">
+			<div class="teaser-text">
+	            <h3 class="teaser-text__text-headline">Deutsches Forum Dienstleistungsforschung</h3>
+	            <div class="text fhg-richtext teaser-text__text-richtext"><p>Fraunhofer IAO ist Gründungspartner des »Deutschen Forums Dienstleistungsforschung« </p></div>
+	            </div>
+	        <div class="cta-block teaser-default__text-cta">
+	            <a href="/de/DeutschesForumDienstleistungsforschung.html" class="button__cta" target="_self" title="Mehr">Mehr</a></div>
+        </div>
+    	</div>
+</div>
+</div>
+<div data-emptytext="linklist_add_items" class="dummyclass section"><div class="fhg-grid-item fhg-teaser size-2x2 blue teaser--has-image">
+    <div class="teaser-inner">
+    	<a href="/de/labors/servlab.html" class="img large" style="background-image: url(&#39;/de/jcr:content/contentPar/teaser_overview/teaserPar/teaser/image.img.3col.large.jpg/1564659948222/ServLab2.jpg&#39;);background-position: 50% 50%" title="Mehr">&nbsp;</a><div class="content">
+			<div class="teaser-text">
+	            <h3 class="teaser-text__text-headline">ServLab</h3>
+	            <div class="text fhg-richtext teaser-text__text-richtext"><p>Innovationsraum für Dienstleistungen</p></div>
+	            </div>
+	        <div class="cta-block teaser-default__text-cta">
+	            <a href="/de/labors/servlab.html" class="button__cta" title="Mehr">Mehr</a></div>
+        </div>
+    	</div>
+</div>
+</div>
+<div data-emptytext="linklist_add_items" class="dummyclass section"><div class="fhg-grid-item fhg-teaser size-2x2 blue teaser--has-image">
+    <div class="teaser-inner">
+    	<a href="/de/podcasts.html" class="img large" style="background-image: url(&#39;/de/jcr:content/contentPar/teaser_overview/teaserPar/teaser_2102415489/image.img.3col.large.jpg/1638271352495/Photo-by-Sam-McGhee-on-Unsplash.jpg&#39;);background-position: 50% 50%" target="_self" title="Mehr">&nbsp;</a><div class="content">
+			<div class="teaser-text">
+	            <p class="text-copyright teaser-text__text-caption-copyright">© Sam McGhee on Unsplash</p>
+	                <h3 class="teaser-text__text-headline">Podcasts</h3>
+	            <div class="text fhg-richtext teaser-text__text-richtext"><p>Podcasts zu Smart Services<br> </p></div>
+	            </div>
+	        <div class="cta-block teaser-default__text-cta">
+	            <a href="/de/podcasts.html" class="button__cta" target="_self" title="Mehr">Mehr</a></div>
+        </div>
+    	</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+        <div class="sep sectionseparator"><script data-scf-json="true" type='application/json' id='/de/jcr:content/sep'>{"id":"/de/jcr:content/sep","resourceType":"fraunhofer/components/sectionseparator","url":"/de/_jcr_content/sep.social.json","friendlyUrl":"/de.html"}</script><div class="fhg-section-separator"></div>
+</div>
+<footer>
+    <div class="fhg-footer">
+        <h2 class="invisible fragment" id="Navigation-und-Social-Media">Navigation und Social Media</h2>
+        <div class="fhg-grid">
+            <div class="row-quick-links links-list">
+        <div class="fhg-grid-item fhg-grid-1-1-1-1 section-h-links">
+            </div>
+        <div class="fhg-grid-item fhg-grid-3-2-1-1 section-links">
+            <ul class="fhg-list arrowed-list">
+                </ul>
+        </div>
+    </div>
+<div class="row-social">
+                </div>
+            <div class="row-footer-nav">
+    <div class="fhg-grid-item fhg-grid-3-2-1-1 section-menu text-secondary">
+        <nav>
+            <ul>
+                <li>
+                        <a href="/de/kontakt.html">Kontakt</a></li>
+                <li>
+                        <a href="/de/ueber-uns.html">Über uns</a></li>
+                <li>
+                        <a href="/de/impressum.html">Impressum</a></li>
+                <li>
+                        <a href="/de/datenschutzerklaerung.html">Datenschutzerklärung</a></li>
+                </ul>
+        </nav>
+    </div>
+    <div class="fhg-grid-item fhg-grid-1-1-1-1 section-copy text-secondary">
+    	<span>© 2022 </span>     
+    </div>
+</div>
+</div>
+        <div class="print-footer">
+            <p><strong>Quelle: Fraunhofer-Gesellschaft<br>Fraunhofer IAO | Dienstleistungs- und Personalmanagement - Dienstleistungs- und Personalmanagement | Fraunhofer IAO</strong></p>
+            <p>Online im Internet; URL: https://www.dlpm.iao.fraunhofer.de/</p>
+            <p>Datum: 28.9.2022 23:39</p>
+        </div>
+    </div>
+</footer>
+</div>
+    <script src="/etc.clientlibs/fraunhofer/ui/website/js/thirdparty/requirejs.min.js"></script>
+<script src="/etc.clientlibs/fraunhofer/ui/website/js/fraunhofer.min.js"></script>
+<!--[if lte IE 9]>
+    <script type="text/javascript">
+        require(['input-placeholder']);
+    </script>
+<![endif]-->
+<!-- Tracking Code BEGIN --><script type="text/javascript">(function(d,s){var l=d.createElement(s),e=d.getElementsByTagName(s)[0];
+l.async=true;l.type='text/javascript';
+l.src='https://c.leadlab.click/f5e49fd1115f896e.js';
+e.parentNode.insertBefore(l,e);})(document,'script');</script><!-- Tracking Code END --></body>
+</html>
