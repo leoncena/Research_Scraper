@@ -1,3 +1,6 @@
+"""
+Script using the research scraper on cris data
+"""
 import json
 import time
 
@@ -9,14 +12,6 @@ from Research_Scraper_Code.Research_Scraper import ResearchScraper
 scraper = ResearchScraper()
 
 
-def load_publications_from_csv():
-    data = 'data/publications_without_abstract.csv'
-
-    with open(data) as f:
-        df = pd.read_csv(f, sep=';')
-    return df
-
-
 def get_all_dois(df):
     dois = df['doi']
     # remove NaNs
@@ -24,11 +19,6 @@ def get_all_dois(df):
     dois.tolist()
     return dois
 
-
-def write_results(results, name):
-    if results is not None:
-        with open(f'exports/scrapings/{name}.json', 'w') as f:
-            json.dump(results, f, indent=4)
 
 
 def scrape_sample_of_dois(dois, n):
@@ -55,7 +45,7 @@ def scrape_sample_of_dois(dois, n):
 
 def scrape_cris_publications():
     # Big scraping
-    df_publications = load_publications_from_csv()
+    df_publications = utils.load_publications_from_csv()
     publication_dois = get_all_dois(df_publications)
     print(f'There are {len(publication_dois)} publication dois')
     # doi_list_sample = publication_dois.sample(n=1000)
@@ -63,22 +53,15 @@ def scrape_cris_publications():
     return scraping_results
 
 
-def download_pdfs_from_cris_data():
-    df_publications = load_publications_from_csv()
-    #
-
-
-# def download_pdfs():
-# import scraping results
-
-
 # main
 if __name__ == '__main__':
-    # Big Scraping
-    # cris_scraping_results = scrape_cris_publications()
+    # possible usages below in comments
 
     # init scraper
-    # scraper = ResearchScraper()
+    scraper = ResearchScraper()
+
+    # Big cris scraping
+    # cris_scraping_results = scrape_cris_publications()
 
     # download one pdf live
     # scraper.download_pdf_of_publication_by_doi_live('10.1007/s00180-017-0742-2')
@@ -88,23 +71,21 @@ if __name__ == '__main__':
     # scraper.download_pdf_of_publications_by_doi_list_live(doi_list)
 
     # download all pdfs
-    scraper = ResearchScraper()
+    # cris_scraping_results = scrape_cris_publications()
     # scraping_results = utils.load_and_clean_scraping_results(filename='scrapings_2022_10_21__03_38')
     # scraper.download_pdf_of_publications_by_scraping_results(scraping_results)
 
-    # df_publications = load_publications_from_csv()
-    # publication_dois = get_all_dois(df_publications)
-    # scrape_publication_by_doi_list(publication_dois[0:5], params=['full'])
+    # scrape 5 publications as example
+    df_publications = utils.load_publications_from_csv()
+    publication_dois = get_all_dois(df_publications)
+    scraper.scrape_publication_by_doi_list(publication_dois[0:5], params=['full'])
 
+    # Scrape one publication by url
     # url_test = 'https://linkinghub.elsevier.com/retrieve/pii/S2405896316326283'
     # result = scraper.scrape_publication_by_url(url_test, params=['full'])
     # print(result.get('keywords'))
 
-    # ScienceDirect fix
-    # URL = 'https://www.sciencedirect.com/science/article/pii/S1043951X0900159X'
-    # print(scraper.scrape_publication_by_url(URL, params=['keywords']))
-
-    # scholarly
+    # scholarly example
     # prof_gieseke = scraper.search_author_information_from_google_scholar('Fabian Gieseke Münster')
     # print(prof_gieseke)
     # prof gieseke interests

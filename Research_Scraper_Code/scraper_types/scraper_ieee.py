@@ -1,3 +1,7 @@
+"""
+Module for the concrete IEEE scraper class.
+"""
+
 import json
 import re
 
@@ -54,13 +58,6 @@ class ScraperIEEE(ScraperAbstract):
         :return: Dictionary with scraped data
         """
 
-        # ETL process
-        # 1. Extract: Get the data from the website and create soup object
-        # 2. Transform: Extract the data from the soup object
-        # 3. Load: Write the data into the dict and return the result
-
-        # check if scraper can scrape this url (defined in super method)
-        # raise error if not
         super(ScraperIEEE, self).scrape_by_url(url, params)
 
         scrape_result = {'url': url}
@@ -74,7 +71,7 @@ class ScraperIEEE(ScraperAbstract):
             params = ['main']
 
         if params == ['main']:
-            params = ['title', 'authors']  # todo finalize at the end: define what counts as main
+            params = ['title', 'authors', 'keywords', 'doi', 'abstract']
 
         if params == ['full']:
             params = self.legal_params  # full = all legal params
@@ -144,11 +141,6 @@ class ScraperIEEE(ScraperAbstract):
         # remove None values from result dict
         scrape_result = {key: value for key, value in scrape_result.items() if value is not None}
 
-        # todo elsevier only papers? -> publication type should give maybe straight paper
-
-        # todo implement
-        # if 'year' in params:
-        #     scrape_result['year'] = self.get_year(json_data, url)
 
         return scrape_result
 

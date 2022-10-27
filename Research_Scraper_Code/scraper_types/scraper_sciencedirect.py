@@ -1,10 +1,13 @@
+"""
+Module for the concrete scraper class ScraperScienceDirect
+"""
+
 import re
-import time
 
 from bs4 import BeautifulSoup
 
-from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 from Research_Scraper_Code import utils
+from Research_Scraper_Code.scraper_types.scraper_abstract import ScraperAbstract
 
 
 class ScraperScienceDirect(ScraperAbstract):
@@ -16,7 +19,6 @@ class ScraperScienceDirect(ScraperAbstract):
     def domain(self):
         return 'linkinghub.elsevier.com'
 
-    # todo create second domain here as well
     @property
     def domain2(self):
         return 'sciencedirect.com'
@@ -82,7 +84,7 @@ class ScraperScienceDirect(ScraperAbstract):
             params = ['main']
 
         if params == ['main']:
-            params = ['title', 'authors']  # todo finalize at the end: define what counts as main
+            params = ['title', 'authors', 'keywords', 'doi', 'abstract']
 
         if params == ['full']:
             params = self.legal_params  # full = all legal params
@@ -151,12 +153,6 @@ class ScraperScienceDirect(ScraperAbstract):
 
         # remove None values from result dict
         scrape_result = {key: value for key, value in scrape_result.items() if value is not None}
-
-        # todo elsevier only papers? -> publication type should give maybe straight paper
-
-        # todo implement
-        # if 'year' in params:
-        #     scrape_result['year'] = self.get_year(json_data, url)
 
         return scrape_result
 
@@ -239,7 +235,6 @@ class ScraperScienceDirect(ScraperAbstract):
             return None
 
     def get_full_text(self, bs):
-        # todo can be easy rewritten to produce markdown files
         """
         Get full text of a publication if online available
         :param bs: Received bs of the publication (HTML must be accessed with Selenium or Helium, does not work otherwise)
@@ -489,7 +484,6 @@ class ScraperScienceDirect(ScraperAbstract):
         :return: Text as string with new lines for headings
         """
         # extracts the texts of given section including sub headings
-        # todo question: Filter out mathematical formulas?
         children = section.findAll(recursive=False)
         t = ''
         for child in children:
@@ -514,6 +508,7 @@ class ScraperScienceDirect(ScraperAbstract):
         :param bs: Received bs of the publication (HTML must be accessed with Selenium or Helium, does not work otherwise)
         :return: Boolean
         """
+        body = None
         try:
             body = bs.find('div', {'class': 'Body u-font-serif', 'id': 'body'})
         except:
@@ -528,6 +523,7 @@ class ScraperScienceDirect(ScraperAbstract):
         :param bs: Received bs of the publication (HTML must be accessed with Selenium or Helium, does not work otherwise)
         :return: Boolean
         """
+        body = None
         try:
             body = bs.find('dl', class_='references')
         except:

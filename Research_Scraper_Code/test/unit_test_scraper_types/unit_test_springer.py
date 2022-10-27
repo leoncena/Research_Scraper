@@ -1,3 +1,7 @@
+"""
+Tests for scraper after discussing in project phase
+"""
+
 print('Hello Springer, this is your unit test!')
 
 import unittest

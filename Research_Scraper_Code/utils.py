@@ -1,6 +1,8 @@
 import json
 import re
+import urllib.parse
 
+import pandas as pd
 import requests
 import cloudscraper
 
@@ -80,6 +82,18 @@ def resolve_url(url):
         return r.url
     except requests.exceptions.ConnectionError as e:
         print(f'[utils.py: get_link] Connection Error: {e}')
+        return None
+
+
+def domain(url):
+    """
+    Returns the domain-part of an url
+    :param url:
+    :return:
+    """
+    if url is not None and pd.notna(url):
+        return urllib.parse.urlparse(url).netloc  # returns domain
+    else:
         return None
 
 
@@ -172,3 +186,28 @@ def load_and_clean_scraping_results(filename, custom_path=None):
                                          x is not None and x.get('error') is None]
 
     return scraping_results_imported_cleaned
+
+
+def load_publications_from_csv():
+    """
+    Loads the publications from the csv file
+    :return: dataframe with publications
+    """
+    data = 'data/publications_without_abstract.csv'
+
+    with open(data) as f:
+        df = pd.read_csv(f, sep=';')
+    return df
+
+
+def get_all_dois(df):
+    """
+    Gets all the dois from the dataframe and returns them as a list
+    :param df:
+    :return:
+    """
+    dois = df['doi']
+    # remove NaNs
+    dois = dois.dropna()
+    dois.tolist()
+    return dois

@@ -1,3 +1,7 @@
+"""
+Moddule for the abstract scraper class
+"""
+
 import time
 from abc import ABC, abstractmethod, abstractproperty
 
@@ -17,11 +21,19 @@ class ScraperAbstract(ABC):
     @property
     @abstractmethod
     def domain(self):
+        """
+        Domain of the scraper
+        :return:
+        """
         pass
 
     @property
     @abstractmethod
     def legal_params(self):
+        """
+        Legal params for the scraper
+        :return:
+        """
         pass
 
     # @abstractmethod
@@ -40,6 +52,11 @@ class ScraperAbstract(ABC):
             raise Exception('This scraper cannot scrape this url')
 
     def check_scrape_possible(self, url):
+        """
+        Checks if the scraper can scrape the url
+        :param url:
+        :return:
+        """
         possible = self.domain in url
         return possible
 
@@ -103,7 +120,6 @@ class ScraperAbstract(ABC):
 
         end = time.time()
 
-        # todo remove prints
         print(
             f'Browser closed in {end - start} seconds, including '
             f'{wait_until_end - wait_until_start} seconds of waiting, thus '
@@ -118,7 +134,7 @@ class ScraperAbstract(ABC):
         :param os: Operating system of the user (Windows, Linux, Mac)
         :return: HTML with all loaded content
         """
-        # todo path logic for other devices
+        # todo for project phase: path logic for other devices
         if os == 'mac':
             PATH_MAC = 'Research_Scraper_Code/driver/chromedriverMAC'
         options = Options()
@@ -138,7 +154,6 @@ class ScraperAbstract(ABC):
 
         end = time.time()
 
-        # todo remove prints
         print(
             f'Browser closed in {end - start} seconds, including {break_time} '
             f'seconds of waiting (hard value), thus {end - start - break_time}'
